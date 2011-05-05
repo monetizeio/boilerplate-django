@@ -1,0 +1,119 @@
+<!DOCTYPE html>
+
+<html
+  lang="en"
+  >
+
+<head>
+  <meta
+    http-equiv="Content-Type"
+    content="text/html; charset=utf-8"
+    />
+  
+  <!--
+    This prevents the conditional comments below from holding up the page
+    load. See <http://www.phpied.com/conditional-comments-block-downloads/>.
+  -->
+  <!--[if IE]><![endif]-->
+  
+  <title>
+    {% block title %}{% endblock %}
+  </title>
+  
+  <!--
+  -->
+  <meta
+    name="keywords"
+    content=""
+    />
+  
+  <!--
+    Google will often use this as its description of your page/site. Make it
+    good.
+  -->
+  <meta
+    name="description"
+    content=""
+    />
+  
+  <!--
+  -->
+  <meta
+    name="author"
+    content=""
+    />
+  
+  <!--
+  -->
+  <meta
+    name="copyright"
+    content=""
+    />
+  
+  <!--
+    FIXME: At some point we will have to register ourselves with Google. See
+           <http://www.google.com/webmasters/> for details.
+  -->
+  <!--
+  <meta
+    name="google-site-verification"
+    content=""
+    />
+  -->
+  
+  <!--
+    FIXME: At some point we should create a favicon:
+             - Size: 16x16 or 32x32
+             - Transparency is OK
+             - See wikipedia for info on browser support:
+               <http://en.wikipedia.org/wiki/Favicon#Browser_support>
+  -->
+  <!--
+  <link
+    rel="shortcut icon"
+    href="{{ MEDIA_URL }}img/favicon.ico"
+    type="image/vnd.microsoft.icon"
+    />
+  -->
+  
+  <!--
+    FIXME: At some point we should create an icon for iOS's web clip:
+             - Size: 57x57 for older iPhones, 72x72 for iPads, 114x114 for
+               iPhone4's retina display (IMHO, just go ahead and use the
+               biggest one).
+             - Transparency is not recommended (iOS will put a black BG behind
+               the icon).
+  -->
+  <!--
+  <link
+    rel="apple-touch-icon"
+    href="{{ MEDIA_URL }}img/apple-touch-icon-precomposed.png"
+    />
+  -->
+  <!--
+    This is a variation of the official analytics snippet:
+      <http://mathiasbynens.be/notes/async-analytics-snippet>
+    FIXME: Sign up for analytics, replace XXXXXX-XX with our site's ID and
+           uncomment to put this into effect.
+  -->
+  
+  <!--
+  <script>
+    var _gaq = [['_setAccount', 'UA-XXXXXX-XX'], ['_trackPageview']];
+    (function(d, t) {
+      var g = d.createElement(t),
+      s = d.getElementsByTagName(t)[0];
+      g.async = true;
+      g.src = '//www.google-analytics.com/ga.js';
+      s.parentNode.insertBefore(g, s);
+    })(document, 'script');
+  </script>
+  -->
+</head>
+
+<body
+  id="{% block body_id %}buildpunkt-com{% endblock %}"
+  >
+</body>
+
+</html>
