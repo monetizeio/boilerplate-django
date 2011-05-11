@@ -173,10 +173,21 @@
       href="/static/font/LucidaRoman/stylesheet.css"
       />
 
-<!--[if IE 6]>
-<script src="http://buildpunkt.com/wp-content/themes/platformpro/core/js/ie.belatedpng.js"></script>
-<script>DD_belatedPNG.fix('.pngbg, .shadow-bottom, .post-comments a, #fcolumns_container, #footer img, .branding_wrap img, .fboxgraphic img ');</script>
-<![endif]-->
+    <!--
+      DD_belatedPNG is a Javascript library that sandwiches PNG image support
+      into IE6 without much fuss. For more information, check out
+      <http://www.dillerdesign.com/experiment/DD_belatedPNG/>.
+    -->
+    <!--[if IE 6]>
+    <script
+      type="text/javascript"
+      src="/static/js/ie6/ie.belatedpng.js"
+      ></script>
+    <script type="text/javascript">
+      DD_belatedPNG.fix('.pngbg, .shadow-bottom, .post-comments a, #fcolumns_container, #footer img, .branding_wrap img, .fboxgraphic img ');
+    </script>
+    <![endif]-->
+
 <link rel="alternate" type="application/rss+xml" title="Buildpunkt » Feed" href="http://buildpunkt.com/feed">
 <link rel="alternate" type="application/rss+xml" title="Buildpunkt » Comments Feed" href="http://buildpunkt.com/comments/feed">
 <link rel="alternate" type="application/rss+xml" title="Buildpunkt » Home Comments Feed" href="http://buildpunkt.com/home/feed">
