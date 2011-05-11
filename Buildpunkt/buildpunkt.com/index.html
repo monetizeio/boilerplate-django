@@ -24,7 +24,16 @@
   >
 
 <head>
-<meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+  <!--
+    This meta field makes explicitly clear that we are using the Unicode
+    charset with UTF-8 encoding. It comes as early as it can in the markup
+    because when the browser encounters this meta tag it will start the
+    parsing over with the new charset settings.
+  -->
+  <meta
+    http-equiv="Content-Type"
+    content="text/html; charset=UTF-8"
+    />
 
 <title>Buildpunkt</title>
 <link rel="shortcut icon" href="http://buildpunkt.com/wp-content/uploads/2011/04/dots.jpg" type="image/x-icon"><link rel="apple-touch-icon" href="http://buildpunkt.com/wp-content/uploads/2011/04/dots1.jpg">
