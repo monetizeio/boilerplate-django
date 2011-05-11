@@ -7,7 +7,23 @@
 <!-- The HTML5 doctype is just "html" -->
 <!DOCTYPE html>
 
-<html dir="ltr" lang="en-US"><head>
+<!--
+  The "dir" and "lang" attributes specify the text-direction and language of
+  the site. It is currently configured for US English, but that will have to
+  become a dynamic setting when we internationalize and localize the site.
+
+  The "no-js" class tells Modernizr (see below) to detect HTML5 features. It
+  will be removed by Modernizr. If JavaScript is not enabled in the browser,
+  Modernizr will of course not run and the "no-js" class will remain in place,
+  with obvious semantics.
+-->
+<html
+  dir="ltr"
+  lang="en-US"
+  class="no-js"
+  >
+
+<head>
 <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
 
 <title>Buildpunkt</title>
