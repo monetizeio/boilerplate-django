@@ -263,7 +263,30 @@
     <![endif]-->
 
 <script type="text/javascript" src="http://buildpunkt.com/wp-includes/js/l10n.js?ver=20101110"></script>
-<script type="text/javascript" src="http://buildpunkt.com/wp-includes/js/jquery/jquery.js?ver=1.4.4"></script>
+
+    <!--
+      jQuery, a multi-purpose JavaScript framework. We grab Google CDN's
+      jQuery, and fall back on our own if Google is not available. 1.4.4 is an
+      outdated version of jQuery, but it is what WordPress 3.1 ships with.
+      Until we have a chance to independently test for compatibility issues
+      with the latest jQuery, we'll leave it at version 1.4.4.
+    -->
+    <script
+      type="text/javascript"
+      src="http://ajax.googleapis.com/ajax/libs/jquery/1.4.4/jquery.min.js"
+      ></script>
+    <script type="text/javascript">
+      !window.jQuery && document.write(unescape('%3Cscript type="text/javascript" src="<?php echo $media_url ?>js/lib/jquery/1.4.4/jquery.min.js"%3E%3C/script%3E'));
+    </script>
+
+    <!--
+      Capture jQuery to remain compatible with other frameworks and libraries,
+      but without removing it from the global scope.
+    -->
+    <script type="text/javascript">
+      var $j = jQuery.noConflict();
+    </script>
+
 <script type="text/javascript" src="http://buildpunkt.com/wp-includes/js/comment-reply.js?ver=20090102"></script>
 <link rel="EditURI" type="application/rsd+xml" title="RSD" href="http://buildpunkt.com/xmlrpc.php?rsd">
 <link rel="wlwmanifest" type="application/wlwmanifest+xml" href="http://buildpunkt.com/wp-includes/wlwmanifest.xml">
@@ -274,7 +297,6 @@
 <link rel="canonical" href="http://buildpunkt.com/">
 <script type="text/javascript">
 /* <![CDATA[ */
-  var $j = jQuery.noConflict();
   $j(document).ready(function () {
 
 $j('#cycle').cycle({fx: 'fade', sync: 1, timeout: 0, speed: 1500, cleartype: true, cleartypeNoBg: true, pager: 'div#featurenav'});$j("div#featurenav").children("a").each(function() { if($j(this).html() == "1") { $j(this).attr("title", "feature 1");  }if($j(this).html() == "2") { $j(this).attr("title", "feature 2");  }if($j(this).html() == "3") { $j(this).attr("title", "feature 3");  }if($j(this).html() == "4") { $j(this).attr("title", "feature 4");  }if($j(this).html() == "5") { $j(this).attr("title", "feature 5");  }if($j(this).html() == "6") { $j(this).attr("title", "feature 6");  } });
