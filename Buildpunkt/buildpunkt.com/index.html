@@ -112,294 +112,293 @@
     content="© 2011 RokuSigma Inc., All Rights Reserved"
     />
 
-    <!--
-      FIXME: At some point we will have to register ourselves with Google. See
-             <http://www.google.com/webmasters/> for details.
-    -->
-    <!--
-    <meta
-      name="google-site-verification"
-      content=""
-      />
-    -->
+  <!--
+    FIXME: At some point we will have to register ourselves with Google. See
+           <http://www.google.com/webmasters/> for details.
+  -->
+  <!--
+  <meta
+    name="google-site-verification"
+    content=""
+    />
+  -->
 
-    <!--
-      The favicon.ico file is used to associate an icon with the website,
-      typically for display in the browser's URL bar.
-        - Size: 16x16 or 32x32 for display in the browser, up to 64x64 for
-          display on the task bar in Windows.
-        - Multiple icon sizes may be encoded within a single favicon.ico file.
-        - Transparency is OK.
-        - See wikipedia for info on browser support:
-          <http://en.wikipedia.org/wiki/Favicon#Browser_support>
+  <!--
+    The favicon.ico file is used to associate an icon with the website,
+    typically for display in the browser's URL bar.
+      - Size: 16x16 or 32x32 for display in the browser, up to 64x64 for
+        display on the task bar in Windows.
+      - Multiple icon sizes may be encoded within a single favicon.ico file.
+      - Transparency is OK.
+      - See wikipedia for info on browser support:
+        <http://en.wikipedia.org/wiki/Favicon#Browser_support>
 
-      FIXME: Waiting for higher resolution images from the design team.
-    -->
-    <link
-      rel="shortcut icon"
-      type="image/x-icon"
-      href="/static/img/favicon.ico"
-      />
+    FIXME: Waiting for higher resolution images from the design team.
+  -->
+  <link
+    rel="shortcut icon"
+    type="image/x-icon"
+    href="/static/img/favicon.ico"
+    />
 
-    <!--
-      The apple-touch-icon.png associates an UI icon with the website on iOS
-      devices. This image is what is shown when the site is bookmarked on the
-      home screen.
-        - Size: 57x57 for older iPhones, 72x72 for iPads, 114x114 for
-          iPhone4's retina display (For best support, just go ahead and use
-          the biggest one).
-        - Transparency is not recommended (iOS will put a black BG behind the
-          icon).
-        - iOS will apply gloss and rounded corners to the image before
-          displaying it. For more control, you may apply the rounded gloss
-          yourself and rename the file <apple-touch-icon-precomposed.png>.
+  <!--
+    The apple-touch-icon.png associates an UI icon with the website on iOS
+    devices. This image is what is shown when the site is bookmarked on the
+    home screen.
+      - Size: 57x57 for older iPhones, 72x72 for iPads, 114x114 for iPhone4's
+        retina display (For best support, just go ahead and use the biggest
+        one).
+      - Transparency is not recommended (iOS will put a black BG behind the
+        icon).
+      - iOS will apply gloss and rounded corners to the image before
+        displaying it. For more control, you may apply the rounded gloss
+        yourself and rename the file <apple-touch-icon-precomposed.png>.
 
-      FIXME: Waiting for higher resolution images from the design team.
-    -->
-    <link
-      rel="apple-touch-icon"
-      type="image/png"
-      href="/static/img/apple-touch-icon.png"
-      />
+    FIXME: Waiting for higher resolution images from the design team.
+  -->
+  <link
+    rel="apple-touch-icon"
+    type="image/png"
+    href="/static/img/apple-touch-icon.png"
+    />
 
-    <!--
-      We use a specially licensed web font, Lucida Roman, whose stylesheet
-      definitions are in the /static/font/stylesheet.css file.
-    -->
-    <link
-      rel="stylesheet"
-      type="text/css"
-      media="all"
-      href="/static/font/LucidaRoman/stylesheet.css"
-      />
+  <!--
+    We use a specially licensed web font, Lucida Roman, whose stylesheet
+    definitions are in the /static/font/stylesheet.css file.
+  -->
+  <link
+    rel="stylesheet"
+    type="text/css"
+    media="all"
+    href="/static/font/LucidaRoman/stylesheet.css"
+    />
 
-    <!--
-      DD_belatedPNG is a Javascript library that sandwiches PNG image support
-      into IE6 without much fuss. For more information, check out
-      <http://www.dillerdesign.com/experiment/DD_belatedPNG/>.
-    -->
-    <!--[if IE 6]>
-    <script
-      type="text/javascript"
-      src="/static/js/ie6/ie.belatedpng.js"
-      ></script>
-    <script type="text/javascript">
-      DD_belatedPNG.fix('.pngbg, .shadow-bottom, .post-comments a, #fcolumns_container, #footer img, .branding_wrap img, .fboxgraphic img ');
-    </script>
-    <![endif]-->
+  <!--
+    DD_belatedPNG is a Javascript library that sandwiches PNG image support
+    into IE6 without much fuss. For more information, check out
+    <http://www.dillerdesign.com/experiment/DD_belatedPNG/>.
+  -->
+  <!--[if IE 6]>
+  <script
+    type="text/javascript"
+    src="/static/js/ie6/ie.belatedpng.js"
+    ></script>
+  <script type="text/javascript">
+    DD_belatedPNG.fix('.pngbg, .shadow-bottom, .post-comments a, #fcolumns_container, #footer img, .branding_wrap img, .fboxgraphic img ');
+  </script>
+  <![endif]-->
 
-    <!--
-      The following feed links are taken from the WordPress site verbatim, and
-      left here mostly as an example so that we won't have to look up the
-      syntax of a RSS feed link when we later add our own. Buildpunkt will
-      have it's own RSS and ATOM feeds, but we'll probably not be syndicating
-      posts and comments the way WordPress does so this will need some
-      modification.
+  <!--
+    The following feed links are taken from the WordPress site verbatim, and
+    left here mostly as an example so that we won't have to look up the syntax
+    of a RSS feed link when we later add our own. Buildpunkt will have it's
+    own RSS and ATOM feeds, but we'll probably not be syndicating posts and
+    comments the way WordPress does so this will need some modification.
 
-      FIXME: Determine which feeds will be provided from which pages in what
-             formats, and re-write accordingly.
-    -->
-    <!--
-    <link
-      rel="alternate"
-      type="application/rss+xml"
-      title="Buildpunkt » Feed"
-      href="http://buildpunkt.com/feed"
-      />
-    <link
-      rel="alternate"
-      type="application/rss+xml"
-      title="Buildpunkt » Comments Feed"
-      href="http://buildpunkt.com/comments/feed"
-      />
-    <link
-      rel="alternate"
-      type="application/rss+xml"
-      title="Buildpunkt » Home Comments Feed"
-      href="http://buildpunkt.com/home/feed"
-      />
-    -->
+    FIXME: Determine which feeds will be provided from which pages in what
+           formats, and re-write accordingly.
+  -->
+  <!--
+  <link
+    rel="alternate"
+    type="application/rss+xml"
+    title="Buildpunkt » Feed"
+    href="http://buildpunkt.com/feed"
+    />
+  <link
+    rel="alternate"
+    type="application/rss+xml"
+    title="Buildpunkt » Comments Feed"
+    href="http://buildpunkt.com/comments/feed"
+    />
+  <link
+    rel="alternate"
+    type="application/rss+xml"
+    title="Buildpunkt » Home Comments Feed"
+    href="http://buildpunkt.com/home/feed"
+    />
+  -->
 
-    <!--
-      The primary stylesheets of the site. This template is based off of a
-      mockup site that was originally put together using the PageLines Pro
-      WordPress theme. The stylesheet “platformpro.pro.css” includes the
-      premium features, whereas the file “Buildpunkt.v1.style.css” includes
-      first the base PageLines theme styling, then our own customizations to
-      it. Finally, there are some user agent specific stylesheets to correct
-      problems in particular browsers.
-    -->
-    <link
-      id="pagelines-pro-css"
-      rel="stylesheet"
-      type="text/css"
-      media="all"
-      href="/static/css/platformpro.pro.css"
-      />
-    <link
-      id="pagelines-stylesheet-css"
-      rel="stylesheet"
-      type="text/css"
-      media="all"
-      href="/static/css/Buildpunkt.v1.style.css"
-      />
-    <!--[if lte IE 6]>
-    <link
-      id='ie6-style-css'
-      rel='stylesheet'
-      type='text/css'
-      media='all'
-      href='http://buildpunkt.com/wp-content/themes/platformpro/css/ie6.css?ver=1.3.2'
-      />
-    <![endif]-->
-    <!--[if IE 7]>
-    <link
-      id='ie7-style-css'
-      rel='stylesheet'
-      type='text/css'
-      media='all'
-      href='http://buildpunkt.com/wp-content/themes/platformpro/css/ie7.css?ver=1.3.2'
-      />
-    <![endif]-->
+  <!--
+    The primary stylesheets of the site. This template is based off of a
+    mockup site that was originally put together using the PageLines Pro
+    WordPress theme. The stylesheet “platformpro.pro.css” includes the premium
+    features, whereas the file “Buildpunkt.v1.style.css” includes first the
+    base PageLines theme styling, then our own customizations to it. Finally,
+    there are some user agent specific stylesheets to correct problems in
+    particular browsers.
+  -->
+  <link
+    id="pagelines-pro-css"
+    rel="stylesheet"
+    type="text/css"
+    media="all"
+    href="/static/css/platformpro.pro.css"
+    />
+  <link
+    id="pagelines-stylesheet-css"
+    rel="stylesheet"
+    type="text/css"
+    media="all"
+    href="/static/css/Buildpunkt.v1.style.css"
+    />
+  <!--[if lte IE 6]>
+  <link
+    id='ie6-style-css'
+    rel='stylesheet'
+    type='text/css'
+    media='all'
+    href='http://buildpunkt.com/wp-content/themes/platformpro/css/ie6.css?ver=1.3.2'
+    />
+  <![endif]-->
+  <!--[if IE 7]>
+  <link
+    id='ie7-style-css'
+    rel='stylesheet'
+    type='text/css'
+    media='all'
+    href='http://buildpunkt.com/wp-content/themes/platformpro/css/ie7.css?ver=1.3.2'
+    />
+  <![endif]-->
 
 <script type="text/javascript" src="http://buildpunkt.com/wp-includes/js/l10n.js?ver=20101110"></script>
 
-    <!--
-      jQuery, a multi-purpose JavaScript framework. We grab Google CDN's
-      jQuery, and fall back on our own if Google is not available. 1.4.4 is an
-      outdated version of jQuery, but it is what WordPress 3.1 ships with.
-      Until we have a chance to independently test for compatibility issues
-      with the latest jQuery, we'll leave it at version 1.4.4.
-    -->
-    <script
-      type="text/javascript"
-      src="http://ajax.googleapis.com/ajax/libs/jquery/1.4.4/jquery.min.js"
-      ></script>
-    <script type="text/javascript">
-      !window.jQuery && document.write(unescape('%3Cscript type="text/javascript" src="<?php echo $media_url ?>js/lib/jquery/1.4.4/jquery.min.js"%3E%3C/script%3E'));
-    </script>
+  <!--
+    jQuery, a multi-purpose JavaScript framework. We grab Google CDN's jQuery,
+    and fall back on our own if Google is not available. 1.4.4 is an outdated
+    version of jQuery, but it is what WordPress 3.1 ships with. Until we have
+    a chance to independently test for compatibility issues with the latest
+    jQuery, we'll leave it at version 1.4.4.
+  -->
+  <script
+    type="text/javascript"
+    src="http://ajax.googleapis.com/ajax/libs/jquery/1.4.4/jquery.min.js"
+    ></script>
+  <script type="text/javascript">
+    !window.jQuery && document.write(unescape('%3Cscript type="text/javascript" src="<?php echo $media_url ?>js/lib/jquery/1.4.4/jquery.min.js"%3E%3C/script%3E'));
+  </script>
 
-    <!--
-      Capture jQuery to remain compatible with other frameworks and libraries,
-      but without removing it from the global scope.
-    -->
-    <script type="text/javascript">
-      var $j = jQuery.noConflict();
-    </script>
+  <!--
+    Capture jQuery to remain compatible with other frameworks and libraries,
+    but without removing it from the global scope.
+  -->
+  <script type="text/javascript">
+    var $j = jQuery.noConflict();
+  </script>
 
-    <!--
-      Modernizr HTML5 detection library tests the browser for support of new
-      HTML5 features, and adds classes to the <html> element allowing us to
-      target specific browser functionality in our stylesheets.
-    -->
-    <script
-      type="text/javascript"
-      src="/static/js/lib/modernizr/1.7/modernizr.min.js"
-      ></script>
+  <!--
+    Modernizr HTML5 detection library tests the browser for support of new
+    HTML5 features, and adds classes to the <html> element allowing us to
+    target specific browser functionality in our stylesheets.
+  -->
+  <script
+    type="text/javascript"
+    src="/static/js/lib/modernizr/1.7/modernizr.min.js"
+    ></script>
 
-    <!--
-      Some JavaScript from WordPress that has to do with the comments system.
+  <!--
+    Some JavaScript from WordPress that has to do with the comments system.
 
-      FIXME: Check if this is even relevant anymore.
-    -->
-    <script
-      type="text/javascript"
-      src="/static/js/wp.comment-reply.js"
-      ></script>
+    FIXME: Check if this is even relevant anymore.
+  -->
+  <script
+    type="text/javascript"
+    src="/static/js/wp.comment-reply.js"
+    ></script>
 
-    <!--
-      The following “index”, “prev”, and “next” related links provide some
-      context to the user agent (with obvious semantics), and are particularly
-      important to web crawlers. They are commented out because some thought
-      needs to go how they will be used in Buildpunkt.
+  <!--
+    The following “index”, “prev”, and “next” related links provide some
+    context to the user agent (with obvious semantics), and are particularly
+    important to web crawlers. They are commented out because some thought
+    needs to go how they will be used in Buildpunkt.
 
-      FIXME: Figure out how to define “index”, “prev”, and “next” related
-             links for Buildpunkt.
-    -->
-    <!--
-    <link
-      rel="index"
-      title="FIXME"
-      href="/FIXME"
-      />
-    <link
-      rel="prev"
-      title="FIXME"
-      href="/FIXME"
-      />
-    <link
-      rel="next"
-      title="FIXME"
-      href="/FIXME"
-      />
-    -->
+    FIXME: Figure out how to define “index”, “prev”, and “next” related links
+           for Buildpunkt.
+  -->
+  <!--
+  <link
+    rel="index"
+    title="FIXME"
+    href="/FIXME"
+    />
+  <link
+    rel="prev"
+    title="FIXME"
+    href="/FIXME"
+    />
+  <link
+    rel="next"
+    title="FIXME"
+    href="/FIXME"
+    />
+  -->
 
-    <!--
-      When a resource is accessible from multiple locations, the “canonical”
-      rel link provides a way to inform web crawlers and other automated tools
-      which URI to use as its primary identifier.
+  <!--
+    When a resource is accessible from multiple locations, the “canonical” rel
+    link provides a way to inform web crawlers and other automated tools which
+    URI to use as its primary identifier.
 
-      FIXME: Add code to output the canonical URL.
-    -->
-    <!--
-    <link
-      rel="canonical"
-      href="http://buildpunkt.com/FIXME"
-      />
-    -->
+    FIXME: Add code to output the canonical URL.
+  -->
+  <!--
+  <link
+    rel="canonical"
+    href="http://buildpunkt.com/FIXME"
+    />
+  -->
 
-    <!--
-      This in-line JavaScript originates from the PageLines theme. Without
-      looking too closely, it appears to be setting the title attribute on the
-      anchor tags for each feature, as well as some of the parameters for
-      cycling the features. This may not relate at all to the way in which we
-      are using the theme.
+  <!--
+    This in-line JavaScript originates from the PageLines theme. Without
+    looking too closely, it appears to be setting the title attribute on the
+    anchor tags for each feature, as well as some of the parameters for
+    cycling the features. This may not relate at all to the way in which we
+    are using the theme.
 
-      FIXME: Determine if this code is necessary and what to do with it.
-    -->
-    <script type="text/javascript">
-      /* <![CDATA[ */
-      $j(document).ready(function () {
-        $j('#cycle').cycle({fx: 'fade', sync: 1, timeout: 0, speed: 1500, cleartype: true, cleartypeNoBg: true, pager: 'div#featurenav'});$j("div#featurenav").children("a").each(function() { if($j(this).html() == "1") { $j(this).attr("title", "feature 1");  }if($j(this).html() == "2") { $j(this).attr("title", "feature 2");  }if($j(this).html() == "3") { $j(this).attr("title", "feature 3");  }if($j(this).html() == "4") { $j(this).attr("title", "feature 4");  }if($j(this).html() == "5") { $j(this).attr("title", "feature 5");  }if($j(this).html() == "6") { $j(this).attr("title", "feature 6");  } });
-      });
-      /* ]]> */
-    </script>
+    FIXME: Determine if this code is necessary and what to do with it.
+  -->
+  <script type="text/javascript">
+    /* <![CDATA[ */
+    $j(document).ready(function () {
+      $j('#cycle').cycle({fx: 'fade', sync: 1, timeout: 0, speed: 1500, cleartype: true, cleartypeNoBg: true, pager: 'div#featurenav'});$j("div#featurenav").children("a").each(function() { if($j(this).html() == "1") { $j(this).attr("title", "feature 1");  }if($j(this).html() == "2") { $j(this).attr("title", "feature 2");  }if($j(this).html() == "3") { $j(this).attr("title", "feature 3");  }if($j(this).html() == "4") { $j(this).attr("title", "feature 4");  }if($j(this).html() == "5") { $j(this).attr("title", "feature 5");  }if($j(this).html() == "6") { $j(this).attr("title", "feature 6");  } });
+    });
+    /* ]]> */
+  </script>
 
-    <!--
-      The Buildpunkt.v1.dynamic.css file was auto-generated by PageLines from
-      the PageLines settings pages in the WordPress administrative interface.
-      The CSS for this file should eventually be worked into the general
-      stylesheets above.
+  <!--
+    The Buildpunkt.v1.dynamic.css file was auto-generated by PageLines from
+    the PageLines settings pages in the WordPress administrative interface.
+    The CSS for this file should eventually be worked into the general
+    stylesheets above.
 
-      FIXME: Combine the dynamic CSS with the other theme stylesheets.
-    -->
-    <link
-      id="pagelines-dynamic-css"
-      rel="stylesheet"
-      type="text/css"
-      media="all"
-      href="/static/css/Buildpunkt.v1.dynamic.css"
-      />
+    FIXME: Combine the dynamic CSS with the other theme stylesheets.
+  -->
+  <link
+    id="pagelines-dynamic-css"
+    rel="stylesheet"
+    type="text/css"
+    media="all"
+    href="/static/css/Buildpunkt.v1.dynamic.css"
+    />
 
-    <!--
-      This is a variation of the official analytics snippet:
-        <http://mathiasbynens.be/notes/async-analytics-snippet>
+  <!--
+    This is a variation of the official analytics snippet:
+      <http://mathiasbynens.be/notes/async-analytics-snippet>
 
-      FIXME: Sign up for analytics, replace XXXXXX-XX with our site's ID and
-             uncomment to put it into effect.
-    -->
-    <!--
-    <script>
-      var _gaq = [['_setAccount', 'UA-XXXXXX-XX'], ['_trackPageview']];
-      (function(d, t) {
-        var g = d.createElement(t),
-        s = d.getElementsByTagName(t)[0];
-        g.async = true;
-        g.src = '//www.google-analytics.com/ga.js';
-        s.parentNode.insertBefore(g, s);
-      })(document, 'script');
-    </script>
-    -->
+    FIXME: Sign up for analytics, replace XXXXXX-XX with our site's ID and
+           uncomment to put it into effect.
+  -->
+  <!--
+  <script>
+    var _gaq = [['_setAccount', 'UA-XXXXXX-XX'], ['_trackPageview']];
+    (function(d, t) {
+      var g = d.createElement(t),
+      s = d.getElementsByTagName(t)[0];
+      g.async = true;
+      g.src = '//www.google-analytics.com/ga.js';
+      s.parentNode.insertBefore(g, s);
+    })(document, 'script');
+  </script>
+  -->
 </head><body class="home page page-id-23 page-template page-template-default canvas ttype-default tmain-default">
 
 
