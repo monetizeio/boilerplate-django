@@ -471,10 +471,6 @@
                         ></div>
                     </div><!-- class="branding_wrap" -->
 
-                    <div
-                      class="clear"
-                      ></div>
-
                   </div><!-- class="content-pad" -->
 
                 </div><!-- class="content" -->
@@ -556,10 +552,6 @@
 
                     </div><!-- id="nav_row" -->
 
-                    <div
-                      class="clear"
-                      ></div>
-
                   </div><!-- class="content-pad" -->
 
                 </div><!-- class="content" -->
@@ -584,10 +576,6 @@
                   <div
                     class="content-pad"
                     >
-
-                    <div
-                      class="clear"
-                      ></div>
 
                   </div><!-- class="content-pad" -->
 
@@ -697,10 +685,6 @@
 
                                 </div><!-- class="fmedia" -->
 
-                                <div
-                                  class="clear"
-                                  ></div>
-
                               </div><!-- class="feature-pad fix" -->
 
                             </div><!-- class="feature-wrap wcontent" -->
@@ -740,23 +724,11 @@
 
                           </div><!-- id="featurenav" -->
 
-                          <div
-                            class="clear"
-                            ></div>
-
                         </div><!-- class="feature-footer-pad" -->
 
                       </div><!-- id="feature-footer" -->
 
                     </div><!-- id="feature_slider" -->
-
-                    <div
-                      class="clear"
-                      ></div>
-
-                    <div
-                      class="clear"
-                      ></div>
 
                   </div><!-- class="content-pad" -->
 
@@ -945,10 +917,6 @@
                       </div><!-- class="dcol_3 dcol" -->
 
                       <div
-                        class="clear"
-                        ></div>
-
-                      <div
                         class="dcol_3 dcol"
                         >
 
@@ -999,14 +967,6 @@
 
                     </div><!-- class="dcol_container_3 fix" -->
 
-                    <div
-                      class="clear"
-                      ></div>
-
-                    <div
-                      class="clear"
-                      ></div>
-
                   </div><!-- class="content-pad" -->
 
                 </div><!-- class="content" -->
@@ -1033,10 +993,6 @@
 
           <div
             id="morefoot_area"
-            ></div>
-
-          <div
-            class="clear"
             ></div>
 
         </div><!-- END #page-main from header -->
@@ -1116,10 +1072,6 @@
                 <span class="terms">© 2011 <a href=
                   "http://www.roku-sigma.com/">RokuSigma Inc.</a></span>
 
-                <div
-                  class="clear"
-                  ></div>
-
               </div><!-- class="content-pad" -->
 
             </div><!-- class="content" -->
@@ -1128,19 +1080,25 @@
 
         </div><!-- id="simple_footer_nav" -->
 
-        <div
-          class="clear"
-          ></div>
-
-        <div
-          class="clear"
-          ></div>
-
       </div><!-- class="outline fix" -->
 
     </div><!-- id="footer" -->
 
   </div><!-- id="site" -->
+
+  <!--
+    Div Class Clear – Without the Markup. The following JavaScript re-inserts
+    div class clear tags where needed in the markup, allowing us to focus on
+    other, more important things. Source code taken with modification from:
+    <http://www.latentmotion.com/div-class-clear-without-the-markup/>
+  -->
+  <script type="text/javascript">
+    $j(document).ready(function(){
+      $j("*:last-child").filter(function() {
+        return $j(this).css('float') != 'none';
+      }).parent().append("<div class='clear'></div>");
+    });
+  </script>
 
   <script
     type="text/javascript"
