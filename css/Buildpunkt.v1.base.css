@@ -1,0 +1,74 @@
+/* ============================= */
+/* = HOW TO CUSTOMIZE PLATFORM = */
+/* ============================= */
+
+/*
+  Edit this style sheet to create your own custom theme based on the Base
+  Platform theme.
+
+  Rules placed in this stylesheet will override the default styles of the Base
+  Platform theme and will not be changed or over written when you update the
+  Platform framework. Additionally, since this stylesheet is purely for
+  editing purposes you can easily undo or erase some of the CSS to return your
+  site back to the look and feel of the Base theme.
+
+  In the Base theme the footer is black – the CSS looks like this:
+
+    #footer {
+      clear:both;
+      font-size:1em;
+      overflow:hidden;
+      text-align:left;
+      background:#000;
+      color:#999;
+      position:relative;
+    }
+
+  To change the background color to white, all you have to do is declare a new
+  rule for the color like so:
+
+    #footer { background:#FFF; }
+
+  A great tool for modifying themes and inspecting CSS elements is the FireBug
+  extension for FireFox. You can also use the developer tools provided by
+  Chrome (right-click and "inspect element") or Internet Explorer if you're
+  feeling dangerous.
+
+  LEARN CSS: We recommend using Lynda.com video tutorials to learn using CSS.
+             Also, for a comprehensive list of CSS rules and usage try
+             consulting W3 schools @<http://www.w3schools.com/css/default.asp>
+
+  ON UPDATING: Base shouldn't be replaced in your install with every release.
+               It defeats the purpose of using a child theme. Use updates to
+               this Platform Child Theme, as a reference to help you improve
+               your own customizations.
+*/
+
+/* ============================== */
+/* = Start Your Custom CSS Here = */
+/* ============================== */
+
+/*
+  @ CSS corresponding to the hook used in functions.php; adds a stumbleupon
+  icon to branding section.
+*/
+.icons .stumbleupon {
+  background:url('../platformpro/images/sprite-socialicons.png') no-repeat -176px 0;
+}
+.icons .stumbleupon:hover {
+  background:url('../platformpro/images/sprite-socialicons.png') no-repeat -176px -22px;
+}
+
+/*
+  @ Pullquote Section
+*/
+#pullquote.copy {
+  background:#f7f7f7 url(images/pullquote.png) no-repeat 15px 15px;
+  padding:15px 20px 15px 45px;
+  margin-bottom:1.5em;
+}
+
+#pullquote .thepullquote { font-size:1.5em; margin-bottom:5px; line-height:1.3em; }
+#pullquote .thecitation  { color:#AAA; font-style:italic; padding-left:15px; }
+
+#x3dom_logdiv { display:none; }
