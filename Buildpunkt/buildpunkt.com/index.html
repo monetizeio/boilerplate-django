@@ -16,7 +16,7 @@
   will be removed by Modernizr. If JavaScript is not enabled in the browser,
   Modernizr will of course not run and the “no-js” class will remain in place,
   with obvious semantics.
--->
+  -->
 <html
   dir="ltr"
   lang="en-US"
@@ -29,7 +29,7 @@
     charset with UTF-8 encoding. It comes as early as it can in the markup
     because when the browser encounters this meta tag it will start the
     parsing over with the new charset settings.
-  -->
+    -->
   <meta
     http-equiv="Content-Type"
     content="text/html; charset=UTF-8"
@@ -38,7 +38,7 @@
   <!--
     This prevents the conditional comments below from holding up the page
     load. See <http://www.phpied.com/conditional-comments-block-downloads/>.
-  -->
+    -->
   <!--[if IE]><![endif]-->
 
   <!--
@@ -49,7 +49,7 @@
 
     FIXME: Add targeted search engine keywords to TITLE tag for landing page.
     FIXME: Add configurable TITLE tag for content pages.
-  -->
+    -->
   <title>
     Buildpunkt
   </title>
@@ -59,7 +59,7 @@
 
     FIXME: Add support for other language then make this dynamic based on the
            actual language being used.
-  -->
+    -->
   <meta
     name="language"
     content="en-US"
@@ -75,7 +75,7 @@
            etc.
     FIXME: Determine a procedure for generating SEO keywords for content,
            profile, and other dynamic pages.
-  -->
+    -->
   <meta
     name="keywords"
     content=""
@@ -88,7 +88,7 @@
     155 characters of plain text.
 
     FIXME: Replace “bridging reality” with a more product-oriented tag line.
-  -->
+    -->
   <meta
     name="description"
     content="Buildpunkt: bridging reality"
@@ -102,7 +102,7 @@
     FIXME: Make sure that <info@roku-sigma.com> is a valid account that a
            human will read.
     FIXME: Make the copyright year dynamic, based on the current date.
-  -->
+    -->
   <meta
     name="author"
     content="RokuSigma Inc. <info@roku-sigma.com>"
@@ -115,7 +115,7 @@
   <!--
     FIXME: At some point we will have to register ourselves with Google. See
            <http://www.google.com/webmasters/> for details.
-  -->
+    -->
   <!--
   <meta
     name="google-site-verification"
@@ -134,7 +134,7 @@
         <http://en.wikipedia.org/wiki/Favicon#Browser_support>
 
     FIXME: Waiting for higher resolution images from the design team.
-  -->
+    -->
   <link
     rel="shortcut icon"
     type="image/x-icon"
@@ -155,7 +155,7 @@
         yourself and rename the file <apple-touch-icon-precomposed.png>.
 
     FIXME: Waiting for higher resolution images from the design team.
-  -->
+    -->
   <link
     rel="apple-touch-icon"
     type="image/png"
@@ -165,7 +165,7 @@
   <!--
     We use a specially licensed web font, Lucida Roman, whose stylesheet
     definitions are in the /static/font/stylesheet.css file.
-  -->
+    -->
   <link
     rel="stylesheet"
     type="text/css"
@@ -177,7 +177,7 @@
     DD_belatedPNG is a Javascript library that sandwiches PNG image support
     into IE6 without much fuss. For more information, check out
     <http://www.dillerdesign.com/experiment/DD_belatedPNG/>.
-  -->
+    -->
   <!--[if IE 6]>
   <script
     type="text/javascript"
@@ -197,7 +197,7 @@
 
     FIXME: Determine which feeds will be provided from which pages in what
            formats, and re-write accordingly.
-  -->
+    -->
   <!--
   <link
     rel="alternate"
@@ -227,7 +227,7 @@
     base PageLines theme styling, then our own customizations to it. Finally,
     there are some user agent specific stylesheets to correct problems in
     particular browsers.
-  -->
+    -->
   <link
     id="pagelines-pro-css"
     rel="stylesheet"
@@ -266,7 +266,7 @@
     its function or relevance.
 
     FIXME: Figure out what wp.l10n.js is all about.
-  -->
+    -->
   <script
     type="text/javascript"
     src="/static/js/wp.l10n.js"
@@ -278,7 +278,10 @@
     version of jQuery, but it is what WordPress 3.1 ships with. Until we have
     a chance to independently test for compatibility issues with the latest
     jQuery, we'll leave it at version 1.4.4.
-  -->
+
+    FIXME: Test compatibility with the most recent stable release of jQuery,
+           and then upgrade if we can.
+    -->
   <script
     type="text/javascript"
     src="http://ajax.googleapis.com/ajax/libs/jquery/1.4.4/jquery.min.js"
@@ -290,7 +293,7 @@
   <!--
     Capture jQuery to remain compatible with other frameworks and libraries,
     but without removing it from the global scope.
-  -->
+    -->
   <script type="text/javascript">
     var $j = jQuery.noConflict();
   </script>
@@ -299,7 +302,7 @@
     Modernizr HTML5 detection library tests the browser for support of new
     HTML5 features, and adds classes to the <html> element allowing us to
     target specific browser functionality in our stylesheets.
-  -->
+    -->
   <script
     type="text/javascript"
     src="/static/js/lib/modernizr/1.7/modernizr.min.js"
@@ -309,7 +312,7 @@
     Some JavaScript from WordPress that has to do with the comments system.
 
     FIXME: Check if this is even relevant anymore.
-  -->
+    -->
   <script
     type="text/javascript"
     src="/static/js/wp.comment-reply.js"
@@ -323,7 +326,7 @@
 
     FIXME: Figure out how to define “index”, “prev”, and “next” related links
            for Buildpunkt.
-  -->
+    -->
   <!--
   <link
     rel="index"
@@ -348,7 +351,7 @@
     URI to use as its primary identifier.
 
     FIXME: Add code to output the canonical URL.
-  -->
+    -->
   <!--
   <link
     rel="canonical"
@@ -364,7 +367,7 @@
     are using the theme.
 
     FIXME: Determine if this code is necessary and what to do with it.
-  -->
+    -->
   <script type="text/javascript">
     /* <![CDATA[ */
     $j(document).ready(function () {
@@ -380,7 +383,7 @@
     stylesheets above.
 
     FIXME: Combine the dynamic CSS with the other theme stylesheets.
-  -->
+    -->
   <link
     id="pagelines-dynamic-css"
     rel="stylesheet"
@@ -395,7 +398,7 @@
 
     FIXME: Sign up for analytics, replace XXXXXX-XX with our site's ID and
            uncomment to put it into effect.
-  -->
+    -->
   <!--
   <script>
     var _gaq = [['_setAccount', 'UA-XXXXXX-XX'], ['_trackPageview']];
@@ -410,6 +413,12 @@
   -->
 </head>
 
+<!--
+  The id="buildpunkt-com" is useful for creating CSS that can be shared across
+  multiple company projects, but with some web site specific callouts.
+
+  FIXME: Remove classes which are not referenced in the CSS.
+  -->
 <body
   id="buildpunkt-com"
   class="home page page-id-23 page-template page-template-default canvas ttype-default tmain-default"
@@ -422,13 +431,8 @@
     >
 
     <!-- #page // Wraps #header, #page-main - closed in footer -->
-    <div
-      id="page"
-      >
-
-      <div
-        id="page-canvas"
-        >
+    <div id="page">
+      <div id="page-canvas">
 
         <div
           id="header"
@@ -444,17 +448,9 @@
               class="container fix"
               >
 
-              <div
-                class="texture"
-                >
-
-                <div
-                  class="content"
-                  >
-
-                  <div
-                    class="content-pad"
-                    >
+              <div class="texture">
+                <div class="content">
+                  <div class="content-pad">
 
                     <div
                       class="branding_wrap"
@@ -469,12 +465,11 @@
                         class="icons"
                         style="bottom: 21px; right: 1px;"
                         ></div>
+
                     </div><!-- class="branding_wrap" -->
 
                   </div><!-- class="content-pad" -->
-
                 </div><!-- class="content" -->
-
               </div><!-- class="texture" -->
 
             </div><!-- id="branding" -->
@@ -484,17 +479,9 @@
               class="container fix"
               >
 
-              <div
-                class="texture"
-                >
-
-                <div
-                  class="content"
-                  >
-
-                  <div
-                    class="content-pad"
-                    >
+              <div class="texture">
+                <div class="content">
+                  <div class="content-pad">
 
                     <div
                       id="nav_row"
@@ -553,9 +540,7 @@
                     </div><!-- id="nav_row" -->
 
                   </div><!-- class="content-pad" -->
-
                 </div><!-- class="content" -->
-
               </div><!-- class="texture" -->
 
             </div><!-- id="primary-nav" -->
@@ -565,22 +550,12 @@
               class="container fix"
               >
 
-              <div
-                class="texture"
-                >
-
-                <div
-                  class="content"
-                  >
-
-                  <div
-                    class="content-pad"
-                    >
+              <div class="texture">
+                <div class="content">
+                  <div class="content-pad">
 
                   </div><!-- class="content-pad" -->
-
                 </div><!-- class="content" -->
-
               </div><!-- class="texture" -->
 
             </div><!-- id="secondnav" -->
@@ -590,17 +565,9 @@
               class="container fix"
               >
 
-              <div
-                class="texture"
-                >
-
-                <div
-                  class="content"
-                  >
-
-                  <div
-                    class="content-pad"
-                    >
+              <div class="texture">
+                <div class="content">
+                  <div class="content-pad">
 
                     <div
                       id="feature_slider"
@@ -731,9 +698,7 @@
                     </div><!-- id="feature_slider" -->
 
                   </div><!-- class="content-pad" -->
-
                 </div><!-- class="content" -->
-
               </div><!-- class="texture" -->
 
             </div><!-- id="feature" -->
@@ -743,17 +708,9 @@
               class="container fix"
               >
 
-              <div
-                class="texture"
-                >
-
-                <div
-                  class="content"
-                  >
-
-                  <div
-                    class="content-pad"
-                    >
+              <div class="texture">
+                <div class="content">
+                  <div class="content-pad">
 
                     <div
                       class="categorytitle"
@@ -968,9 +925,7 @@
                     </div><!-- class="dcol_container_3 fix" -->
 
                   </div><!-- class="content-pad" -->
-
                 </div><!-- class="content" -->
-
               </div><!-- class="texture" -->
 
             </div><!-- id="soapbox" -->
@@ -998,7 +953,6 @@
         </div><!-- END #page-main from header -->
 
       </div><!-- END #page-canvas from header -->
-
     </div><!-- END #page from header -->
 
     <div
@@ -1014,17 +968,9 @@
           class="container fix"
           >
 
-          <div
-            class="texture"
-            >
-
-            <div
-              class="content"
-              >
-
-              <div
-                class="content-pad"
-                >
+          <div class="texture">
+            <div class="content">
+              <div class="content-pad">
 
                 <div
                   id="logo"
@@ -1072,9 +1018,7 @@
                 </div><!-- class="menu-footer-menu-container" -->
 
               </div><!-- class="content-pad" -->
-
             </div><!-- class="content" -->
-
           </div><!-- class="texture" -->
 
         </div><!-- id="simple_footer_nav" -->
@@ -1090,7 +1034,7 @@
     div class clear tags where needed in the markup, allowing us to focus on
     other, more important things. Source code taken with modification from:
     <http://www.latentmotion.com/div-class-clear-without-the-markup/>
-  -->
+    -->
   <script type="text/javascript">
     $j(document).ready(function(){
       $j("*:last-child").filter(function() {
