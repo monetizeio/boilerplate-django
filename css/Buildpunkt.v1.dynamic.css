@@ -115,7 +115,8 @@ body{}
 .main_nav {margin-bottom: 7px;}
 .post.fpost .entry, #soapbox .fboxinfo, #feature-footer.nonav { border-top: none; }
 body.home #page-main { display: none; }
-#soapbox .categorytitle { padding-left: 15px; border-bottom: 1px solid #E9E9E9; }
+#soapbox .categorytitle { padding-left:1.5em; margin-bottom:1.5em; border-bottom: 1px solid #E9E9E9; }
+#soapbox .fboxinfo { padding:1.0em; }
 
 body.blog div#feature { display: none; }
 body.blog div#soapbox { display: none; }

@@ -72,3 +72,7 @@
 #pullquote .thecitation  { color:#AAA; font-style:italic; padding-left:15px; }
 
 #x3dom_logdiv { display:none; }
+
+#soapbox .fboxgraphic {
+  background: #000 url(../img/platformpro/feature-area-bg.png) repeat-x left bottom;
+}
