@@ -466,8 +466,8 @@
   FIXME: Remove classes which are not referenced in the CSS.
   -->
 <body
-  id="buildpunkt-com"
-  class="home page page-id-23 page-template page-template-default canvas ttype-default tmain-default"
+  id="{% block body_id %}buildpunkt-com{% endblock %}"
+  class="{% block body_class %}home page page-id-23 page-template page-template-default canvas ttype-default tmain-default{% endblock %}"
   >
 
   <!-- #site // Wraps #header, #page-main, #footer - closed in footer -->
