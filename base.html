@@ -468,7 +468,7 @@
 <body
   id="{% block body_id %}buildpunkt-com{% endblock %}"
   class="{% block body_class %}home page page-id-23 page-template page-template-default canvas ttype-default tmain-default{% endblock %}"
-  >
+  >{% block body %}
 
   <!-- #site // Wraps #header, #page-main, #footer - closed in footer -->
   <div
@@ -1144,7 +1144,7 @@
     src="/static/js/platformpro.jquery.cycle.js"
     ></script>
 
-</body>
+{% endblock body %}</body>
 
 </html>
 
