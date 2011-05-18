@@ -1,11 +1,11 @@
-<!-- =========================================================================
-  This is the HTML5 file is constructed from a dump of the current WordPress
-  powered mock site that will form the basis of the eventual Django template
-  theme.
-========================================================================== -->
+{### base.html ------------------------------------------------------------###
+ This is the HTML5 file is constructed from a dump of the current WordPress
+ powered mock site that will form the basis of the eventual Django template
+ theme.
+###-----------------------------------------------------------------------###}
 
 <!-- The HTML5 doctype is just “html” -->
-<!DOCTYPE html>
+{% block doctype %}<!DOCTYPE html>{% endblock %}
 
 <!--
   The “dir” and “lang” attributes specify the text-direction and language of
@@ -18,99 +18,110 @@
   with obvious semantics.
   -->
 <html
-  dir="ltr"
-  lang="en-US"
-  class="no-js"
+  dir="{% block html_dir %}ltr{% endblock %}"
+  lang="{% block html_lang %}en-US{% endblock %}"
+  class="{% block html_class %}no-js{% endblock %}"
   >
 
-<head>
-  <!--
-    This META field makes explicitly clear that we are using the Unicode
-    charset with UTF-8 encoding. It comes as early as it can in the markup
-    because when the browser encounters this meta tag it will start the
-    parsing over with the new charset settings.
-    -->
-  <meta
-    http-equiv="Content-Type"
-    content="text/html; charset=UTF-8"
-    />
+<head>{% block head %}
+  {# The “time_sensitive” block contains header elements which for whatever
+   # reason need to be parsed as soon as possible, often because a delay may
+   # affect render speed, client behavior, or user experience.
+   #}
+  {% block time_sensitive %}
+    {% block time_sensitive_behavior %}
+      <!--
+        This META field makes explicitly clear that we are using the Unicode
+        charset with UTF-8 encoding. It comes as early as it can in the markup
+        because when the browser encounters this meta tag it will start the
+        parsing over with the new charset settings.
+        -->
+      <meta
+        http-equiv="Content-Type"
+        content="text/html; charset=UTF-8"
+        />
 
-  <!--
-    This prevents the conditional comments below from holding up the page
-    load. See <http://www.phpied.com/conditional-comments-block-downloads/>.
-    -->
-  <!--[if IE]><![endif]-->
+      <!--
+        Translation: this web page is in U.S. English. This element is placed
+        in the “time_sensitive_behavior” block because conceivably there exist
+        web crawlers that are only interested in collecting content in certain
+        languages, and for these crawlers the “language” meta tag offers an
+        early-exit capability.
 
-  <!--
-    The TITLE tag should be very carefully chosen as it can greatly affect
-    search rankings. It is important that the title of the landing page of the
-    site contain the most important search term(s) that we are targeting, and
-    that content pages have configurable titles.
+        FIXME: Add support for other languages then make this dynamic based on
+               the actual language being used.
+        -->
+      <meta
+        name="language"
+        content="{{ self.html_lang() }}"
+        />
+    {% endblock time_sensitive_behavior %}
 
-    FIXME: Add targeted search engine keywords to TITLE tag for landing page.
-    FIXME: Add configurable TITLE tag for content pages.
-    -->
-  <title>
-    Buildpunkt
-  </title>
+    {% block time_sensitive_experience %}
+      <!--
+        The TITLE tag should be very carefully chosen as it can greatly affect
+        search rankings. It is important that the title of the landing page of
+        the site contain the most important search term(s) that we are
+        targeting, and that content pages have configurable titles.
 
-  <!--
-    Translation: this web page is in U.S. English.
+        FIXME: Add targeted search engine keywords to TITLE tag for landing
+               page.
+        FIXME: Add configurable TITLE tag for content pages.
+        -->
+      <title>
+        {% block title %}Buildpunkt{% endblock %}
+      </title>
 
-    FIXME: Add support for other language then make this dynamic based on the
-           actual language being used.
-    -->
-  <meta
-    name="language"
-    content="en-US"
-    />
+      <!--
+        The favicon.ico file is used to associate an icon with the website,
+        typically for display in the browser's URL bar.
+          - Size: 16x16 or 32x32 for display in the browser, up to 64x64 for
+            display on the task bar in Windows.
+          - Multiple icon sizes may be encoded within a single favicon.ico
+            file.
+          - Transparency is OK.
+          - See wikipedia for info on browser support:
+            <http://en.wikipedia.org/wiki/Favicon#Browser_support>
 
-  <!--
-    The keywords META tag is a SEO field that is rarely used by the big
-    search companies these days. Nevertheless, it is used by older, esoteric
-    software and it certainly doesn't hurt to include it, when keyword data
-    is available.
+        FIXME: Waiting for higher resolution images from the design team.
+        -->
+      <link
+        rel="shortcut icon"
+        type="image/x-icon"
+        href="{% block favicon_uri %}/static/img/favicon.ico{% endblock %}"
+        />
 
-    FIXME: Come up with some SEO keywords for the landing page, about page,
-           etc.
-    FIXME: Determine a procedure for generating SEO keywords for content,
-           profile, and other dynamic pages.
-    -->
-  <meta
-    name="keywords"
-    content=""
-    />
+      <!--
+        The apple-touch-icon.png associates an UI icon with the website on iOS
+        devices. This image is what is shown when the site is bookmarked on
+        the home screen.
+          - Size: 57x57 for older iPhones, 72x72 for iPads, 114x114 for
+            iPhone4's retina display (For best support, just go ahead and use
+            the biggest one).
+          - Transparency is not recommended (iOS will put a black BG behind
+            the icon).
+          - iOS will apply gloss and rounded corners to the image before
+            displaying it. For more control, you may apply the rounded gloss
+            yourself and rename the file <apple-touch-icon-precomposed.png>.
 
-  <!--
-    Google will often use the following field as its description of our site.
-    Make it good. There is a belief that it might also affect “related:”
-    queries (unknown if there is any truth to that). It should be less than
-    155 characters of plain text.
+        FIXME: Waiting for higher resolution images from the design team.
+        -->
+      <link
+        rel="apple-touch-icon"
+        type="image/png"
+        href="{% block apple_touch_icon_uri %}/static/img/apple-touch-icon.png{% endblock %}"
+        />
+    {% endblock time_sensitive_experience %}
 
-    FIXME: Replace “bridging reality” with a more product-oriented tag line.
-    -->
-  <meta
-    name="description"
-    content="Buildpunkt: bridging reality"
-    />
-
-  <!--
-    Like the keywords tag, the author and copyright META fields generally
-    aren't used anymore, but there is no harm in making them available for
-    web crawlers and automated tools.
-
-    FIXME: Make sure that <info@roku-sigma.com> is a valid account that a
-           human will read.
-    FIXME: Make the copyright year dynamic, based on the current date.
-    -->
-  <meta
-    name="author"
-    content="RokuSigma Inc. <info@roku-sigma.com>"
-    />
-  <meta
-    name="copyright"
-    content="© 2011 RokuSigma Inc., All Rights Reserved"
-    />
+    {% block time_sensitive_speed %}
+      <!--
+        This prevents the conditional comments below from holding up the page
+        load. See
+        <http://www.phpied.com/conditional-comments-block-downloads/>.
+        -->
+      <!--[if IE]><![endif]-->
+    {% endblock time_sensitive_speed %}
+  {% endblock time_sensitive %}
 
   <!--
     FIXME: At some point we will have to register ourselves with Google. See
@@ -123,304 +134,330 @@
     />
   -->
 
-  <!--
-    The favicon.ico file is used to associate an icon with the website,
-    typically for display in the browser's URL bar.
-      - Size: 16x16 or 32x32 for display in the browser, up to 64x64 for
-        display on the task bar in Windows.
-      - Multiple icon sizes may be encoded within a single favicon.ico file.
-      - Transparency is OK.
-      - See wikipedia for info on browser support:
-        <http://en.wikipedia.org/wiki/Favicon#Browser_support>
+  {# The “semantic_web” block contains a mix of header elements which describe
+   # what this resource is, and how it relates to other resources accessible
+   # from elsewhere on the world wide web.
+   #}
+  {% block semantic_web %}
+    <!--
+      When a resource is accessible from multiple locations, the “canonical”
+      rel link provides a way to inform web crawlers and other automated tools
+      which URI to use as its primary identifier.
 
-    FIXME: Waiting for higher resolution images from the design team.
+      FIXME: Add code to output the canonical URL.
+      -->
+    <!--
+    <link
+      rel="canonical"
+      href="http://buildpunkt.com/FIXME"
+      />
     -->
-  <link
-    rel="shortcut icon"
-    type="image/x-icon"
-    href="/static/img/favicon.ico"
-    />
 
-  <!--
-    The apple-touch-icon.png associates an UI icon with the website on iOS
-    devices. This image is what is shown when the site is bookmarked on the
-    home screen.
-      - Size: 57x57 for older iPhones, 72x72 for iPads, 114x114 for iPhone4's
-        retina display (For best support, just go ahead and use the biggest
-        one).
-      - Transparency is not recommended (iOS will put a black BG behind the
-        icon).
-      - iOS will apply gloss and rounded corners to the image before
-        displaying it. For more control, you may apply the rounded gloss
-        yourself and rename the file <apple-touch-icon-precomposed.png>.
+    <!--
+      The following “index”, “prev”, and “next” related links provide some
+      context to the user agent (with obvious semantics), and are particularly
+      important to web crawlers. They are commented out because some thought
+      needs to go how they will be used in Buildpunkt.
 
-    FIXME: Waiting for higher resolution images from the design team.
+      FIXME: Figure out how to define “index”, “prev”, and “next” related
+             links for Buildpunkt.
+      -->
+    <!--
+    <link
+      rel="index"
+      title="FIXME"
+      href="/FIXME"
+      />
+    <link
+      rel="prev"
+      title="FIXME"
+      href="/FIXME"
+      />
+    <link
+      rel="next"
+      title="FIXME"
+      href="/FIXME"
+      />
     -->
-  <link
-    rel="apple-touch-icon"
-    type="image/png"
-    href="/static/img/apple-touch-icon.png"
-    />
 
-  <!--
-    We use a specially licensed web font, Lucida Roman, whose stylesheet
-    definitions are in the /static/font/stylesheet.css file.
+    <!--
+      The keywords META tag is a SEO field that is rarely used by the big
+      search companies these days. Nevertheless, it is used by older, esoteric
+      software and it certainly doesn't hurt to include it, when keyword data
+      is available.
+
+      FIXME: Come up with some SEO keywords for the landing page, about page,
+             etc.
+      FIXME: Determine a procedure for generating SEO keywords for content,
+             profile, and other dynamic pages.
+      -->
+    <meta
+      name="keywords"
+      content="{% block meta_keywords %}{% endblock %}"
+      />
+
+    <!--
+      Google will often use the following field as its description of our
+      site. Make it good. There is a belief that it might also affect
+      “related:” queries (unknown if there is any truth to that). It should be
+      less than 155 characters of plain text.
+
+      FIXME: Replace “bridging reality” with a more product-oriented tag line.
+      -->
+    <meta
+      name="description"
+      content="{% block meta_description %}Buildpunkt: bridging reality{% endblock %}"
+      />
+
+    <!--
+      Like the keywords tag, the author and copyright META fields generally
+      aren't used anymore, but there is no harm in making them available for
+      web crawlers and automated tools.
+
+      FIXME: Make sure that <info@roku-sigma.com> is a valid account that a
+             human will read.
+      FIXME: Make the copyright year dynamic, based on the current date.
+      -->
+    <meta
+      name="author"
+      content="{% block meta_author %}RokuSigma Inc. <info@roku-sigma.com>{% endblock %}"
+      />
+    <meta
+      name="copyright"
+      content="{% block meta_copyright %}© {% block copyright_date %}2011{% endblock %} {% block copyright_holder %}RokuSigma Inc.{% endblock %}, All Rights Reserved{% endblock meta_copyright %}"
+      />
+  {% endblock semantic_web %}
+
+  {% block feeds %}
+    <!--
+      The following feed links are taken from the WordPress site verbatim, and
+      left here mostly as an example so that we won't have to look up the
+      syntax of a RSS feed link when we later add our own. Buildpunkt will
+      have it's own RSS and ATOM feeds, but we'll probably not be syndicating
+      posts and comments the way WordPress does so this will need some
+      modification.
+
+      FIXME: Determine which feeds will be provided from which pages in what
+             formats, and re-write accordingly.
+      -->
+    <!--
+    <link
+      rel="alternate"
+      type="application/rss+xml"
+      title="Buildpunkt » Feed"
+      href="http://buildpunkt.com/feed"
+      />
+    <link
+      rel="alternate"
+      type="application/rss+xml"
+      title="Buildpunkt » Comments Feed"
+      href="http://buildpunkt.com/comments/feed"
+      />
+    <link
+      rel="alternate"
+      type="application/rss+xml"
+      title="Buildpunkt » Home Comments Feed"
+      href="http://buildpunkt.com/home/feed"
+      />
     -->
-  <link
-    rel="stylesheet"
-    type="text/css"
-    media="all"
-    href="/static/font/LucidaRoman/stylesheet.css"
-    />
+  {% endblock feeds %}
 
-  <!--
-    DD_belatedPNG is a Javascript library that sandwiches PNG image support
-    into IE6 without much fuss. For more information, check out
-    <http://www.dillerdesign.com/experiment/DD_belatedPNG/>.
+  {% block stylesheets %}
+    <!--
+      We use a specially licensed web font, Lucida Roman, whose stylesheet
+      definitions are in the /static/font/stylesheet.css file.
+
+      FIXME: Make sure we have the licensing info for LucidaRoman on file in
+             the corporate records.
+      -->
+    <link
+      rel="stylesheet"
+      type="text/css"
+      media="all"
+      href="/static/font/LucidaRoman/stylesheet.css"
+      />
+
+    <!--
+      The primary stylesheets of the site. This template is based off of a
+      mockup site that was originally put together using the PageLines Pro
+      WordPress theme. The stylesheet “platformpro.pro.css” includes the
+      premium features, whereas the file “Buildpunkt.v1.style.css” includes
+      first the base PageLines theme styling, then our own customizations to
+      it. Finally, there are some user agent specific stylesheets to correct
+      problems in particular browsers.
+      -->
+    <link
+      id="pagelines-pro-css"
+      rel="stylesheet"
+      type="text/css"
+      media="all"
+      href="/static/css/platformpro.pro.css"
+      />
+    <link
+      id="pagelines-stylesheet-css"
+      rel="stylesheet"
+      type="text/css"
+      media="all"
+      href="/static/css/Buildpunkt.v1.style.css"
+      />
+    <!--[if lte IE 6]>
+    <link
+      id='ie6-style-css'
+      rel='stylesheet'
+      type='text/css'
+      media='all'
+      href='/static/css/platformpro.ie6.css'
+      />
+    <![endif]-->
+    <!--[if IE 7]>
+    <link
+      id='ie7-style-css'
+      rel='stylesheet'
+      type='text/css'
+      media='all'
+      href='/static/css/platformpro.ie7.css'
+      />
+    <![endif]-->
+
+    <!--
+      The Buildpunkt.v1.dynamic.css file was auto-generated by PageLines from
+      the PageLines settings pages in the WordPress administrative interface.
+      The CSS for this file should eventually be worked into the general
+      stylesheets above.
+
+      FIXME: Combine the dynamic CSS with the other theme stylesheets.
+      -->
+    <link
+      id="pagelines-dynamic-css"
+      rel="stylesheet"
+      type="text/css"
+      media="all"
+      href="/static/css/Buildpunkt.v1.dynamic.css"
+      />
+  {% endblock stylesheets %}
+
+  {% block javascript %}
+    <!--
+      jQuery, a multi-purpose JavaScript framework. We grab Google CDN's jQuery,
+      and fall back on our own if Google is not available. 1.4.4 is an outdated
+      version of jQuery, but it is what WordPress 3.1 ships with. Until we have
+      a chance to independently test for compatibility issues with the latest
+      jQuery, we'll leave it at version 1.4.4.
+
+      FIXME: Test compatibility with the most recent stable release of jQuery,
+             and then upgrade if we can.
+      -->
+    <script
+      type="text/javascript"
+      src="http://ajax.googleapis.com/ajax/libs/jquery/1.4.4/jquery.min.js"
+      ></script>
+    <script type="text/javascript">
+      !window.jQuery && document.write(unescape('%3Cscript type="text/javascript" src="<?php echo $media_url ?>js/lib/jquery/1.4.4/jquery.min.js"%3E%3C/script%3E'));
+    </script>
+
+    <!--
+      Capture jQuery to remain compatible with other frameworks and libraries,
+      but without removing it from the global scope.
+      -->
+    <script type="text/javascript">
+      var $j = jQuery.noConflict();
+    </script>
+
+    <!--
+      Modernizr HTML5 detection library tests the browser for support of new
+      HTML5 features, and adds classes to the <html> element allowing us to
+      target specific browser functionality in our stylesheets.
+      -->
+    <script
+      type="text/javascript"
+      src="/static/js/lib/modernizr/1.7/modernizr.min.js"
+      ></script>
+
+    <!--
+      X3DOM is a JavaScript framework for displaying X3D files in a cross-
+      platform manner within the browser.
+      -->
+    <script
+      type="text/javascript"
+      src="/static/js/lib/x3dom/1.1/x3dom.js"
+      ></script>
+
+    <!--
+      Some WordPress-generated JavaScript related to localization. Not sure of
+      its function or relevance.
+
+      FIXME: Figure out what wp.l10n.js is all about.
+      -->
+    <script
+      type="text/javascript"
+      src="/static/js/wp.l10n.js"
+      ></script>
+
+    <!--
+      Some JavaScript from WordPress that has to do with the comments system.
+
+      FIXME: Check if this is even relevant anymore.
+      -->
+    <script
+      type="text/javascript"
+      src="/static/js/wp.comment-reply.js"
+      ></script>
+
+    <!--
+      This in-line JavaScript originates from the PageLines theme. Without
+      looking too closely, it appears to be setting the title attribute on the
+      anchor tags for each feature, as well as some of the parameters for
+      cycling the features. This may not relate at all to the way in which we
+      are using the theme.
+
+      FIXME: Determine if this code is necessary and what to do with it.
+      -->
+    <script type="text/javascript">
+      /* <![CDATA[ */
+      $j(document).ready(function () {
+        $j('#cycle').cycle({fx: 'fade', sync: 1, timeout: 0, speed: 1500, cleartype: true, cleartypeNoBg: true, pager: 'div#featurenav'});$j("div#featurenav").children("a").each(function() { if($j(this).html() == "1") { $j(this).attr("title", "feature 1");  }if($j(this).html() == "2") { $j(this).attr("title", "feature 2");  }if($j(this).html() == "3") { $j(this).attr("title", "feature 3");  }if($j(this).html() == "4") { $j(this).attr("title", "feature 4");  }if($j(this).html() == "5") { $j(this).attr("title", "feature 5");  }if($j(this).html() == "6") { $j(this).attr("title", "feature 6");  } });
+      });
+      /* ]]> */
+    </script>
+
+    <!--
+      DD_belatedPNG is a Javascript library that sandwiches PNG image support
+      into IE6 without much fuss. For more information, check out
+      <http://www.dillerdesign.com/experiment/DD_belatedPNG/>.
+      -->
+    <!--[if IE 6]>
+    <script
+      type="text/javascript"
+      src="/static/js/ie6/ie.belatedpng.js"
+      ></script>
+    <script type="text/javascript">
+      $j(document).ready(function () {
+        DD_belatedPNG.fix('.pngbg, .shadow-bottom, .post-comments a, #fcolumns_container, #footer img, .branding_wrap img, .fboxgraphic img ');
+      });
+    </script>
+    <![endif]-->
+
+    <!--
+      This is a variation of the official analytics snippet:
+        <http://mathiasbynens.be/notes/async-analytics-snippet>
+
+      FIXME: Sign up for analytics, replace XXXXXX-XX with our site's ID and
+             uncomment to put it into effect.
+      -->
+    <!--
+    <script>
+      var _gaq = [['_setAccount', 'UA-XXXXXX-XX'], ['_trackPageview']];
+      (function(d, t) {
+        var g = d.createElement(t),
+        s = d.getElementsByTagName(t)[0];
+        g.async = true;
+        g.src = '//www.google-analytics.com/ga.js';
+        s.parentNode.insertBefore(g, s);
+      })(document, 'script');
+    </script>
     -->
-  <!--[if IE 6]>
-  <script
-    type="text/javascript"
-    src="/static/js/ie6/ie.belatedpng.js"
-    ></script>
-  <script type="text/javascript">
-    DD_belatedPNG.fix('.pngbg, .shadow-bottom, .post-comments a, #fcolumns_container, #footer img, .branding_wrap img, .fboxgraphic img ');
-  </script>
-  <![endif]-->
-
-  <!--
-    The following feed links are taken from the WordPress site verbatim, and
-    left here mostly as an example so that we won't have to look up the syntax
-    of a RSS feed link when we later add our own. Buildpunkt will have it's
-    own RSS and ATOM feeds, but we'll probably not be syndicating posts and
-    comments the way WordPress does so this will need some modification.
-
-    FIXME: Determine which feeds will be provided from which pages in what
-           formats, and re-write accordingly.
-    -->
-  <!--
-  <link
-    rel="alternate"
-    type="application/rss+xml"
-    title="Buildpunkt » Feed"
-    href="http://buildpunkt.com/feed"
-    />
-  <link
-    rel="alternate"
-    type="application/rss+xml"
-    title="Buildpunkt » Comments Feed"
-    href="http://buildpunkt.com/comments/feed"
-    />
-  <link
-    rel="alternate"
-    type="application/rss+xml"
-    title="Buildpunkt » Home Comments Feed"
-    href="http://buildpunkt.com/home/feed"
-    />
-  -->
-
-  <!--
-    The primary stylesheets of the site. This template is based off of a
-    mockup site that was originally put together using the PageLines Pro
-    WordPress theme. The stylesheet “platformpro.pro.css” includes the premium
-    features, whereas the file “Buildpunkt.v1.style.css” includes first the
-    base PageLines theme styling, then our own customizations to it. Finally,
-    there are some user agent specific stylesheets to correct problems in
-    particular browsers.
-    -->
-  <link
-    id="pagelines-pro-css"
-    rel="stylesheet"
-    type="text/css"
-    media="all"
-    href="/static/css/platformpro.pro.css"
-    />
-  <link
-    id="pagelines-stylesheet-css"
-    rel="stylesheet"
-    type="text/css"
-    media="all"
-    href="/static/css/Buildpunkt.v1.style.css"
-    />
-  <!--[if lte IE 6]>
-  <link
-    id='ie6-style-css'
-    rel='stylesheet'
-    type='text/css'
-    media='all'
-    href='/static/css/platformpro.ie6.css'
-    />
-  <![endif]-->
-  <!--[if IE 7]>
-  <link
-    id='ie7-style-css'
-    rel='stylesheet'
-    type='text/css'
-    media='all'
-    href='/static/css/platformpro.ie7.css'
-    />
-  <![endif]-->
-
-  <!--
-    Some WordPress-generated JavaScript related to localization. Not sure of
-    its function or relevance.
-
-    FIXME: Figure out what wp.l10n.js is all about.
-    -->
-  <script
-    type="text/javascript"
-    src="/static/js/wp.l10n.js"
-    ></script>
-
-  <!--
-    jQuery, a multi-purpose JavaScript framework. We grab Google CDN's jQuery,
-    and fall back on our own if Google is not available. 1.4.4 is an outdated
-    version of jQuery, but it is what WordPress 3.1 ships with. Until we have
-    a chance to independently test for compatibility issues with the latest
-    jQuery, we'll leave it at version 1.4.4.
-
-    FIXME: Test compatibility with the most recent stable release of jQuery,
-           and then upgrade if we can.
-    -->
-  <script
-    type="text/javascript"
-    src="http://ajax.googleapis.com/ajax/libs/jquery/1.4.4/jquery.min.js"
-    ></script>
-  <script type="text/javascript">
-    !window.jQuery && document.write(unescape('%3Cscript type="text/javascript" src="<?php echo $media_url ?>js/lib/jquery/1.4.4/jquery.min.js"%3E%3C/script%3E'));
-  </script>
-
-  <!--
-    Capture jQuery to remain compatible with other frameworks and libraries,
-    but without removing it from the global scope.
-    -->
-  <script type="text/javascript">
-    var $j = jQuery.noConflict();
-  </script>
-
-  <!--
-    Modernizr HTML5 detection library tests the browser for support of new
-    HTML5 features, and adds classes to the <html> element allowing us to
-    target specific browser functionality in our stylesheets.
-    -->
-  <script
-    type="text/javascript"
-    src="/static/js/lib/modernizr/1.7/modernizr.min.js"
-    ></script>
-
-  <!--
-    X3DOM is a JavaScript framework for displaying X3D files in a cross-
-    platform manner within the browser.
-    -->
-  <script
-    type="text/javascript"
-    src="/static/js/lib/x3dom/1.1/x3dom.js"
-    ></script>
-
-  <!--
-    Some JavaScript from WordPress that has to do with the comments system.
-
-    FIXME: Check if this is even relevant anymore.
-    -->
-  <script
-    type="text/javascript"
-    src="/static/js/wp.comment-reply.js"
-    ></script>
-
-  <!--
-    The following “index”, “prev”, and “next” related links provide some
-    context to the user agent (with obvious semantics), and are particularly
-    important to web crawlers. They are commented out because some thought
-    needs to go how they will be used in Buildpunkt.
-
-    FIXME: Figure out how to define “index”, “prev”, and “next” related links
-           for Buildpunkt.
-    -->
-  <!--
-  <link
-    rel="index"
-    title="FIXME"
-    href="/FIXME"
-    />
-  <link
-    rel="prev"
-    title="FIXME"
-    href="/FIXME"
-    />
-  <link
-    rel="next"
-    title="FIXME"
-    href="/FIXME"
-    />
-  -->
-
-  <!--
-    When a resource is accessible from multiple locations, the “canonical” rel
-    link provides a way to inform web crawlers and other automated tools which
-    URI to use as its primary identifier.
-
-    FIXME: Add code to output the canonical URL.
-    -->
-  <!--
-  <link
-    rel="canonical"
-    href="http://buildpunkt.com/FIXME"
-    />
-  -->
-
-  <!--
-    This in-line JavaScript originates from the PageLines theme. Without
-    looking too closely, it appears to be setting the title attribute on the
-    anchor tags for each feature, as well as some of the parameters for
-    cycling the features. This may not relate at all to the way in which we
-    are using the theme.
-
-    FIXME: Determine if this code is necessary and what to do with it.
-    -->
-  <script type="text/javascript">
-    /* <![CDATA[ */
-    $j(document).ready(function () {
-      $j('#cycle').cycle({fx: 'fade', sync: 1, timeout: 0, speed: 1500, cleartype: true, cleartypeNoBg: true, pager: 'div#featurenav'});$j("div#featurenav").children("a").each(function() { if($j(this).html() == "1") { $j(this).attr("title", "feature 1");  }if($j(this).html() == "2") { $j(this).attr("title", "feature 2");  }if($j(this).html() == "3") { $j(this).attr("title", "feature 3");  }if($j(this).html() == "4") { $j(this).attr("title", "feature 4");  }if($j(this).html() == "5") { $j(this).attr("title", "feature 5");  }if($j(this).html() == "6") { $j(this).attr("title", "feature 6");  } });
-    });
-    /* ]]> */
-  </script>
-
-  <!--
-    The Buildpunkt.v1.dynamic.css file was auto-generated by PageLines from
-    the PageLines settings pages in the WordPress administrative interface.
-    The CSS for this file should eventually be worked into the general
-    stylesheets above.
-
-    FIXME: Combine the dynamic CSS with the other theme stylesheets.
-    -->
-  <link
-    id="pagelines-dynamic-css"
-    rel="stylesheet"
-    type="text/css"
-    media="all"
-    href="/static/css/Buildpunkt.v1.dynamic.css"
-    />
-
-  <!--
-    This is a variation of the official analytics snippet:
-      <http://mathiasbynens.be/notes/async-analytics-snippet>
-
-    FIXME: Sign up for analytics, replace XXXXXX-XX with our site's ID and
-           uncomment to put it into effect.
-    -->
-  <!--
-  <script>
-    var _gaq = [['_setAccount', 'UA-XXXXXX-XX'], ['_trackPageview']];
-    (function(d, t) {
-      var g = d.createElement(t),
-      s = d.getElementsByTagName(t)[0];
-      g.async = true;
-      g.src = '//www.google-analytics.com/ga.js';
-      s.parentNode.insertBefore(g, s);
-    })(document, 'script');
-  </script>
-  -->
-</head>
+  {% endblock javascript %}
+{% endblock head %}</head>
 
 <!--
   The id="buildpunkt-com" is useful for creating CSS that can be shared across
@@ -1115,3 +1152,7 @@
 </body>
 
 </html>
+
+{###-----------------------------------------------------------------------###
+ End of File
+###-----------------------------------------------------------------------###}
