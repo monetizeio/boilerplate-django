@@ -370,7 +370,7 @@
 	/* Branding Section */
 	
 	#branding .content{ z-index:10; }
-	#branding .content-pad{ padding: 25px 0px 25px 15px; }
+	#branding .content-pad{ padding: 25px 0px 25px 0px; }
 		#branding .branding_wrap{position: relative;zoom:1;}
 		h1 a{ font-size: 44px; line-height:.9; }
 			.site-description { font-size:.85em; margin-left: .2em;}
@@ -546,7 +546,7 @@
 		
 	}
 	
-	#header .searchform { float: right; }
+	#header .searchform { float: right; width: 440px; }
 	
 	.searchform input {
 		background:transparent;
@@ -561,6 +561,9 @@
 		height: 13px;
 		padding: 7px 30px 5px 7px;
 		width: 170px;
+	}
+	#header .searchform .searchfield{
+		width: 400px;
 	}
 
 	 .searchform input.submit {
