@@ -14,7 +14,7 @@ input[type="text"], input[type="password"], textarea, #dsq-content textarea{font
 
 /* Dynamic Layout --------------- */
 
-.fixed_width #page, .fixed_width #footer, .canvas #page-canvas{width:980px}
+.fixed_width #page, .fixed_width #footer, .canvas #page-canvas{width:962px}
 #page-main .content{width:962px}
 #site{min-width:962px}
 #site .content, .wcontent, #primary-nav ul.main-nav.nosearch{width:960px}
