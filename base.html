@@ -536,35 +536,39 @@
                       class="main_nav fix"
                       >
 
-                      <form
-                        class="searchform"
-                        method="get"
-                        action="http://buildpunkt.com/"
-                        onsubmit="this.submit();return false;"
-                        >
+                      {% block header_search_bar %}
 
-                        <fieldset>
+                        <form
+                          class="searchform"
+                          method="get"
+                          action="/search/"
+                          onsubmit="this.submit();return false;"
+                          >
 
-                          <input
-                            type="text"
-                            value="Search"
-                            name="s"
-                            class="searchfield"
-                            onfocus="if (this.value == 'Search') {this.value = '';}"
-                            onblur="if (this.value == '') {this.value = 'Search';}"
-                            />
+                          <fieldset>
 
-                          <input
-                            type="image"
-                            class="submit btn"
-                            name="submit"
-                            src="/static/img/search-btn.png"
-                            alt="Go"
-                            />
+                            <input
+                              type="text"
+                              value="{% block header_search_bar_default %}Search{% endblock %}"
+                              name="s"
+                              class="searchfield"
+                              onfocus="if (this.value == '{{ self.header_search_bar_default() }}') {this.value = '';}"
+                              onblur="if (this.value == '') {this.value = '{{ self.header_search_bar_default() }}';}"
+                              />
 
-                        </fieldset>
+                            <input
+                              type="image"
+                              class="submit btn"
+                              name="submit"
+                              src="/static/img/search-btn.png"
+                              alt="Go"
+                              />
 
-                      </form><!-- class="searchform" -->
+                          </fieldset>
+
+                        </form><!-- class="searchform" -->
+
+                      {% endblock header_search_bar %}
 
                       <ul
                         id="menu-main-menu"
