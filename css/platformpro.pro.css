@@ -109,7 +109,6 @@
 							border-right:none;
 						}
 			/* No Text */
-				#feature_slider .text-none .fcontent{ display: none; }
 				#feature_slider .text-none .fmedia{ width: 100%; }
 				#feature_slider .text-none .fmedia .dcol-pad{
 					padding: 0px;
@@ -218,7 +217,6 @@
 				padding:8px;
 			}
 			#feature-footer.nonav {border:none; }
-			#feature-footer.nonav .feature-footer-pad {display: none;}
 			
 		#featurenav {
 			display:inline;
