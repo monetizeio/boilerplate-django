@@ -114,18 +114,7 @@ body{}
 #nav_row.main_nav, ul.sf-menu ul li [padding-bottom: 8px;}
 .main_nav {margin-bottom: 7px;}
 .post.fpost .entry, #soapbox .fboxinfo, #feature-footer.nonav { border-top: none; }
-body.home #page-main { display: none; }
 #soapbox .categorytitle { margin-bottom:1.5em; border-bottom: 1px solid #E9E9E9; }
 #soapbox .fboxinfo { padding:1.0em 0; }
-
-body.blog div#feature { display: none; }
-body.blog div#soapbox { display: none; }
-body.blog div#twitterbar { display: none; }
-.one-sidebar-right div#theloop { display: none; }
-
-
-
-
-
 
 /* Triggered By AJAX -- Upload Directory */
