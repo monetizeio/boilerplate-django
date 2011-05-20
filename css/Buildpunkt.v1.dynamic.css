@@ -113,7 +113,8 @@ body{}
 .main_nav {margin-bottom: 7px;}
 .post.fpost .entry, #soapbox .fboxinfo, #feature-footer.nonav { border-top: none; }
 #soapbox .categorytitle { margin-bottom:1.5em; border-bottom: 1px solid #E9E9E9; }
-#soapbox .fboxinfo { padding:1.0em 0; }
+#soapbox .fboxinfo { padding:0.5em 0; }
+.finfo { padding: 0.5em 0; }
 .fheading { margin-bottom:0.5em; }
 .ftitle { float:left; }
 .fstats { float:right; }
