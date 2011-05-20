@@ -13,7 +13,7 @@
 
 /* Formatting Setup */
 	body{ font-size: 87.5%; line-height:1.6em; height:100%; padding-top: 5px; } 
-	#page, #dynamic-content { min-height: 500px; zoom:1;}
+	#page, #dynamic-content { zoom:1;}
 	#page-canvas{ margin: 0 auto; }
 		
 /* ============================ */
