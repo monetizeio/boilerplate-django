@@ -3,7 +3,7 @@
 /* Typography --------------- */
 
 /* Set Type */
-h1, h2, h3, h4, h5, h6, .site-title{font-family:"LucidaRoman", arial, serif;letter-spacing:0.00em;text-transform:none;font-weight:normal;font-variant:normal;font-style:normal;}
+h1, h2, h3, h4, h5, h6, .build-text, .site-title{font-family:"LucidaRoman", arial, serif;letter-spacing:0.00em;text-transform:none;font-weight:normal;font-variant:normal;font-style:normal;}
 
 body, .font1, .font-primary, .commentlist{font-family:"LucidaRoman", arial, serif;letter-spacing:0.00em;text-transform:none;font-weight:normal;font-variant:normal;font-style:normal;}
 
