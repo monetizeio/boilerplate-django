@@ -576,10 +576,12 @@
                           <fieldset>
 
                             <input
+                              id="searchform-header"
                               type="text"
                               value=""
                               name="s"
                               class="searchfield"
+                              autofocus
                               />
 
                             <input
@@ -669,6 +671,16 @@
     {% endblock footer %}
 
   </div><!-- id="site" -->
+
+  <!--
+  -->
+  <script type="text/javascript">
+    $j(document).ready(function(){
+      if (!("autofocus" in document.createElement("input"))) {
+        document.getElementById("searchform-header").focus();
+      }
+    })
+  </script>
 
   <!--
     Div Class Clear – Without the Markup. The following JavaScript re-inserts
