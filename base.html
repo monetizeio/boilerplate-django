@@ -577,11 +577,9 @@
 
                             <input
                               type="text"
-                              value="{% block header_search_bar_default %}Search{% endblock %}"
+                              value=""
                               name="s"
                               class="searchfield"
-                              onfocus="if (this.value == '{{ self.header_search_bar_default() }}') {this.value = '';}"
-                              onblur="if (this.value == '') {this.value = '{{ self.header_search_bar_default() }}';}"
                               />
 
                             <input
