@@ -74,7 +74,7 @@
 #x3dom_logdiv { display:none; }
 
 #soapbox .fboxgraphic {
-  background: #000 url(../img/platformpro/feature-area-bg.png) repeat-x left bottom;
+  background: none repeat scroll 0 0 #F7F7F7;
   border-left: 1px solid #d9d9d9;
   border-right: 1px solid #d9d9d9;
   border-bottom: 1px solid #d9d9d9;
