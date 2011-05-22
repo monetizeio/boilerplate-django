@@ -5,7 +5,7 @@
 /* Set Type */
 h1, h2, h3, h4, h5, h6, .build-text, .site-title{font-family:"LucidaRoman", arial, serif;letter-spacing:0.00em;text-transform:none;font-weight:normal;font-variant:normal;font-style:normal;}
 
-body, .font1, .font-primary, .commentlist{font-family:"LucidaRoman", arial, serif;letter-spacing:0.00em;text-transform:none;font-weight:normal;font-variant:normal;font-style:normal;}
+body, .font1, .font-primary, .commentlist{font-family:"Helvetica Neue",Helvetica,arial,sans-serif;letter-spacing:0.00em;text-transform:none;font-weight:normal;font-variant:normal;font-style:normal;}
 
 .font2, .font-sub, ul.main-nav li a, #secondnav li a, .metabar, .subtext, .subhead, .widget-title, .post-comments, .reply a, .editpage, #pagination .wp-pagenavi, .post-edit-link, #wp-calendar caption, #wp-calendar thead th, .soapbox-links a, .fancybox, .standard-form .admin-links, #featurenav a, .pagelines-blink, .ftitle small{font-family:"LucidaRoman", arial, serif;letter-spacing:0.10em;text-transform:uppercase;font-weight:normal;font-variant:normal;font-style:normal;}
 
