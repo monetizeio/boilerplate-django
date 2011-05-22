@@ -837,6 +837,7 @@
 
 /* @ Footer */
 	#footer {
+	  background: none repeat scroll 0 0 #212121;
 		clear:both;
 		font-size:1em;
 		overflow:hidden;

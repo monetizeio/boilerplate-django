@@ -73,8 +73,8 @@ input[type="text"], input[type="password"], textarea, #dsq-content textarea{font
 /* Options --------------- */
 
 body, body.fixed_width{background-color:#000000;}
-body #page, .sf-menu li, #primary-nav ul.sf-menu a:focus, .sf-menu a:hover, .sf-menu a:active, .commentlist ul.children .even, .alt #commentform textarea{background-color:#FFFFFF;}
-.canvas #page-canvas{background-color:#FFFFFF;}
+body #page, .sf-menu li, #primary-nav ul.sf-menu a:focus, .sf-menu a:hover, .sf-menu a:active, .commentlist ul.children .even, .alt #commentform textarea{background-color:transparent;}
+.canvas #page-canvas{background-color:transparent;}
 hr, .fpost, .clip_box, .widget-title, #buddypress-page .item-list li, .metabar a, #morefoot .widget-title, #site #dsq-content h3, .post.fpost .entry, #soapbox .fboxinfo,  #primary-nav #nav_row, .fpost.sticky{border-color:#E9E9E9;}
 h1, h2, h3, h4, h5, h6, a.site-title, .entry-title a, .entry-title a:hover, .widget-title a:hover, h3.widget-title a:hover{color:#000000;}
 #page, .tcolor1, #subnav ul li a:active, .commentlist cite a, #breadcrumb a, .metabar a:hover, .post-nav a:hover, .post-footer a, #buddypress-page #object-nav ul li a, #buddypress-page table.forum .td-title a, #buddypress-page #subnav a:hover, #buddypress-page #subnav li.current a, #twitterbar a, #carousel .carousel_text, #site #dsq-content .dsq-request-user-info td a, #pagination .wp-pagenavi a:hover, #pagination .wp-pagenavi .current, #primary-nav .main-nav li a:hover, #featurenav a.activeSlide, .content-pagination a:hover .cp-num{color:#000000;}
@@ -103,7 +103,7 @@ blockquote, input, textarea, .searchform .searchfield, .wp-caption, .widget-defa
 
 /* Custom CSS */
 
-body{}
+body{background: url('/static/img/texture-light.png') repeat;}
 #header .searchform { float : right; }
 .main_nav ul { float : right; }
 .main_nav ul li { float : right }
