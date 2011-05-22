@@ -118,5 +118,6 @@ body{}
 .fheading { margin-bottom:0.5em; }
 .ftitle { float:left; }
 .fstats { float:right; }
+.finfo { margin-bottom:0.5em; }
 
 /* Triggered By AJAX -- Upload Directory */
