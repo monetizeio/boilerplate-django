@@ -112,7 +112,7 @@ body{background: url('/static/img/texture-light.png') repeat;}
 #nav_row.main_nav, ul.sf-menu ul li [padding-bottom: 8px;}
 .main_nav {margin-bottom: 7px;}
 .post.fpost .entry, #soapbox .fboxinfo, #feature-footer.nonav { border-top: none; }
-#soapbox .categorytitle { margin-bottom:1.5em; border-bottom: 1px solid #E9E9E9; }
+#soapbox .categorytitle { margin-bottom:18px; border-bottom: 1px solid #E9E9E9; }
 #soapbox .fboxinfo { padding:0.5em 0; }
 .finfo { padding: 0.5em 0; }
 .fheading { margin-bottom:0.5em; }
