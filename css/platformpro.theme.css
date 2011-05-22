@@ -12,7 +12,7 @@
 
 
 /* Formatting Setup */
-	body{ font-size: 87.5%; line-height:1.6em; height:100%; padding-top: 5px; } 
+	body{ font-size: 87.5%; line-height:1.6em; height:100%; }
 	#page, #dynamic-content { zoom:1;}
 	#page-canvas{ margin: 0 auto; }
 		
