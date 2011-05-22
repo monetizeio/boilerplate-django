@@ -115,7 +115,7 @@
 				border-bottom: 1px solid #E9E9E9; 
 			}
 		
-			#nav_row.main_nav, ul.sf-menu ul li{ border-bottom: 1px solid #E9E9E9; }
+			#nav_row.main_nav, ul.sf-menu ul li{ border-bottom: none; }
 			.post.fpost .entry, #soapbox .fboxinfo, #feature-footer.nonav { border-top: 1px solid #E9E9E9; } 
 
 			#feature-footer{ border: 1px solid #E9E9E9; }
