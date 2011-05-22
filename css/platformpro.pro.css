@@ -24,6 +24,12 @@
 	}
 	#feature-area .fcontainer{	
 		background: #000 url(../img/platformpro/feature-area-bg.png) repeat-x left bottom;
+		border-left: 1px solid #d9d9d9;
+		border-right: 1px solid #d9d9d9;
+		border-bottom: 1px solid #d9d9d9;
+		border-top: 1px solid #d9d9d9;
+		width: 960px;
+		height: 540px;
 	}
 
 	#feature-area .fcontainer.fstyle-nobg {	 background: none; }

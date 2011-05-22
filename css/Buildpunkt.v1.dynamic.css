@@ -16,8 +16,8 @@ input[type="text"], input[type="password"], textarea, #dsq-content textarea{font
 
 .fixed_width #page, .fixed_width #footer, .canvas #page-canvas{width:962px}
 #page-main .content{width:962px}
-#site{min-width:962px}
-#site .content, .wcontent, #primary-nav ul.main-nav.nosearch{width:960px}
+#site{min-width:964px}
+#site .content, .wcontent, #primary-nav ul.main-nav.nosearch{width:962px}
 #primary-nav ul.main-nav{width:740px}
 
 .fullwidth #pagelines_content #column-main, .fullwidth .wmain, .fullwidth #buddypress-page #container{width:960px}
@@ -65,7 +65,7 @@ input[type="text"], input[type="password"], textarea, #dsq-content textarea{font
 .dcol_3{width: 306px; margin-left: 20px;}
 
 .dcol_container_4{width: 980px; float: right;}
-.dcol_4{width: 225px; margin-left: 20px;}
+.dcol_4{width: 227px; margin-left: 18px;}
 
 .dcol_container_5{width: 980px; float: right;}
 .dcol_5{width: 176px; margin-left: 20px;}
