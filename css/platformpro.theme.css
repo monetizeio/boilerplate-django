@@ -541,7 +541,7 @@
 		
 	}
 	
-	#header .searchform { float: right; width: 440px; }
+	#header .searchform { width: 402px; }
 	
 	.searchform input {
 		background:transparent;
@@ -558,14 +558,14 @@
 		width: 170px;
 	}
 	#header .searchform .searchfield{
-		width: 402px;
+		width: 405px;
 	}
 
 	 .searchform input.submit {
 		margin:0;
 		padding:0;
 		position:absolute;
-		right:8px;
+		right:-36px;
 		top:4px;
 		height:17px;
 		width:17px;
