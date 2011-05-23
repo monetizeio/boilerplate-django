@@ -520,51 +520,77 @@
             class="outline"
             >
 
-            <div
-              id="branding"
-              class="container fix"
-              >
+            <div class="texture">
+              <div class="content">
+                <div class="content-pad">
 
-              <div class="texture">
-                <div class="content">
-                  <div class="content-pad">
-
-                    <div
-                      class="branding_wrap"
-                      >
-
-                      {% block header_branding_logo %}
-
-                        <a class="mainlogo-link" href="/" title=
-                        "Buildpunkt"><img class="mainlogo-img" src=
-                        "{% block branding_header_logo_uri %}/static/img/logo-header.png{% endblock %}"
-                        alt="Buildpunkt" /></a>
-
-                      {% endblock header_branding_logo %}
-
-                    </div><!-- class="branding_wrap" -->
-
-                  </div><!-- class="content-pad" -->
-                </div><!-- class="content" -->
-              </div><!-- class="texture" -->
-
-            </div><!-- id="branding" -->
-
-            <div
-              id="primary-nav"
-              class="container fix"
-              >
-
-              <div class="texture">
-                <div class="content">
-                  <div class="content-pad">
+                  <div
+                    id="header-bar"
+                    class="container fix"
+                    >
 
                     <div
-                      id="nav_row"
-                      class="main_nav fix"
+                      id="branding"
                       >
 
-                      {% block header_search_bar %}
+                      <div
+                        class="branding_wrap"
+                        >
+
+                        {% block header_branding_logo %}
+
+                          <a class="mainlogo-link" href="/" title=
+                          "Buildpunkt"><img class="mainlogo-img" src=
+                          "{% block branding_header_logo_uri %}/static/img/logo-header.png{% endblock %}"
+                          alt="Buildpunkt" /></a>
+
+                        {% endblock header_branding_logo %}
+
+                      </div><!-- class="branding_wrap" -->
+
+                    </div><!-- id="branding" -->
+
+                    <div
+                      id="primary-nav"
+                      >
+
+                      <div
+                        id="nav_row"
+                        class="main_nav fix"
+                        >
+
+                        <ul
+                          id="menu-main-menu"
+                          class="main-nav"
+                          >
+
+                          {% block primary_nav %}
+
+                            <li id="menu-item-17" class=
+                              "menu-item menu-item-type-custom menu-item-object-custom menu-item-17">
+                              <a href="/b/">Browse</a></li>
+
+                            <li id="menu-item-18" class=
+                              "menu-item menu-item-type-custom menu-item-object-custom menu-item-18">
+                              <a href="/+upload/">Upload</a></li>
+
+                            <li id="menu-item-19" class=
+                              "menu-item menu-item-type-custom menu-item-object-custom menu-item-19">
+                              <a href="/login/">Sign in</a></li>
+
+                          {% endblock primary_nav %}
+
+                        </ul><!-- id="menu-main-menu" -->
+
+                      </div><!-- id="nav_row" -->
+
+                    </div><!-- id="primary-nav" -->
+
+                    {% block header_search_bar %}
+
+                      <div
+                        id="header-search"
+                        >
 
                         <form
                           class="searchform"
@@ -596,38 +622,15 @@
 
                         </form><!-- class="searchform" -->
 
-                      {% endblock header_search_bar %}
+                      </div><!-- id="header-search" -->
 
-                      <ul
-                        id="menu-main-menu"
-                        class="main-nav"
-                        >
+                    {% endblock header_search_bar %}
 
-                        {% block primary_nav %}
+                  </div><!-- id="header-bar" -->
 
-                          <li id="menu-item-19" class=
-                            "menu-item menu-item-type-custom menu-item-object-custom menu-item-19">
-                            <a href="/login/">Sign in</a></li>
-
-                          <li id="menu-item-18" class=
-                            "menu-item menu-item-type-custom menu-item-object-custom menu-item-18">
-                            <a href="/+upload/">Upload</a></li>
-
-                          <li id="menu-item-17" class=
-                            "menu-item menu-item-type-custom menu-item-object-custom menu-item-17">
-                            <a href="/b/">Browse</a></li>
-
-                        {% endblock primary_nav %}
-
-                      </ul><!-- id="menu-main-menu" -->
-
-                    </div><!-- id="nav_row" -->
-
-                  </div><!-- class="content-pad" -->
-                </div><!-- class="content" -->
-              </div><!-- class="texture" -->
-
-            </div><!-- id="primary-nav" -->
+                </div><!-- class="content-pad" -->
+              </div><!-- class="content" -->
+            </div><!-- class="texture" -->
 
           </div><!-- class="outline" -->
 
