@@ -115,7 +115,7 @@ body{background: url('/static/img/texture-light.png') repeat;}
 .ftitle { float:left; }
 .fstats { float:right; }
 .finfo { margin-bottom:0.5em; }
-#header { position:relative; margin-top:25px;}
+#header { position:relative; padding-top:25px;}
 #branding { float:left; }
 #primary-nav { float:left; }
 #header-search { float:left; }
