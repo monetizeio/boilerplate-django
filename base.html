@@ -405,23 +405,6 @@
       ></script>
 
     <!--
-      This in-line JavaScript originates from the PageLines theme. Without
-      looking too closely, it appears to be setting the title attribute on the
-      anchor tags for each feature, as well as some of the parameters for
-      cycling the features. This may not relate at all to the way in which we
-      are using the theme.
-
-      FIXME: Determine if this code is necessary and what to do with it.
-      -->
-    <script type="text/javascript">
-      /* <![CDATA[ */
-      $j(document).ready(function () {
-        $j('#cycle').cycle({fx: 'fade', sync: 1, timeout: 0, speed: 1500, cleartype: true, cleartypeNoBg: true, pager: 'div#featurenav'});$j("div#featurenav").children("a").each(function() { if($j(this).html() == "1") { $j(this).attr("title", "feature 1");  }if($j(this).html() == "2") { $j(this).attr("title", "feature 2");  }if($j(this).html() == "3") { $j(this).attr("title", "feature 3");  }if($j(this).html() == "4") { $j(this).attr("title", "feature 4");  }if($j(this).html() == "5") { $j(this).attr("title", "feature 5");  }if($j(this).html() == "6") { $j(this).attr("title", "feature 6");  } });
-      });
-      /* ]]> */
-    </script>
-
-    <!--
       DD_belatedPNG is a Javascript library that sandwiches PNG image support
       into IE6 without much fuss. For more information, check out
       <http://www.dillerdesign.com/experiment/DD_belatedPNG/>.
