@@ -50,9 +50,7 @@
    # reason need to be parsed as soon as possible, often because a delay may
    # affect render speed, client behavior, or user experience.
    #}
-
   {% block time_sensitive %}
-
     {% block time_sensitive_behavior %}
       <!--
         This META field makes explicitly clear that we are using the Unicode
@@ -145,7 +143,6 @@
         -->
       <!--[if IE]><![endif]-->
     {% endblock time_sensitive_speed %}
-
   {% endblock time_sensitive %}
 
   <!--
