@@ -91,6 +91,10 @@ h6 a {
   text-transform:lowercase;
 }
 
+#menu-primary-nav #menu-item-account a {
+  text-transform:none;
+}
+
 #footer a {
   color:#dedede;
 }
