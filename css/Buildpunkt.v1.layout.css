@@ -26,31 +26,47 @@
   USE, OR SELL ANYTHING THAT IT MAY DESCRIBE, IN WHOLE OR IN PART.
 ***-----------------------------------------------------------------------***/
 
-.clear {
-  clear:both;
-}
+/*
+ * The .clear class is inserted wherever floats are used for layout purposes,
+ * just after the floated divs, to ensure that the structure of the parent div
+ * is adjusted to include the floated content.
+ */
+.clear { clear:both; }
 
+/*
+ * The following CSS implements sticky-footer functionality. It was taken
+ * primarily from the designer Ryan Fait's example[1], but required some
+ * modification to get it to work.
+ *
+ * [1] <http://ryanfait.com/sticky-footer/>
+ */
 #site {
-  min-height:100%;
   position:relative;
+  min-height:100%;
 }
 body, html, #page {
   height: 100%;
 }
 #page {
-  padding-bottom:75px;
+  padding-bottom:80px;
 }
 #footer {
-  bottom:0;
-  height:75px;
   position:absolute;
+  bottom:0;
   width:100%;
+  height:80px;
+}
+
+/*
+ * Fixes
+ */
+html, body {
+  margin:0;
+  padding:0;
 }
 
 body {
-  background:url("/static/img/texture-light.png") repeat scroll 0 0 transparent;
-  margin:0;
-  padding:0;
+  background:url("/static/img/texture-dark.png") repeat scroll 0 0 transparent;
 }
 
 #site {
