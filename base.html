@@ -490,7 +490,7 @@
                 method="get"
                 action="/search/"
                 onsubmit="this.submit();return false;"
-                >
+                >{% csrf_token %}
                 <fieldset>
                   <input
                     id="search-header"
