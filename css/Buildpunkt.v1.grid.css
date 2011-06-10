@@ -1,0 +1,232 @@
+/*** /static/css/Buildpunkt.v1.grid.css -----------------------------------***
+  Copyright (C) 2011, RokuSigma Inc. (Mark Friedenbach <mark@roku-sigma.com>)
+
+  RokuSigma Inc. (the “Company”) Confidential
+
+  NOTICE: All information contained herein is, and remains the property of the
+  Company. The intellectual and technical concepts contained herein are
+  proprietary to the Company and may be covered by U.S. and Foreign Patents,
+  patents in process, and are protected by trade secret or copyright law.
+  Dissemination of this information or reproduction of this material is
+  strictly forbidden unless prior written permission is obtained from the
+  Company. Access to the source code contained herein is hereby forbidden to
+  anyone except current Company employees, managers or contractors who have
+  executed Confidentiality and Non-disclosure agreements explicitly covering
+  such access.
+
+  The copyright notice above does not evidence any actual or intended
+  publication or disclosure of this source code, which includes information
+  that is confidential and/or proprietary, and is a trade secret, of the
+  Company. ANY REPRODUCTION, MODIFICATION, DISTRIBUTION, PUBLIC PERFORMANCE,
+  OR PUBLIC DISPLAY OF OR THROUGH USE OF THIS SOURCE CODE WITHOUT THE EXPRESS
+  WRITTEN CONSENT OF THE COMPANY IS STRICTLY PROHIBITED, AND IN VIOLATION OF
+  APPLICABLE LAWS AND INTERNATIONAL TREATIES. THE RECEIPT OR POSSESSION OF
+  THIS SOURCE CODE AND/OR RELATED INFORMATION DOES NOT CONVEY OR IMPLY ANY
+  RIGHTS TO REPRODUCE, DISCLOSE OR DISTRIBUTE ITS CONTENTS, OR TO MANUFACTURE,
+  USE, OR SELL ANYTHING THAT IT MAY DESCRIBE, IN WHOLE OR IN PART.
+***-----------------------------------------------------------------------***/
+
+.clear {
+  clear:both;
+}
+
+#site {
+  min-height:100%;
+  position:relative;
+}
+body, html, #page {
+  height: 100%;
+}
+#page {
+  padding-bottom:75px;
+}
+#footer {
+  bottom:0;
+  height:75px;
+  position:absolute;
+  width:100%;
+}
+
+body {
+  background:url("/static/img/texture-light.png") repeat scroll 0 0 transparent;
+  margin:0;
+  padding:0;
+}
+
+#site {
+  min-width:970px;
+}
+#page {
+  width:960px;
+  margin:0 auto 0;
+}
+
+#header {
+  width 960px;
+  margin:0 auto 0;
+  padding-top:28px;
+}
+
+#logo-header,
+#header form.search,
+#menu-primary-nav {
+  position:relative;
+  float:left;
+}
+#logo-header {
+  width:240px;
+}
+
+form.search {
+  position:relative;
+  margin-left:15px;
+}
+#header form.search {
+  width:705px;
+}
+#header form.search fieldset {
+  margin:3px auto 0;
+  padding:0 0 0 0;
+  border:none;
+}
+form.search input[type="text"].searchfield {
+  background:none repeat scroll 0 0 #F7F7F7;
+  background-color: #F7F7F7;
+  padding:7px 30px 5px 7px;
+  margin:0 0 0 0;
+  border-top-color:#ddd;
+  border-left-color:#ddd;
+  border-right-color:#e9e9e9;
+  border-bottom-color:#e9e9e9;
+  -moz-border-bottom-colors:none;
+  -moz-border-image:none;
+  -moz-border-left-colors:none;
+  -moz-border-right-colors:none;
+  -moz-border-top-colors:none;
+  border-style: solid;
+  border-width: 1px;
+  color:#222;
+  font-family: "Helvetica Neue",Helvetica,arial,sans-serif;
+  font-size: 13px;
+}
+#header form.search input[type="text"].searchfield {
+  width:666px;
+}
+form.search input.submit {
+  border-width:0;
+  height:17px;
+  margin:0;
+  padding:0;
+  position:absolute;
+  right:5px;
+  top:8px;
+  width:17px;
+}
+
+#menu-primary-nav {
+  position:absolute;
+  width:960px;
+  float:right;
+  margin:-24px 0 0;
+  padding:0;
+  list-style:disc outside none;
+}
+#menu-primary-nav li {
+  float:right;
+  list-style-type:none;
+  padding-left:0.75em;
+}
+
+#footer {
+  background:none repeat scroll 0 0 #111;
+}
+
+#footer-canvas {
+  width:960px;
+  margin:0 auto 0;
+  padding:20px 0 1em;
+}
+
+#footer {
+  color:#999;
+  text-shadow:0 -1px 0 #111;
+  font-size:1em;
+  text-align:left;
+}
+
+#logo-footer {
+  float:left;
+  padding-right:20px;
+}
+
+#menu-footer-nav {
+  float:left;
+  margin:10px 10px 0;
+  padding:0 5px;
+  list-style:disc outside none;
+  width:400px;
+}
+#menu-footer-nav li {
+  float:left;
+  list-style-type:none;
+  padding:0 10px;
+}
+
+#copyright {
+  float:right;
+  margin-top:10px;
+}
+
+#content-body {
+  margin-top:1em;
+}
+
+.asset-embed {
+  border: medium none;
+  -moz-border-bottom-colors: none;
+  -moz-border-image: none;
+  -moz-border-left-colors: none;
+  -moz-border-right-colors: none;
+  -moz-border-top-colors: none;
+  background: none repeat scroll 0 0 #FFFFFF;
+  border-color: #E5E5E5 #DBDBDB #D2D2D2;
+  border-radius: 3px 3px 3px 3px;
+  border-style: solid;
+  border-width: 1px;
+  box-shadow: 0 1px 3px rgba(0, 0, 0, 0.45);
+  padding:3px;
+  margin-left:-4px;
+  margin-bottom:0.5em;
+  text-align: left;
+}
+#featured-asset .asset-embed {
+  width:960px;
+  height:540px;
+}
+.category-entries .asset-embed {
+  width:225px;
+  height:128px;
+}
+
+#featured-asset .asset-meta {
+  margin-top:1em;
+  margin-bottom:0.5em;
+}
+
+#featured-asset .asset-title {
+  float:left;
+}
+#featured-asset .asset-title h4 {
+  margin:0;
+}
+#featured-asset .asset-stats {
+  float:right;
+}
+
+#x3dom_logdiv {
+  display:none;
+}
+
+/***-----------------------------------------------------------------------***
+  End of File
+***-----------------------------------------------------------------------***/
