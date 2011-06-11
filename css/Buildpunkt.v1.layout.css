@@ -57,43 +57,160 @@ body, html, #page {
   height:80px;
 }
 
+/*
+ * Aaron put together a slightly textured background for the site. It comes in
+ * two varients: light and dark, which are both shades of light-brown-gray.
+ * The dark is used for the page background and the light for the background
+ * of design elements like buttons and input fields.
+ */
 body {
   background:url("/static/img/texture-dark.png") repeat scroll 0 0 transparent;
 }
 
+/*
+ * The content of the site is constrained to a 960-pixel width, centered in
+ * the browser. But the site itself must be rendered with a 970 minimum width,
+ * to account for negative margins on some elements.
+ */
 #site {
   min-width:970px;
 }
-#page {
+#page-canvas,
+#footer-canvas {
   width:960px;
   margin:0 auto 0;
 }
 
+/*
+ * The header needs a little bit of room on the top for design purposes, but
+ * also to allow room for the primary-navigation (which is pushed into that
+ * space via a negative margin).
+ */
 #header {
-  width 960px;
-  margin:0 auto 0;
   padding-top:28px;
 }
 
+/*
+ * The logo and search form in the header are positioned relative to each
+ * other with floats. The primary navigation menu is overlayed on top with
+ * absolute positioning and some negative margins.
+ */
 #logo-header,
-#header form.search,
-#menu-primary-nav {
+#header form.search {
   position:relative;
   float:left;
 }
-#logo-header {
-  width:240px;
-}
 
-form.search {
-  position:relative;
-  margin-left:15px;
+/*
+ * The width of the current logo is exactly 240 pixels, with a 15px right
+ * margin. The search form is stretched to take up the remaining space. Should
+ * the size of the logo or width of the page ever change, these values will
+ * have to be updated. The formset of the search form also is given a 3px
+ * margin on the top in order to better align it with the menu bar.
+ */
+#logo-header {
+  margin-right:15px;
 }
 #header form.search {
-  width:705px;
+  width:690px;
 }
 #header form.search fieldset {
-  margin:3px auto 0;
+  margin:3px 0 0;
+}
+#header form.search input[type="text"].searchfield {
+  width:666px;
+}
+
+/*
+ * The primary-navigation menu is displayed as horizontal textual links
+ * separated by | characters (written in-line) rather than added as styling.
+ * So the default list styling is removed. The menu is placed where it needs
+ * to be with absolute positioning (relative to the upper-left corner of
+ * #header div). Therefore a negative margin pulls the #menu-primary-nav above
+ * the other #header elements, where it needs to be.
+ */
+#menu-primary-nav {
+  position:absolute;
+  width:960px;
+  margin:-24px 0 0;
+  padding:0;
+  list-style:none outside none;
+}
+#menu-primary-nav li {
+  float:right;
+  padding-left:0.75em;
+  list-style-type:none;
+}
+
+/*
+ * The footer is a full-width black background, with a 20px margin before the
+ * #footer content actually starts.
+ */
+#footer {
+  background:none repeat scroll 0 0 #111;
+}
+#footer-canvas {
+  padding:20px 0 0;
+}
+
+/*
+ * The contents of the footer are positioned relative to each other with
+ * floating elements. The logo and menu float left and the copyright floats
+ * right.
+ */
+#logo-footer {
+  position:relative;
+  float:left;
+  margin-right:20px;
+  padding:0;
+}
+#menu-footer-nav {
+  position:relative;
+  float:left;
+  margin:10px 15px 0;
+  padding:0;
+}
+#menu-footer-nav li {
+  float:left;
+  margin:0;
+  padding:0 10px;
+}
+#copyright {
+  float:right;
+  margin-top:10px;
+}
+
+/*
+ * The footer-navigation menu is represented in the markup as an unordered
+ * list. It is rendered as a horizontal list of links, with just spacing
+ * between each element.
+ */
+#menu-footer-nav {
+  list-style:none outside none;
+}
+#menu-footer-nav li {
+  list-style-type:none;
+}
+
+/*
+ * There is a 1em gap between the header and the start of the content area.
+ */
+#content-body {
+  margin-top:1em;
+}
+
+/*
+ * The search form is styled differently from other forms as search has become
+ * such a standard element of every site that special attention does not have
+ * to be paid to it. In fact it is better if it is more tightly integrated
+ * into the design of the site, inconspicuous but visible when and where the
+ * user expects it to be. This search form is a simple rectangular element
+ * with a magnefying glass icon as the submit button.
+ */
+form.search {
+  position:relative;
+}
+form.search fieldset {
   padding:0 0 0 0;
   border:none;
 }
@@ -110,14 +227,8 @@ form.search input[type="text"].searchfield {
   -moz-border-left-colors:none;
   -moz-border-right-colors:none;
   -moz-border-top-colors:none;
-  border-style: solid;
-  border-width: 1px;
-  color:#222;
-  font-family: "Helvetica Neue",Helvetica,arial,sans-serif;
-  font-size: 13px;
-}
-#header form.search input[type="text"].searchfield {
-  width:666px;
+  border-style:solid;
+  border-width:1px;
 }
 form.search input.submit {
   border-width:0;
@@ -125,67 +236,9 @@ form.search input.submit {
   margin:0;
   padding:0;
   position:absolute;
-  right:5px;
-  top:8px;
+  right:-10px;
+  top:9px;
   width:17px;
-}
-
-#menu-primary-nav {
-  position:absolute;
-  width:960px;
-  float:right;
-  margin:-24px 0 0;
-  padding:0;
-  list-style:disc outside none;
-}
-#menu-primary-nav li {
-  float:right;
-  list-style-type:none;
-  padding-left:0.75em;
-}
-
-#footer {
-  background:none repeat scroll 0 0 #111;
-}
-
-#footer-canvas {
-  width:960px;
-  margin:0 auto 0;
-  padding:20px 0 1em;
-}
-
-#footer {
-  color:#999;
-  text-shadow:0 -1px 0 #111;
-  font-size:1em;
-  text-align:left;
-}
-
-#logo-footer {
-  float:left;
-  padding-right:20px;
-}
-
-#menu-footer-nav {
-  float:left;
-  margin:10px 10px 0;
-  padding:0 5px;
-  list-style:disc outside none;
-  width:400px;
-}
-#menu-footer-nav li {
-  float:left;
-  list-style-type:none;
-  padding:0 10px;
-}
-
-#copyright {
-  float:right;
-  margin-top:10px;
-}
-
-#content-body {
-  margin-top:1em;
 }
 
 .asset-embed {
@@ -195,7 +248,7 @@ form.search input.submit {
   -moz-border-left-colors: none;
   -moz-border-right-colors: none;
   -moz-border-top-colors: none;
-  -webkit-box-shadow: rgba(0, 0, 0, 0.449219) 0px 1px 3px;
+  -webkit-box-shadow: rgba(0, 0, 0, 0.45) 0px 1px 3px;
   border-bottom-left-radius: 3px 3px;
   border-bottom-left-radius: 3px 3px;
   border-bottom-left-radius: 3px 3px;
@@ -208,8 +261,8 @@ form.search input.submit {
   border-top-right-radius: 3px 3px;
   border-top-right-radius: 3px 3px;
   border-top-right-radius: 3px 3px;
-  background: none repeat scroll 0 0 #FFFFFF;
-  border-color: #E5E5E5 #DBDBDB #D2D2D2;
+  background: none repeat scroll 0 0 #fff;
+  border-color: #e5e5e5 #dbdbdb #d2d2d2;
   border-radius: 3px 3px 3px 3px;
   border-style: solid;
   border-width: 1px;
