@@ -1,4 +1,6 @@
-{### registration/login.html ----------------------------------------------###
+{% extends "base.html" %}
+
+{% comment %} auth/login.html ---------------------------------------------===
   Copyright (C) 2011, RokuSigma Inc. (Mark Friedenbach <mark@roku-sigma.com>)
 
   RokuSigma Inc. (the “Company”) Confidential
@@ -24,16 +26,16 @@
   THIS SOURCE CODE AND/OR RELATED INFORMATION DOES NOT CONVEY OR IMPLY ANY
   RIGHTS TO REPRODUCE, DISCLOSE OR DISTRIBUTE ITS CONTENTS, OR TO MANUFACTURE,
   USE, OR SELL ANYTHING THAT IT MAY DESCRIBE, IN WHOLE OR IN PART.
-###-----------------------------------------------------------------------###}
+===-----------------------------------------------------------{% endcomment %}
 
-{###-----------------------------------------------------------------------###
+{% comment %}--------------------------------------------------------------===
   This file was based on previous work distributed under the terms of the
   copyright notice and disclaimer that follows. Modifications made to this
   file since then are the property of RokuSigma Inc. and covered by company
   confidentiality agreements, as declared above.
-###-----------------------------------------------------------------------###}
+===-----------------------------------------------------------{% endcomment %}
 
-{###-----------------------------------------------------------------------###
+{% comment %}--------------------------------------------------------------===
   Copyright (c) 2010 Charlie DeTar
 
   Permission is hereby granted, free of charge, to any person obtaining a copy
@@ -53,9 +55,9 @@
   LIABILITY, WHETHER IN AN ACTION OF CONTRACT, TORT OR OTHERWISE, ARISING
   FROM, OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS
   IN THE SOFTWARE.
-###-----------------------------------------------------------------------###}
+===-----------------------------------------------------------{% endcomment %}
 
-{### registration/login.html ----------------------------------------------###
+{% comment %} auth/login.html ---------------------------------------------===
   It's your responsibility to provide the login form in a template called
   registration/login.html by default. This template gets passed four template
   context variables:
@@ -78,11 +80,9 @@
       An alias for site.name. If you don't have the site framework installed,
       this will be set to the value of request.META['SERVER_NAME']. For more
       on sites, see the “contrib.sites” framework.
-###-----------------------------------------------------------------------###}
+===-----------------------------------------------------------{% endcomment %}
 
-{% extends "base.html" %}
-
-{% block title %}{{ super() }} - Login{% endblock %}
+{% block title %}{{ block.super }} - Login{% endblock %}
 
 {% block content %}
   {% if form.errors %}
@@ -91,7 +91,7 @@
 
   <form
     method="post"
-    action="{{ 'django.contrib.auth.views.login'|url }}"
+    action="{% url auth_login %}"
     >{% csrf_token %}
 
     <table>
@@ -105,13 +105,13 @@
       </tr>
     </table>
 
-    <p><a href="{{ 'auth_password_reset'|url }}">Forgot</a> your password? <a href="{{ 'registration_register'|url }}">Need an account</a>?</p>
+    <p><a href="{% url auth_password_reset %}">Forgot</a> your password? <a href="{% url registration_register %}">Need an account</a>?</p>
 
     <input type="submit" value="login" />
     <input type="hidden" name="next" value="{{ next }}" />
   </form>
 {% endblock %}
 
-{###-----------------------------------------------------------------------###
+{% comment %}--------------------------------------------------------------===
   End of File
-###-----------------------------------------------------------------------###}
+===-----------------------------------------------------------{% endcomment %}

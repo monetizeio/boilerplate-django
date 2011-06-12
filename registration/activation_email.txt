@@ -1,4 +1,4 @@
-{### registration/activation_email.txt ------------------------------------###
+{% comment %} registration/activation_email.txt ---------------------------===
   Copyright (C) 2011, RokuSigma Inc. (Mark Friedenbach <mark@roku-sigma.com>)
 
   RokuSigma Inc. (the “Company”) Confidential
@@ -24,16 +24,16 @@
   THIS SOURCE CODE AND/OR RELATED INFORMATION DOES NOT CONVEY OR IMPLY ANY
   RIGHTS TO REPRODUCE, DISCLOSE OR DISTRIBUTE ITS CONTENTS, OR TO MANUFACTURE,
   USE, OR SELL ANYTHING THAT IT MAY DESCRIBE, IN WHOLE OR IN PART.
-###-----------------------------------------------------------------------###}
+===-----------------------------------------------------------{% endcomment %}
 
-{###-----------------------------------------------------------------------###
+{% comment %}--------------------------------------------------------------===
   This file was based on previous work distributed under the terms of the
   copyright notice and disclaimer that follows. Modifications made to this
   file since then are the property of RokuSigma Inc. and covered by company
   confidentiality agreements, as declared above.
-###-----------------------------------------------------------------------###}
+===-----------------------------------------------------------{% endcomment %}
 
-{###-----------------------------------------------------------------------###
+{% comment %}--------------------------------------------------------------===
   Copyright (c) 2010 Charlie DeTar
 
   Permission is hereby granted, free of charge, to any person obtaining a copy
@@ -53,9 +53,9 @@
   LIABILITY, WHETHER IN AN ACTION OF CONTRACT, TORT OR OTHERWISE, ARISING
   FROM, OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS
   IN THE SOFTWARE.
-###-----------------------------------------------------------------------###}
+===-----------------------------------------------------------{% endcomment %}
 
-{### registration/activation_email.txt ------------------------------------###
+{% comment %} registration/activation_email.txt ---------------------------===
   Used to generate the body of the activation email. Should display a link the
   user can click to activate the account. I would prefer to put this in the
   ‘account/’ directory with the other registration and activation templates,
@@ -80,7 +80,7 @@
   FIXME: figure out the best way to modify the Django-registration API to
          provide customized template names, so we can put this in the
          ‘account/’ directory, and file a bug report.
-###-----------------------------------------------------------------------###}
+===-----------------------------------------------------------{% endcomment %}
 
 You (or someone pretending to be you!) have registered an account at {{ site.name }}, which has to be activated. To do this, please follow the following link within the next {{ expiration_days }} days:
 
@@ -93,6 +93,6 @@ Do not reply to this automated email. Instead, please direct your correspondence
 Sincerely,
 {{ site.name }} Management
 
-{###-----------------------------------------------------------------------###
+{% comment %}--------------------------------------------------------------===
   End of File
-###-----------------------------------------------------------------------###}
+===-----------------------------------------------------------{% endcomment %}

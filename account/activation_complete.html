@@ -1,4 +1,6 @@
-{### account/activation_complete.html -------------------------------------###
+{% extends "base.html" %}
+
+{% comment %} account/activation_complete.html ----------------------------===
   Copyright (C) 2011, RokuSigma Inc. (Mark Friedenbach <mark@roku-sigma.com>)
 
   RokuSigma Inc. (the “Company”) Confidential
@@ -24,16 +26,16 @@
   THIS SOURCE CODE AND/OR RELATED INFORMATION DOES NOT CONVEY OR IMPLY ANY
   RIGHTS TO REPRODUCE, DISCLOSE OR DISTRIBUTE ITS CONTENTS, OR TO MANUFACTURE,
   USE, OR SELL ANYTHING THAT IT MAY DESCRIBE, IN WHOLE OR IN PART.
-###-----------------------------------------------------------------------###}
+===-----------------------------------------------------------{% endcomment %}
 
-{###-----------------------------------------------------------------------###
+{% comment %}--------------------------------------------------------------===
   This file was based on previous work distributed under the terms of the
   copyright notice and disclaimer that follows. Modifications made to this
   file since then are the property of RokuSigma Inc. and covered by company
   confidentiality agreements, as declared above.
-###-----------------------------------------------------------------------###}
+===-----------------------------------------------------------{% endcomment %}
 
-{###-----------------------------------------------------------------------###
+{% comment %}--------------------------------------------------------------===
   Copyright (c) 2010 Charlie DeTar
 
   Permission is hereby granted, free of charge, to any person obtaining a copy
@@ -53,22 +55,20 @@
   LIABILITY, WHETHER IN AN ACTION OF CONTRACT, TORT OR OTHERWISE, ARISING
   FROM, OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS
   IN THE SOFTWARE.
-###-----------------------------------------------------------------------###}
+===-----------------------------------------------------------{% endcomment %}
 
-{### account/activation_complete.html -------------------------------------###
+{% comment %} account/activation_complete.html ----------------------------===
   Used after successful account activation. This template has no context
   variables of its own, and should simply inform the user that their account
   is now active.
-###-----------------------------------------------------------------------###}
+===-----------------------------------------------------------{% endcomment %}
 
-{% extends "base.html" %}
-
-{% block title %}{{ super() }} - Activation complete{% endblock %}
+{% block title %}{{ block.super }} - Activation complete{% endblock %}
 
 {% block content %}
-  Thanks, activation is now complete! It's time to <a href="{{ 'auth_login'|url }}">login</a> using the username and password you set at registration, and start exploring the site!
+  Thanks, activation is now complete! It's time to <a href="{% url auth_login %}">login</a> using the username and password you set at registration, and start exploring the site!
 {% endblock %}
 
-{###-----------------------------------------------------------------------###
+{% comment %}--------------------------------------------------------------===
   End of File
-###-----------------------------------------------------------------------###}
+===-----------------------------------------------------------{% endcomment %}

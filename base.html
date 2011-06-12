@@ -1,4 +1,4 @@
-{### base.html ------------------------------------------------------------###
+{% comment %} base.html ---------------------------------------------------===
   Copyright (C) 2011, RokuSigma Inc. (Mark Friedenbach <mark@roku-sigma.com>)
 
   RokuSigma Inc. (the "Company") Confidential
@@ -24,7 +24,9 @@
   THIS SOURCE CODE AND/OR RELATED INFORMATION DOES NOT CONVEY OR IMPLY ANY
   RIGHTS TO REPRODUCE, DISCLOSE OR DISTRIBUTE ITS CONTENTS, OR TO MANUFACTURE,
   USE, OR SELL ANYTHING THAT IT MAY DESCRIBE, IN WHOLE OR IN PART.
-###-----------------------------------------------------------------------###}
+===-----------------------------------------------------------{% endcomment %}
+
+{% load macros %}
 
 <!-- The HTML5 doctype is just “html” -->
 {% block doctype %}<!DOCTYPE html>{% endblock %}
@@ -40,16 +42,17 @@
   with obvious semantics.
   -->
 <html
-  dir="{% block html_dir %}ltr{% endblock %}"
-  lang="{% block html_lang %}en-US{% endblock %}"
+  dir="{% macro html_dir %}{% block html_dir %}ltr{% endblock %}{% endmacro %}"
+  lang="{% macro html_lang %}{% block html_lang %}en-US{% endblock %}{% endmacro %}"
   class="{% block html_class %}no-js{% endblock %}"
   >
 
 <head>{% block head %}
-  {# The “time_sensitive” block contains header elements which for whatever
-   # reason need to be parsed as soon as possible, often because a delay may
-   # affect render speed, client behavior, or user experience.
-   #}
+  {% comment %}
+    The “time_sensitive” block contains header elements which for whatever
+    reason need to be parsed as soon as possible, often because a delay may
+    affect render speed, client behavior, or user experience.
+  {% endcomment %}
   {% block time_sensitive %}
     {% block time_sensitive_behavior %}
       <!--
@@ -75,7 +78,7 @@
         -->
       <meta
         name="language"
-        content="{{ self.html_lang() }}"
+        content="{% usemacro html_lang %}"
         />
     {% endblock time_sensitive_behavior %}
 
@@ -156,10 +159,11 @@
     />
   -->
 
-  {# The “semantic_web” block contains a mix of header elements which describe
-   # what this resource is, and how it relates to other resources accessible
-   # from elsewhere on the world wide web.
-   #}
+  {% comment %}
+    The “semantic_web” block contains a mix of header elements which describe
+    what this resource is, and how it relates to other resources accessible
+    from elsewhere on the world wide web.
+  {% endcomment %}
   {% block semantic_web %}
     <!--
       When a resource is accessible from multiple locations, the “canonical”
@@ -498,18 +502,18 @@
 
             <ul id="menu-primary-nav" class="menu menu-primary-nav">
               {% block primary_nav %}
-                {% if user.is_authenticated() %}
+                {% if user.is_authenticated %}
                   <li id="menu-item-sign-out" class="menu-item">
-                    <a href="{{ 'auth_logout'|url }}">Sign out</a></li>
+                    <a href="{% url auth_logout %}">Sign out</a></li>
                     <li>|</li>
                     <li id="menu-item-account" class="menu-item">
                       <a href="/account/">{{ user.username }}</a></li>
                 {% else %}
                   <li id="menu-item-sign-in" class="menu-item">
-                    <a href="{{ 'auth_login'|url }}">Sign in</a></li>
+                    <a href="{% url auth_login %}">Sign in</a></li>
                   <li>|</li>
                   <li id="menu-item-register" class="menu-item">
-                    <a href="{{ 'registration_register'|url }}">Register</a></li>
+                    <a href="{% url registration_register %}">Register</a></li>
                 {% endif %}
                 <li>|</li>
                 <li id="menu-item-upload" class="menu-item">
@@ -584,6 +588,6 @@
 
 </html>
 
-{###-----------------------------------------------------------------------###
+{% comment %}--------------------------------------------------------------===
   End of File
-###-----------------------------------------------------------------------###}
+===-----------------------------------------------------------{% endcomment %}

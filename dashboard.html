@@ -1,4 +1,6 @@
-{### dashboard.html -------------------------------------------------------###
+{% extends "base.html" %}
+
+{% comment %} dashboard.html ----------------------------------------------===
   Copyright (C) 2011, RokuSigma Inc. (Mark Friedenbach <mark@roku-sigma.com>)
 
   RokuSigma Inc. (the "Company") Confidential
@@ -24,9 +26,9 @@
   THIS SOURCE CODE AND/OR RELATED INFORMATION DOES NOT CONVEY OR IMPLY ANY
   RIGHTS TO REPRODUCE, DISCLOSE OR DISTRIBUTE ITS CONTENTS, OR TO MANUFACTURE,
   USE, OR SELL ANYTHING THAT IT MAY DESCRIBE, IN WHOLE OR IN PART.
-###-----------------------------------------------------------------------###}
+===-----------------------------------------------------------{% endcomment %}
 
-{% extends "base.html" %}
+{% block title %}{{ block.super }} - Dashboard{% endblock %}
 
 {% block content %}
   {% include "section.feature.html" %}
@@ -36,6 +38,6 @@
   {% include "section.category-list.html" %}
 {% endblock content_footer %}
 
-{###-----------------------------------------------------------------------###
+{% comment %}--------------------------------------------------------------===
   End of File
-###-----------------------------------------------------------------------###}
+===-----------------------------------------------------------{% endcomment %}

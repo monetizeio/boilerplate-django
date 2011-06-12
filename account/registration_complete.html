@@ -1,4 +1,6 @@
-{### account/registration_complete.html -----------------------------------###
+{% extends "base.html" %}
+
+{% comment %} account/registration_complete.html --------------------------===
   Copyright (C) 2011, RokuSigma Inc. (Mark Friedenbach <mark@roku-sigma.com>)
 
   RokuSigma Inc. (the “Company”) Confidential
@@ -24,16 +26,16 @@
   THIS SOURCE CODE AND/OR RELATED INFORMATION DOES NOT CONVEY OR IMPLY ANY
   RIGHTS TO REPRODUCE, DISCLOSE OR DISTRIBUTE ITS CONTENTS, OR TO MANUFACTURE,
   USE, OR SELL ANYTHING THAT IT MAY DESCRIBE, IN WHOLE OR IN PART.
-###-----------------------------------------------------------------------###}
+===-----------------------------------------------------------{% endcomment %}
 
-{###-----------------------------------------------------------------------###
+{% comment %}--------------------------------------------------------------===
   This file was based on previous work distributed under the terms of the
   copyright notice and disclaimer that follows. Modifications made to this
   file since then are the property of RokuSigma Inc. and covered by company
   confidentiality agreements, as declared above.
-###-----------------------------------------------------------------------###}
+===-----------------------------------------------------------{% endcomment %}
 
-{###-----------------------------------------------------------------------###
+{% comment %}--------------------------------------------------------------===
   Copyright (c) 2010 Charlie DeTar
 
   Permission is hereby granted, free of charge, to any person obtaining a copy
@@ -53,22 +55,20 @@
   LIABILITY, WHETHER IN AN ACTION OF CONTRACT, TORT OR OTHERWISE, ARISING
   FROM, OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS
   IN THE SOFTWARE.
-###-----------------------------------------------------------------------###}
+===-----------------------------------------------------------{% endcomment %}
 
-{### account/registration_complete.html -----------------------------------###
+{% comment %} account/registration_complete.html --------------------------===
   Used after successful completion of the registration form. This template has
   no context variables of its own, and should simply inform the user that an
   email containing account-activation information has been sent.
-###-----------------------------------------------------------------------###}
+===-----------------------------------------------------------{% endcomment %}
 
-{% extends "base.html" %}
-
-{% block title %}{{ super() }} - Activation email sent{% endblock %}
+{% block title %}{{ block.super }} - Activation email sent{% endblock %}
 
 {% block content %}
   An activation email has been sent. Please check your email and click on the link to activate your account.
 {% endblock %}
 
-{###-----------------------------------------------------------------------###
+{% comment %}--------------------------------------------------------------===
   End of File
-###-----------------------------------------------------------------------###}
+===-----------------------------------------------------------{% endcomment %}

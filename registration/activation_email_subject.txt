@@ -1,4 +1,4 @@
-{### registration/activation_email_subject.txt ----------------------------###
+{% comment %} registration/activation_email_subject.txt -------------------===
   Copyright (C) 2011, RokuSigma Inc. (Mark Friedenbach <mark@roku-sigma.com>)
 
   RokuSigma Inc. (the “Company”) Confidential
@@ -24,16 +24,16 @@
   THIS SOURCE CODE AND/OR RELATED INFORMATION DOES NOT CONVEY OR IMPLY ANY
   RIGHTS TO REPRODUCE, DISCLOSE OR DISTRIBUTE ITS CONTENTS, OR TO MANUFACTURE,
   USE, OR SELL ANYTHING THAT IT MAY DESCRIBE, IN WHOLE OR IN PART.
-###-----------------------------------------------------------------------###}
+===-----------------------------------------------------------{% endcomment %}
 
-{###-----------------------------------------------------------------------###
+{% comment %}--------------------------------------------------------------===
   This file was based on previous work distributed under the terms of the
   copyright notice and disclaimer that follows. Modifications made to this
   file since then are the property of RokuSigma Inc. and covered by company
   confidentiality agreements, as declared above.
-###-----------------------------------------------------------------------###}
+===-----------------------------------------------------------{% endcomment %}
 
-{###-----------------------------------------------------------------------###
+{% comment %}--------------------------------------------------------------===
   Copyright (c) 2010 Charlie DeTar
 
   Permission is hereby granted, free of charge, to any person obtaining a copy
@@ -53,9 +53,9 @@
   LIABILITY, WHETHER IN AN ACTION OF CONTRACT, TORT OR OTHERWISE, ARISING
   FROM, OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS
   IN THE SOFTWARE.
-###-----------------------------------------------------------------------###}
+===-----------------------------------------------------------{% endcomment %}
 
-{### registration/activation_email_subject.txt ----------------------------###
+{% comment %} registration/activation_email_subject.txt -------------------===
   Used to generate the subject line of the activation email. Because the
   subject line of an email must be a single line of text, any output from this
   template will be forcibly condensed to a single line before being used. This
@@ -75,10 +75,10 @@
       Consult the documentation for the Django sites framework
       <http://docs.djangoproject.com/en/dev/ref/contrib/sites/> for details
       regarding these objects' interfaces.
-###-----------------------------------------------------------------------###}
+===-----------------------------------------------------------{% endcomment %}
 
 Confirm your {{ site.name }} account
 
-{###-----------------------------------------------------------------------###
+{% comment %}--------------------------------------------------------------===
   End of File
-###-----------------------------------------------------------------------###}
+===-----------------------------------------------------------{% endcomment %}
