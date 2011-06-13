@@ -286,14 +286,29 @@ form.search input.submit {
   margin-bottom:0.5em;
 }
 
-#featured-asset .asset-title {
+.asset-title {
   float:left;
 }
 #featured-asset .asset-title h4 {
   margin:0;
 }
+.asset-byline {
+  float:left;
+}
+.asset-byline p {
+  font-size:87.5%;
+}
+#featured-asset .asset-byline p {
+  margin:5px 0 0;
+}
+.category-entries .asset-byline p {
+  margin:3px 0 0;
+}
 #featured-asset .asset-stats {
   float:right;
+}
+.category-entries .asset-stats {
+  font-size:87.5%;
 }
 
 #x3dom_logdiv {
