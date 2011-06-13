@@ -32,40 +32,40 @@
   </div><!-- class="categorytitle" -->
 
   <div class="category-entries">
-    <div class="dcol_container_4">
-      <div class="dcol_4 dcol">
-        <div class="dcol-pad">
-          <div class="asset-embed">
-            <x3d
-              xmlns="http://www.x3dom.org/x3dom"
-              showStat="false"
-              showLog="false"
-              x="0px" y="0px"
-              width="225px" height="128px"
-              altImg="FIXME.png"
-              />
-              <scene>
-                <viewpoint position='0 0 10' ></viewpoint>
-                <shape>
-                  <appearance>
-                    <material diffuseColor='0.894 0.909 0.603' ></material>
-                  </appearance>
-                  <box DEF='box' ></box>
-                </shape>
-              </scene>
-            </x3d>
-          </div><!-- .asset-embed -->
-          <div class="asset-meta">
-            <div class="asset-title">
-              <h5><a href="#">Nunc id orci sit amet arcu</a></h5>
-            </div><!-- .fboxtitle -->
-            <div class="asset-stats">
-              <span class="asset-uptime">37 minutes ago</span> / <span class="asset-views">1,382 views</span>
-            </div><!-- .asset-stats -->
-          </div><!-- .asset-meta -->
-        </div><!-- .dcol-pad -->
-      </div><!-- .dcol_4 .dcol -->
-    </div><!-- .dcol_container_4 -->
+    <div class="container">
+      {% for asset in assets %}
+      <div class="column span-6{% cycle '' '' '' ' last' %}">
+        <div class="asset-embed">
+          <x3d
+            xmlns="http://www.x3dom.org/x3dom"
+            showStat="false"
+            showLog="false"
+            x="0px" y="0px"
+            width="225px" height="128px"
+            altImg="FIXME.png"
+            />
+            <scene>
+              <viewpoint position='0 0 10' ></viewpoint>
+              <shape>
+                <appearance>
+                  <material diffuseColor='0.894 0.909 0.603' ></material>
+                </appearance>
+                <box DEF='box' ></box>
+              </shape>
+            </scene>
+          </x3d>
+        </div><!-- .asset-embed -->
+        <div class="asset-meta">
+          <div class="asset-title">
+            <h5><a href="#">{{ asset.title }}</a></h5>
+          </div><!-- .fboxtitle -->
+          <div class="asset-stats">
+            <span class="asset-uptime">{{ asset.created|timesince }} ago</span> / <span class="asset-views">1,382 views</span>
+          </div><!-- .asset-stats -->
+        </div><!-- .asset-meta -->
+      </div><!-- .column .span-6 -->
+      {% endfor %}
+    </div><!-- .container -->
   </div><!-- .category-entries -->
 </div><!-- #category -->
 
