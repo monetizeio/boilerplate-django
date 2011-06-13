@@ -54,6 +54,9 @@
     <div class="asset-title">
       <h4><a href="#">{{ asset.title }}</a></h4>
     </div><!-- .asset-title -->
+    <div class="asset-byline">
+      <p>&nbsp;by <a href="#">{{ asset.owner.username }}</a></p>
+    </div>
     <div class="asset-stats">
       <span class="asset-uptime">{{ asset.created|timesince }} ago</span> / <span class="asset-views">2,372,913 views</span>
     </div><!-- .asset-stats -->
