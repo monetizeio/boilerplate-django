@@ -117,6 +117,13 @@ form.search input[type="text"].searchfield {
   text-align:left;
 }
 
+.info p,
+.error p,
+.success p,
+.notice p {
+  margin-bottom:0;
+}
+
 /***-----------------------------------------------------------------------***
   End of File
 ***-----------------------------------------------------------------------***/
