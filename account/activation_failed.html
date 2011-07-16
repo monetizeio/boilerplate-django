@@ -69,7 +69,10 @@
 {% block title %}{{ block.super }} - Invalid activation key{% endblock %}
 
 {% block content %}
-  Oops&nbsp;&ndash; it seems that your activation key is invalid. Please check that you copied the URL correctly.
+  <div class="error">
+    <p class="error-text">Oops&nbsp;&ndash; it seems that your activation key
+      is invalid. Please check that you copied the URL correctly.</p>
+  </div>
 {% endblock %}
 
 {% comment %}--------------------------------------------------------------===

@@ -67,7 +67,11 @@
 {% block title %}{{ block.super }} - Activation complete{% endblock %}
 
 {% block content %}
-  Thanks, activation is now complete! It's time to <a href="{% url auth_login %}">login</a> using the username and password you set at registration, and start exploring the site!
+  <div class="success">
+    <p class="success-text">Thanks, activation is now complete! It's time to
+      <a href="{% url auth_login %}">login</a> using the username and password
+      you set at registration, and start exploring the site!</p>
+  </div>
 {% endblock %}
 
 {% comment %}--------------------------------------------------------------===
