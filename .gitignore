@@ -1,0 +1,15 @@
+*.pyc
+.*.swp
+.pkg/*
+.cache/*
+.vagrant
+db/cassandra/*
+db/redis.rdb
+db/pgsql/*
+db/sqlite.db
+log/access.log
+log/error.log
+log/uwsgi.log
+log/cassandra/*
+log/redis.log
+log/pgsql.log
