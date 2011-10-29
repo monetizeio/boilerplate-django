@@ -5,7 +5,7 @@ Pygments==1.4
 South==0.7.3
 django-extensions==0.7.1
 django-form-utils==0.2.0
--e git+ssh://git@git.roku-sigma.com/django-patterns@9811217c788adef47a6e434c7699111c74a8e8d0#egg=django_patterns-dev
+-e git+ssh://git@git.roku-sigma.com/django-patterns@1b3bcf6b65b2f7cb06cc208939cf86c167b38caf#egg=django_patterns-dev
 -e hg+https://bitbucket.org/ubernostrum/django-registration@fad7080fe76955e7d0d3c97bc468ea8360260a6b#egg=django_registration-dev
 django-taggit==0.9.3
 docutils==0.8.1
