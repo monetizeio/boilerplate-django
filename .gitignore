@@ -2,7 +2,9 @@
 .*.swp
 .pkg/*
 .cache/*
+.coverage
 .vagrant
+build/*
 db/cassandra/*
 db/redis.rdb
 db/pgsql/*
