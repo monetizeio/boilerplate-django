@@ -45,15 +45,15 @@ db: all
 	"${PKG_ROOT}"/bin/python sixhorizons/manage.py migrate
 	mkdir -p db/sqlite.media
 
+.PHONY: dbshell
+dbshell: all db
+	"${SQLITE}" db/sqlite.db
+
 .PHONY: dbclean
 dbclean: all
 	rm -rf db/sqlite.media
 	rm -f db/sqlite.db
 	${MAKE} db
-
-.PHONY: dbshell
-dbshell: all db
-	"${SQLITE}" db/sqlite.db
 
 .PHONY: run
 run: all db
