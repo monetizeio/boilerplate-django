@@ -55,15 +55,28 @@ dbclean: all
 	rm -f db/sqlite.db
 	${MAKE} db
 
+.PHONY: check
+check: all
+	mkdir -p build/report
+	"${PKG_ROOT}"/bin/python -Wall sixhorizons/manage.py test \
+	  --settings=settings.testing \
+	  --exclude-dir=sixhorizons/settings \
+	  --with-xunit \
+	  --xunit-file="build/report/xunit.xml" \
+	  --with-xcoverage \
+	  --xcoverage-file="build/report/coverage.xml" \
+	  --cover-package=sixhorizons \
+	  --cover-erase \
+	  --cover-tests \
+	  --cover-inclusive \
+	  sixhorizons
+
 .PHONY: shell
 shell: all db
 	"${PKG_ROOT}"/bin/python sixhorizons/manage.py shell_plus \
 	  --settings=settings.development \
 	  --print-sql \
 	  --ipython
-
-.PHONY: check
-check:
 
 .PHONY: run
 run: all db
