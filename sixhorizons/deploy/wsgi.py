@@ -34,7 +34,7 @@
 
 #
 import os
-os.environ['DJANGO_SETTINGS_MODULE'] = 'sixhorizons.settings_production'
+os.environ['DJANGO_SETTINGS_MODULE'] = 'sixhorizons.settings.production'
 
 #
 from django.core.handlers.wsgi import WSGIHandler
