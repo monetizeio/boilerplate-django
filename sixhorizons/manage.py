@@ -30,6 +30,8 @@
 # USE, OR SELL ANYTHING THAT IT MAY DESCRIBE, IN WHOLE OR IN PART.
 # ===----------------------------------------------------------------------===
 
+""
+
 from django.core.management import execute_manager
 import imp
 try:
