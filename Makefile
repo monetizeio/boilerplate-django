@@ -58,6 +58,7 @@ dbclean: all
 .PHONY: shell
 shell: all db
 	"${PKG_ROOT}"/bin/python sixhorizons/manage.py shell_plus \
+	  --settings=settings.development \
 	  --print-sql \
 	  --ipython
 
@@ -66,7 +67,8 @@ check:
 
 .PHONY: run
 run: all db
-	"${PKG_ROOT}"/bin/python sixhorizons/manage.py runserver_plus
+	"${PKG_ROOT}"/bin/python sixhorizons/manage.py runserver_plus \
+	  --settings=settings.development
 
 .PHONY: mostlyclean
 mostlyclean:

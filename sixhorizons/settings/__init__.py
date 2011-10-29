@@ -1,7 +1,7 @@
 #!/usr/bin/env python
 # -*- coding: utf-8 -*-
 
-# === sixhorizons/manage.py -----------------------------------------------===
+# === sixhorizons.settings ------------------------------------------------===
 # Copyright © 2011, RokuSigma Inc. (Mark Friedenbach <mark@roku-sigma.com>)
 # as an unpublished work.
 #
@@ -30,17 +30,14 @@
 # USE, OR SELL ANYTHING THAT IT MAY DESCRIBE, IN WHOLE OR IN PART.
 # ===----------------------------------------------------------------------===
 
-from django.core.management import execute_manager
-import imp
-try:
-  import settings.development as settings
-except ImportError:
-  import sys
-  sys.stderr.write("Error: Can't find the file 'settings/development.py' relative to the directory containing %r. It appears you've customized things.\nYou'll have to run django-admin.py, passing it your settings module.\n" % __file__)
-  sys.exit(1)
+"""This module should never be used in practice. If you came here looking for
+the Django settings, you'll find what you're looking for in ant one of the
+modules in this same package. In real applications the proper settings file
+(production, development, or testing) should be specified explicitly. This
+module provides a copy of the development settings purely for convenience."""
 
-if __name__ == "__main__":
-  execute_manager(settings)
+# Import developer settings.py:
+from development import *
 
 # ===----------------------------------------------------------------------===
 # End of File

@@ -1,7 +1,7 @@
 #!/usr/bin/env python
 # -*- coding: utf-8 -*-
 
-# === sixhorizons/manage.py -----------------------------------------------===
+# === sixhorizons.settings.development ------------------------------------===
 # Copyright © 2011, RokuSigma Inc. (Mark Friedenbach <mark@roku-sigma.com>)
 # as an unpublished work.
 #
@@ -30,17 +30,11 @@
 # USE, OR SELL ANYTHING THAT IT MAY DESCRIBE, IN WHOLE OR IN PART.
 # ===----------------------------------------------------------------------===
 
-from django.core.management import execute_manager
-import imp
-try:
-  import settings.development as settings
-except ImportError:
-  import sys
-  sys.stderr.write("Error: Can't find the file 'settings/development.py' relative to the directory containing %r. It appears you've customized things.\nYou'll have to run django-admin.py, passing it your settings module.\n" % __file__)
-  sys.exit(1)
+""
 
-if __name__ == "__main__":
-  execute_manager(settings)
+# Import the production settings, which will be used as the base
+# configuration:
+from production import *
 
 # ===----------------------------------------------------------------------===
 # End of File
