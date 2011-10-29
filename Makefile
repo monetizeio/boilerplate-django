@@ -55,10 +55,6 @@ dbclean: all
 	rm -f db/sqlite.db
 	${MAKE} db
 
-.PHONY: run
-run: all db
-	"${PKG_ROOT}"/bin/python sixhorizons/manage.py runserver_plus
-
 .PHONY: shell
 shell: all db
 	"${PKG_ROOT}"/bin/python sixhorizons/manage.py shell_plus \
@@ -67,6 +63,10 @@ shell: all db
 
 .PHONY: check
 check:
+
+.PHONY: run
+run: all db
+	"${PKG_ROOT}"/bin/python sixhorizons/manage.py runserver_plus
 
 .PHONY: mostlyclean
 mostlyclean:
