@@ -1,0 +1,321 @@
+/*** /static/css/Buildpunkt.v1.layout.css ---------------------------------***
+  Copyright © 2011, RokuSigma Inc. (Mark Friedenbach <mark@roku-sigma.com>)
+  as an unpublished work.
+
+  RokuSigma Inc. (the “Company”) Confidential
+
+  NOTICE: All information contained herein is, and remains the property of the
+  Company. The intellectual and technical concepts contained herein are
+  proprietary to the Company and may be covered by U.S. and Foreign Patents,
+  patents in process, and are protected by trade secret or copyright law.
+  Dissemination of this information or reproduction of this material is
+  strictly forbidden unless prior written permission is obtained from the
+  Company. Access to the source code contained herein is hereby forbidden to
+  anyone except current Company employees, managers or contractors who have
+  executed Confidentiality and Non-disclosure agreements explicitly covering
+  such access.
+
+  The copyright notice above does not evidence any actual or intended
+  publication or disclosure of this source code, which includes information
+  that is confidential and/or proprietary, and is a trade secret, of the
+  Company. ANY REPRODUCTION, MODIFICATION, DISTRIBUTION, PUBLIC PERFORMANCE,
+  OR PUBLIC DISPLAY OF OR THROUGH USE OF THIS SOURCE CODE WITHOUT THE EXPRESS
+  WRITTEN CONSENT OF THE COMPANY IS STRICTLY PROHIBITED, AND IN VIOLATION OF
+  APPLICABLE LAWS AND INTERNATIONAL TREATIES. THE RECEIPT OR POSSESSION OF
+  THIS SOURCE CODE AND/OR RELATED INFORMATION DOES NOT CONVEY OR IMPLY ANY
+  RIGHTS TO REPRODUCE, DISCLOSE OR DISTRIBUTE ITS CONTENTS, OR TO MANUFACTURE,
+  USE, OR SELL ANYTHING THAT IT MAY DESCRIBE, IN WHOLE OR IN PART.
+***-----------------------------------------------------------------------***/
+
+/*
+ * The .clear class is inserted wherever floats are used for layout purposes,
+ * just after the floated divs, to ensure that the structure of the parent div
+ * is adjusted to include the floated content.
+ */
+.clear { clear:both; }
+
+/*
+ * The following CSS implements sticky-footer functionality. It was taken
+ * primarily from the designer Ryan Fait's example[1], but required some
+ * modification to get it to work.
+ *
+ * [1] <http://ryanfait.com/sticky-footer/>
+ */
+#site {
+  position:relative;
+  min-height:100%;
+}
+body, html, #page {
+  height: 100%;
+}
+#page {
+  padding-bottom:80px;
+}
+#footer {
+  position:absolute;
+  bottom:0;
+  width:100%;
+  height:80px;
+}
+
+/*
+ * Aaron put together a slightly textured background for the site. It comes in
+ * two varients: light and dark, which are both shades of light-brown-gray.
+ * The dark is used for the page background and the light for the background
+ * of design elements like buttons and input fields.
+ */
+body {
+  background:url("/static/img/texture-dark.png") repeat scroll 0 0 transparent;
+}
+
+/*
+ * The content of the site is constrained to a 960-pixel width, centered in
+ * the browser. But the site itself must be rendered with a 970 minimum width,
+ * to account for negative margins on some elements.
+ */
+#site {
+  min-width:970px;
+}
+#page-canvas,
+#footer-canvas {
+  width:960px;
+  margin:0 auto 0;
+}
+
+/*
+ * The header needs a little bit of room on the top for design purposes, but
+ * also to allow room for the primary-navigation (which is pushed into that
+ * space via a negative margin).
+ */
+#header {
+  padding-top:28px;
+}
+
+/*
+ * The logo and search form in the header are positioned relative to each
+ * other with floats. The primary navigation menu is overlayed on top with
+ * absolute positioning and some negative margins.
+ */
+#logo-header,
+#header form.search {
+  position:relative;
+  float:left;
+}
+
+/*
+ * The width of the current logo is exactly 240 pixels, with a 15px right
+ * margin. The search form is stretched to take up the remaining space. Should
+ * the size of the logo or width of the page ever change, these values will
+ * have to be updated. The formset of the search form also is given a 3px
+ * margin on the top in order to better align it with the menu bar.
+ */
+#logo-header {
+  margin-right:15px;
+}
+#header form.search {
+  width:690px;
+}
+#header form.search fieldset {
+  margin:3px 0 0;
+}
+#header form.search input[type="text"].searchfield {
+  width:666px;
+}
+
+/*
+ * The primary-navigation menu is displayed as horizontal textual links
+ * separated by | characters (written in-line) rather than added as styling.
+ * So the default list styling is removed. The menu is placed where it needs
+ * to be with absolute positioning (relative to the upper-left corner of
+ * #header div). Therefore a negative margin pulls the #menu-primary-nav above
+ * the other #header elements, where it needs to be.
+ */
+#menu-primary-nav {
+  position:absolute;
+  width:960px;
+  margin:-24px 0 0;
+  padding:0;
+  list-style:none outside none;
+}
+#menu-primary-nav li {
+  float:right;
+  padding-left:0.75em;
+  list-style-type:none;
+}
+
+/*
+ * The footer is a full-width black background, with a 20px margin before the
+ * #footer content actually starts.
+ */
+#footer {
+  background:none repeat scroll 0 0 #111;
+}
+#footer-canvas {
+  padding:20px 0 0;
+}
+
+/*
+ * The contents of the footer are positioned relative to each other with
+ * floating elements. The logo and menu float left and the copyright floats
+ * right.
+ */
+#logo-footer {
+  position:relative;
+  float:left;
+  margin-right:20px;
+  padding:0;
+}
+#menu-footer-nav {
+  position:relative;
+  float:left;
+  margin:10px 15px 0;
+  padding:0;
+}
+#menu-footer-nav li {
+  float:left;
+  margin:0;
+  padding:0 10px;
+}
+#copyright {
+  float:right;
+  margin-top:10px;
+}
+
+/*
+ * The footer-navigation menu is represented in the markup as an unordered
+ * list. It is rendered as a horizontal list of links, with just spacing
+ * between each element.
+ */
+#menu-footer-nav {
+  list-style:none outside none;
+}
+#menu-footer-nav li {
+  list-style-type:none;
+}
+
+/*
+ * There is a 1em gap between the header and the start of the content area.
+ */
+#content-body {
+  margin-top:1em;
+}
+
+/*
+ * The search form is styled differently from other forms as search has become
+ * such a standard element of every site that special attention does not have
+ * to be paid to it. In fact it is better if it is more tightly integrated
+ * into the design of the site, inconspicuous but visible when and where the
+ * user expects it to be. This search form is a simple rectangular element
+ * with a magnefying glass icon as the submit button.
+ */
+form.search {
+  position:relative;
+}
+form.search fieldset {
+  padding:0 0 0 0;
+  border:none;
+}
+form.search input[type="text"].searchfield {
+  background:url("/static/img/texture-light.png") repeat scroll 0 0 transparent;
+  padding:7px 30px 5px 7px;
+  margin:0 0 0 0;
+  border-top-color:#ccc;
+  border-left-color:#ccc;
+  border-right-color:#d9d9d9;
+  border-bottom-color:#d9d9d9;
+  -moz-border-bottom-colors:none;
+  -moz-border-image:none;
+  -moz-border-left-colors:none;
+  -moz-border-right-colors:none;
+  -moz-border-top-colors:none;
+  border-style:solid;
+  border-width:1px;
+}
+form.search input.submit {
+  border-width:0;
+  height:17px;
+  margin:0;
+  padding:0;
+  position:absolute;
+  right:-10px;
+  top:9px;
+  width:17px;
+}
+
+.asset-embed {
+  border: medium none;
+  -moz-border-bottom-colors: none;
+  -moz-border-image: none;
+  -moz-border-left-colors: none;
+  -moz-border-right-colors: none;
+  -moz-border-top-colors: none;
+  -webkit-box-shadow: rgba(0, 0, 0, 0.45) 0px 1px 3px;
+  border-bottom-left-radius: 3px 3px;
+  border-bottom-left-radius: 3px 3px;
+  border-bottom-left-radius: 3px 3px;
+  border-bottom-right-radius: 3px 3px;
+  border-bottom-right-radius: 3px 3px;
+  border-bottom-right-radius: 3px 3px;
+  border-top-left-radius: 3px 3px;
+  border-top-left-radius: 3px 3px;
+  border-top-left-radius: 3px 3px;
+  border-top-right-radius: 3px 3px;
+  border-top-right-radius: 3px 3px;
+  border-top-right-radius: 3px 3px;
+  background: none repeat scroll 0 0 #fff;
+  border-color: #e5e5e5 #dbdbdb #d2d2d2;
+  border-radius: 3px 3px 3px 3px;
+  border-style: solid;
+  border-width: 1px;
+  box-shadow: 0 1px 3px rgba(0, 0, 0, 0.45);
+  padding:3px;
+  margin-left:-4px;
+  margin-bottom:0.5em;
+  text-align: left;
+}
+#featured-asset .asset-embed {
+  width:960px;
+  height:540px;
+}
+.category-entries .asset-embed {
+  width:225px;
+  height:128px;
+}
+
+#featured-asset .asset-meta {
+  margin-top:1em;
+  margin-bottom:0.5em;
+}
+
+.asset-title {
+  float:left;
+}
+#featured-asset .asset-title h4 {
+  margin:0;
+}
+.asset-byline {
+  float:left;
+}
+.asset-byline p {
+  font-size:87.5%;
+}
+#featured-asset .asset-byline p {
+  margin:5px 0 0;
+}
+.category-entries .asset-byline p {
+  margin:3px 0 0;
+}
+#featured-asset .asset-stats {
+  float:right;
+}
+.category-entries .asset-stats {
+  font-size:87.5%;
+}
+
+#x3dom_logdiv {
+  display:none;
+}
+
+/***-----------------------------------------------------------------------***
+  End of File
+***-----------------------------------------------------------------------***/
