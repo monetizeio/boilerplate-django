@@ -40,7 +40,8 @@
 # Django project this settings file is a part of. It is used so many times
 # that it deserves its own variable for efficiency and clarity.
 import os
-PROJECT_DIRECTORY = os.path.abspath(os.path.dirname(__file__))
+PROJECT_DIRECTORY = os.path.abspath(
+  os.path.join(os.path.dirname(__file__), '..'))
 
 ##################
 # Debug Settings #
