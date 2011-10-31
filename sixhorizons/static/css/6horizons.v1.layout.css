@@ -27,15 +27,13 @@
   USE, OR SELL ANYTHING THAT IT MAY DESCRIBE, IN WHOLE OR IN PART.
 ***-----------------------------------------------------------------------***/
 
-/*
- * The .clear class is inserted wherever floats are used for layout purposes,
+/* The .clear class is inserted wherever floats are used for layout purposes,
  * just after the floated divs, to ensure that the structure of the parent div
  * is adjusted to include the floated content.
  */
 .clear { clear:both; }
 
-/*
- * The following CSS implements sticky-footer functionality. It was taken
+/* The following CSS implements sticky-footer functionality. It was taken
  * primarily from the designer Ryan Fait's example[1], but required some
  * modification to get it to work.
  *
@@ -58,8 +56,7 @@ body, html, #page {
   height:80px;
 }
 
-/*
- * Aaron put together a slightly textured background for the site. It comes in
+/* Aaron put together a slightly textured background for the site. It comes in
  * two varients: light and dark, which are both shades of light-brown-gray.
  * The dark is used for the page background and the light for the background
  * of design elements like buttons and input fields.
@@ -68,8 +65,7 @@ body {
   background:url("/static/img/texture-dark.png") repeat scroll 0 0 transparent;
 }
 
-/*
- * The content of the site is constrained to a 960-pixel width, centered in
+/* The content of the site is constrained to a 960-pixel width, centered in
  * the browser. But the site itself must be rendered with a 970 minimum width,
  * to account for negative margins on some elements.
  */
@@ -82,8 +78,7 @@ body {
   margin:0 auto 0;
 }
 
-/*
- * The header needs a little bit of room on the top for design purposes, but
+/* The header needs a little bit of room on the top for design purposes, but
  * also to allow room for the primary-navigation (which is pushed into that
  * space via a negative margin).
  */
@@ -91,8 +86,7 @@ body {
   padding-top:28px;
 }
 
-/*
- * The logo and search form in the header are positioned relative to each
+/* The logo and search form in the header are positioned relative to each
  * other with floats. The primary navigation menu is overlayed on top with
  * absolute positioning and some negative margins.
  */
@@ -102,8 +96,7 @@ body {
   float:left;
 }
 
-/*
- * The width of the current logo is exactly 240 pixels, with a 15px right
+/* The width of the current logo is exactly 240 pixels, with a 15px right
  * margin. The search form is stretched to take up the remaining space. Should
  * the size of the logo or width of the page ever change, these values will
  * have to be updated. The formset of the search form also is given a 3px
@@ -122,8 +115,7 @@ body {
   width:666px;
 }
 
-/*
- * The primary-navigation menu is displayed as horizontal textual links
+/* The primary-navigation menu is displayed as horizontal textual links
  * separated by | characters (written in-line) rather than added as styling.
  * So the default list styling is removed. The menu is placed where it needs
  * to be with absolute positioning (relative to the upper-left corner of
@@ -143,9 +135,8 @@ body {
   list-style-type:none;
 }
 
-/*
- * The footer is a full-width black background, with a 20px margin before the
- * #footer content actually starts.
+/* The footer is a full-width black background, with a 20px margin before the
+ * footer content actually starts.
  */
 #footer {
   background:none repeat scroll 0 0 #111;
@@ -154,8 +145,7 @@ body {
   padding:20px 0 0;
 }
 
-/*
- * The contents of the footer are positioned relative to each other with
+/* The contents of the footer are positioned relative to each other with
  * floating elements. The logo and menu float left and the copyright floats
  * right.
  */
@@ -181,8 +171,7 @@ body {
   margin-top:10px;
 }
 
-/*
- * The footer-navigation menu is represented in the markup as an unordered
+/* The footer-navigation menu is represented in the markup as an unordered
  * list. It is rendered as a horizontal list of links, with just spacing
  * between each element.
  */
@@ -200,8 +189,7 @@ body {
   margin-top:1em;
 }
 
-/*
- * The search form is styled differently from other forms as search has become
+/* The search form is styled differently from other forms as search has become
  * such a standard element of every site that special attention does not have
  * to be paid to it. In fact it is better if it is more tightly integrated
  * into the design of the site, inconspicuous but visible when and where the
