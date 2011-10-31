@@ -32,6 +32,16 @@
 
 ""
 
+# PROJECT_DIRECTORY is the directory on the file system which contains the
+# Django project this manage.py file is a part of.
+import os
+PROJECT_DIRECTORY = os.path.abspath(os.path.dirname(__file__))
+
+# We need our Django project package to be accessible from the Python path, as
+# we do double-duty as both a Django project and application:
+import sys
+sys.path.insert(0, os.path.abspath(os.path.join(PROJECT_DIRECTORY, '..')))
+
 from django.core.management import execute_manager
 import imp
 try:
