@@ -82,7 +82,7 @@ body {
  * also to allow room for the primary-navigation (which is pushed into that
  * space via a negative margin).
  */
-#header {
+header {
   padding-top:28px;
 }
 
@@ -91,7 +91,7 @@ body {
  * absolute positioning and some negative margins.
  */
 #logo-header,
-#header form.search {
+header form.search {
   position:relative;
   float:left;
 }
@@ -105,22 +105,22 @@ body {
 #logo-header {
   margin-right:15px;
 }
-#header form.search {
   width:690px;
+header form.search {
 }
-#header form.search fieldset {
+header form.search fieldset {
   margin:3px 0 0;
 }
-#header form.search input[type="text"].searchfield {
   width:666px;
+header form.search input[type="text"].searchfield {
 }
 
 /* The primary-navigation menu is displayed as horizontal textual links
  * separated by | characters (written in-line) rather than added as styling.
  * So the default list styling is removed. The menu is placed where it needs
- * to be with absolute positioning (relative to the upper-left corner of
- * #header div). Therefore a negative margin pulls the #menu-primary-nav above
- * the other #header elements, where it needs to be.
+ * to be with absolute positioning (relative to the upper-left corner of the
+ * header tag). Therefore a negative margin pulls the #menu-primary-nav above
+ * the other header elements, where it needs to be.
  */
 #menu-primary-nav {
   position:absolute;
