@@ -206,7 +206,7 @@
     <!--
     <link
       rel="canonical"
-      href="http://buildpunkt.com/FIXME"
+      href="http://6horizons.com/FIXME"
       />
     -->
 
@@ -214,10 +214,10 @@
       The following “index”, “prev”, and “next” related links provide some
       context to the user agent (with obvious semantics), and are particularly
       important to web crawlers. They are commented out because some thought
-      needs to go how they will be used in Buildpunkt.
+      needs to go how they will be used in 6horizons.
 
       FIXME: Figure out how to define “index”, “prev”, and “next” related
-             links for Buildpunkt.
+             links for 6horizons.
       -->
     <!--
     <link
@@ -263,7 +263,7 @@
       -->
     <meta
       name="description"
-      content="{% block meta_description %}Buildpunkt: bridging reality{% endblock %}"
+      content="{% block meta_description %}6 horizons: modern task managment{% endblock %}"
       />
 
     <!--
@@ -289,10 +289,9 @@
     <!--
       The following feed links are taken from the WordPress site verbatim, and
       left here mostly as an example so that we won't have to look up the
-      syntax of a RSS feed link when we later add our own. Buildpunkt will
-      have it's own RSS and ATOM feeds, but we'll probably not be syndicating
-      posts and comments the way WordPress does so this will need some
-      modification.
+      syntax of a RSS feed link when we later add our own. 6horizons will have
+      it's own RSS and ATOM feeds, but we'll probably not be syndicating posts
+      and comments the way WordPress does so this will need some modification.
 
       FIXME: Determine which feeds will be provided from which pages in what
              formats, and re-write accordingly.
@@ -301,20 +300,20 @@
     <link
       rel="alternate"
       type="application/rss+xml"
-      title="Buildpunkt » Feed"
-      href="http://buildpunkt.com/feed"
+      title="6 horizons » Feed"
+      href="http://6horizons.com/feed"
       />
     <link
       rel="alternate"
       type="application/rss+xml"
-      title="Buildpunkt » Comments Feed"
-      href="http://buildpunkt.com/comments/feed"
+      title="6 horizons » Comments Feed"
+      href="http://6horizons.com/comments/feed"
       />
     <link
       rel="alternate"
       type="application/rss+xml"
-      title="Buildpunkt » Home Comments Feed"
-      href="http://buildpunkt.com/home/feed"
+      title="6 horizons » Home Comments Feed"
+      href="http://6horizons.com/home/feed"
       />
     -->
   {% endblock feeds %}
@@ -475,13 +474,13 @@
 {% endblock head %}</head>
 
 <!--
-  The id="buildpunkt-com" is useful for creating CSS that can be shared across
+  The id="6horizons-com" is useful for creating CSS that can be shared across
   multiple company projects, but with some web site specific callouts.
 
   FIXME: Remove classes which are not referenced in the CSS.
   -->
 <body
-  id="{% block body_id %}buildpunkt-com{% endblock %}"
+  id="{% block body_id %}6horizons-com{% endblock %}"
   class="{% block body_class %}{% endblock %}"
   >{% block body %}
 
@@ -496,9 +495,9 @@
               <div id="logo-header-wrap">
                 {% block logo_header %}
                   <a class="logo-header-link" href="/" title=
-                  "Buildpunkt"><img class="logo-header-image" src=
+                  "6horizons"><img class="logo-header-image" src=
                   "{% block logo_header_uri %}/static/img/logo-header.png{% endblock %}"
-                  alt="Buildpunkt" /></a>
+                  alt="6horizons" /></a>
                 {% endblock logo_header %}
               </div><!-- #logo-header-wrap -->
             </div><!-- #logo-header -->
