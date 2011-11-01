@@ -29,6 +29,11 @@
 
 {% load macros %}
 
+<!-- This prevents the IE-specific conditional markup below from holding up
+  the page load. See
+  <http://www.phpied.com/conditional-comments-block-downloads/>. -->
+<!--[if IE]><![endif]-->
+
 <!-- The HTML5 doctype is just “html” -->
 {% block doctype %}<!DOCTYPE html>{% endblock %}
 
@@ -140,12 +145,6 @@
     {% endblock time_sensitive_experience %}
 
     {% block time_sensitive_speed %}
-      <!--
-        This prevents the conditional comments below from holding up the page
-        load. See
-        <http://www.phpied.com/conditional-comments-block-downloads/>.
-        -->
-      <!--[if IE]><![endif]-->
     {% endblock time_sensitive_speed %}
   {% endblock time_sensitive %}
 
