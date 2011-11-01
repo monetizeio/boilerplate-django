@@ -47,11 +47,37 @@
   Modernizr will of course not run and the “no-js” class will remain in place,
   with obvious semantics.
   -->
+{% macro html_dir   %}{% block html_dir   %}ltr{%   endblock %}{% endmacro %}
+{% macro html_lang  %}{% block html_lang  %}en-US{% endblock %}{% endmacro %}
+{% macro html_class %}{% block html_class %}no-js{% endblock %}{% endmacro %}
+<!--[if gt IE 8]><!-->
 <html
-  dir="{% macro html_dir %}{% block html_dir %}ltr{% endblock %}{% endmacro %}"
-  lang="{% macro html_lang %}{% block html_lang %}en-US{% endblock %}{% endmacro %}"
-  class="{% block html_class %}no-js{% endblock %}"
+  dir="{% usemacro html_dir %}"
+  lang="{% usemacro html_lang %}"
+  class="{% usemacro html_class %}"
   >
+<!--<![endif]-->
+<!--[if lt IE 7]>
+<html
+  dir="{% usemacro html_dir %}"
+  lang="{% usemacro html_lang %}"
+  class="{% usemacro html_class %} ie6 oldie"
+  >
+<![endif]-->
+<!--[if IE 7]>
+<html
+  dir="{% usemacro html_dir %}"
+  lang="{% usemacro html_lang %}"
+  class="{% usemacro html_class %} ie7 oldie"
+  >
+<![endif]-->
+<!--[if IE 8]>
+<html
+  dir="{% usemacro html_dir %}"
+  lang="{% usemacro html_lang %}"
+  class="{% usemacro html_class %} ie8 oldie"
+  >
+<![endif]-->
 
 <head>{% block head %}
   {% comment %}
