@@ -134,6 +134,18 @@ TEMPLATE_DIRS = (
   os.path.abspath(os.path.join(PROJECT_DIRECTORY, 'templates')),
 )
 
+TEMPLATE_CONTEXT_PROCESSORS = (
+  "django.contrib.auth.context_processors.auth",
+  "django.core.context_processors.csrf",
+  "django.core.context_processors.debug",
+  "django.core.context_processors.i18n",
+  "django.core.context_processors.media",
+  "django.core.context_processors.static",
+  "context_extras.context_processors.current_site",
+  "context_extras.context_processors.project_settings",
+  "context_extras.context_processors.protocol_host",
+)
+
 ############################
 # Middleware Configuration #
 ############################
