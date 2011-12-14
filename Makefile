@@ -27,7 +27,7 @@
 # USE, OR SELL ANYTHING THAT IT MAY DESCRIBE, IN WHOLE OR IN PART.
 # ===----------------------------------------------------------------------===
 
-ROOT=.
+ROOT=$(shell pwd)
 CACHE_ROOT=${ROOT}/.cache
 PKG_ROOT=${ROOT}/.pkg
 RVM_ROOT=${HOME}/.rvm
