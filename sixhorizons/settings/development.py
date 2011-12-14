@@ -34,7 +34,7 @@
 
 # Import the production settings, which will be used as the base
 # configuration:
-from production import *
+from .production import *
 
 # ===----------------------------------------------------------------------===
 # End of File

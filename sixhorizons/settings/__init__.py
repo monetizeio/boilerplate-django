@@ -37,7 +37,7 @@ modules in this same package. In real applications the proper settings file
 module provides a copy of the development settings purely for convenience."""
 
 # Import developer settings.py:
-from development import *
+from .development import *
 
 # ===----------------------------------------------------------------------===
 # End of File

@@ -47,7 +47,7 @@ sys.path.insert(0, os.path.abspath(os.path.join(PROJECT_DIRECTORY, '..', '..')))
 
 # Import the production settings, which will be used as the base
 # configuration:
-from production import *
+from .production import *
 
 # An in-memory SQLite database is sufficient for testing purposes in a local
 # development environment. On a continuous integration server, the production
