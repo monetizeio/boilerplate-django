@@ -3,6 +3,7 @@ Markdown==2.0.3
 PIL==1.1.7
 Pygments==1.4
 South==0.7.3
+django-context-extras==0.2.4
 django-extensions==0.7.1
 django-form-utils==0.2.0
 -e git+ssh://git@git.roku-sigma.com/django-patterns@1b3bcf6b65b2f7cb06cc208939cf86c167b38caf#egg=django_patterns-dev

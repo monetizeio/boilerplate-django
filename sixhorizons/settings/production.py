@@ -141,6 +141,7 @@ TEMPLATE_CONTEXT_PROCESSORS = (
   "django.core.context_processors.i18n",
   "django.core.context_processors.media",
   "django.core.context_processors.static",
+  "django.contrib.messages.context_processors.messages",
   "context_extras.context_processors.current_site",
   "context_extras.context_processors.project_settings",
   "context_extras.context_processors.protocol_host",
@@ -234,6 +235,11 @@ INSTALLED_APPS = (
   'django_extensions',
   'django_patterns',
   'south',
+
+  # django-context-extras is a simple Django app that provides some extra
+  # context processors for your Django based projects, such as adding the
+  # current site object or project settings to the context.
+  'context_extras',
 
   # Django-form-utils is an application which provides utilities for enhancing
   # Django's form handling. It provides:
