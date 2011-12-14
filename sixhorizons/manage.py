@@ -48,7 +48,11 @@ try:
   import settings.development as settings
 except ImportError:
   import sys
-  sys.stderr.write("Error: Can't find the file 'settings/development.py' relative to the directory containing %r. It appears you've customized things.\nYou'll have to run django-admin.py, passing it your settings module.\n" % __file__)
+  sys.stderr.write(
+    u"Error: Can't find the file 'settings/development.py' relative to the " \
+    u"directory containing %r. It appears you've customized things. You'll " \
+    u"have to run django-admin.py, passing it your settings module.\n" %
+    __file__)
   sys.exit(1)
 
 if __name__ == "__main__":
