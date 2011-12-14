@@ -158,7 +158,7 @@ ${PKG_ROOT}/.stamp-h: conf/requirements.* ${CACHE_ROOT}/virtualenv/virtualenv-1.
 	# pip is used to install Python dependencies for this project.
 	for reqfile in conf/requirements*.pip; do \
 	  ${PKG_ROOT}/bin/python ${PKG_ROOT}/bin/pip install \
-	    --download-cache="${ROOT}"/${CACHE_ROOT}/pypi \
+	    --download-cache="${CACHE_ROOT}"/pypi \
 	    -r "$$reqfile"; \
 	done
 	
