@@ -84,7 +84,6 @@ dbshell: all db
 dbclean:
 	rm -rf "${ROOT}"/db/sqlite.media
 	rm -f "${ROOT}"/db/sqlite.db
-	${MAKE} db
 
 .PHONY: mostlyclean
 mostlyclean:
