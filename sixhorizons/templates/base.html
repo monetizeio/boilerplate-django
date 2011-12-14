@@ -362,27 +362,24 @@
     <![endif]-->
 
     <!--
-      The primary stylesheets of the site. This template is based off of a
-      mockup site that was originally put together using the PageLines Pro
-      WordPress theme. The stylesheet “platformpro.pro.css” includes the
-      premium features, whereas the file “6horizons.v1.style.css” includes
-      first the base PageLines theme styling, then our own customizations to
-      it. Finally, there are some user agent specific stylesheets to correct
-      problems in particular browsers.
+      The primary stylesheets of the site. The stylesheets are split into
+      themes, each contained within their own directory on the server. Within
+      each theme directory is a “css” folder containing two files:
+      “layout.css” and “typography.css”, with obvious semantics.
       -->
     <link
       id="css-layout"
       rel="stylesheet"
       type="text/css"
       media="all"
-      href="/static/css/6horizons.v1.layout.css"
+      href="/static/theme/default/css/layout.css"
       />
     <link
       id="css-typography"
       rel="stylesheet"
       type="text/css"
       media="all"
-      href="/static/css/6horizons.v1.typography.css"
+      href="/static/theme/default/css/typography.css"
       />
   {% endblock stylesheets %}
 
