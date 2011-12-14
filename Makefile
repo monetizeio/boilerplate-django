@@ -135,7 +135,7 @@ ${PKG_ROOT}/.stamp-h: conf/requirements.* ${CACHE_ROOT}/virtualenv/virtualenv-1.
 	# assume their existence, so they are created now if they don't
 	# already exist.
 	mkdir -p "${PKG_ROOT}"
-	mkdir -p ${CACHE_ROOT}/pypi
+	mkdir -p "${CACHE_ROOT}"/pypi
 	
 	# ``virtualenv`` is used to create a separate Python installation for
 	# this project in ``${PKG_ROOT}``.
