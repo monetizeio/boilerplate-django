@@ -199,7 +199,7 @@ ${PKG_ROOT}/.stamp-h: ${ROOT}/conf/requirements.* ${CACHE_ROOT}/virtualenv/virtu
 	"${PKG_ROOT}"/bin/gem install gem_snapshot
 	for reqfile in "${ROOT}"/conf/requirements*.gem; do \
 	  "${PKG_ROOT}"/bin/gem snapshot restore \
-	    < "$$reqfile" \
+	    < "$$reqfile"; \
 	done
 	
 	# Some gems install programs of their own to the gemset's bin
