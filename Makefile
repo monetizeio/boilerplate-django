@@ -36,6 +36,8 @@ RVM_GEMSET_NAME=6horizons.com
 APP_URL=6horizons.com
 SQLITE=$(shell which sqlite3)
 
+-include Makefile.local
+
 .PHONY: all
 all: ${PKG_ROOT}/.stamp-h
 
@@ -97,6 +99,7 @@ clean: mostlyclean
 .PHONY: distclean
 distclean: clean
 	-rm -rf ${CACHE_ROOT}
+	-rm -rf Makefile.local
 
 .PHONY: maintainer-clean
 maintainer-clean: distclean
