@@ -235,6 +235,7 @@ form.search input.submit {
   width:17px;
 }
 
+.centered-form,
 .asset-embed {
   margin:0 2px;
   box-shadow:0 -1px 0 rgba(0, 0, 0, 0.3), 0 1px 2px rgba(0, 0, 0, 0.2) inset;
@@ -282,6 +283,49 @@ form.search input.submit {
 }
 .category-entries .asset-stats {
   font-size:87.5%;
+}
+
+.centered-form {
+  background:url("/static/img/texture-light.png") repeat scroll 0 0 transparent;
+  width:400px;
+  margin:75px auto;
+}
+input {
+  border-radius: 3px 3px 3px 3px;
+  opacity: 1 !important;
+  padding: 9px 7px 10px;
+  width: 380px;
+}
+.centered-form input[type="submit"] {
+  width: 398px;
+}
+.centered-form label {
+  margin-left:5px;
+  font-weight:normal;
+  color:#777777;
+}
+form.search input[type="text"].searchfield,
+.centered-form input[type="text"],
+.centered-form input[type="password"],
+.centered-form input[type="url"],
+.centered-form input[type="email"],
+.centered-form input.text,
+.centered-form input.title,
+.centered-form textarea,
+.centered-form select {
+  margin:0 2px;
+  box-shadow:0 -1px 0 rgba(0, 0, 0, 0.3), 0 1px 2px rgba(0, 0, 0, 0.2) inset;
+}
+form.search input[type="text"].searchfield:focus,
+.centered-form input[type=text]:focus,
+.centered-form input[type=password]:focus,
+.centered-form input[type=url]:focus,
+.centered-form input[type=email]:focus,
+.centered-form input.text:focus,
+.centered-form input.title:focus,
+.centered-form textarea:focus {
+  border-color:#bbb;
+  box-shadow:0 -1px 0 rgba(0, 0, 0, 0.3), 0 1px 2px rgba(0, 0, 0, 0.1) inset, 0 0 10px rgba(255, 255, 255, 0.9);
 }
 
 #x3dom_logdiv {

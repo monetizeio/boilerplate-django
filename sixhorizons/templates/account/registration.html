@@ -72,17 +72,15 @@
 {% block title %}{{ block.super }} - Register an account{% endblock %}
 
 {% block content %}
-  <table>
-    <form
-      method="post"
-      action=""
-      >{% csrf_token %}
-
-      {{ form }}
-
-      <tr><td></td><td><input type="submit" value="Send activation email" /></td>
-    </form>
-  </table>
+  <div class="centered-form">
+    {% with '' as form_action %}
+    {% with 'POST' as form_method %}
+    {% with 'Send activation email' as form_submit_text %}
+      {% include "form.html" %}
+    {% endwith %}
+    {% endwith %}
+    {% endwith %}
+  </div>
 {% endblock %}
 
 {% comment %}--------------------------------------------------------------===
