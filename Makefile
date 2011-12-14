@@ -198,7 +198,8 @@ ${PKG_ROOT}/.stamp-h: conf/requirements.* ${CACHE_ROOT}/virtualenv/virtualenv-1.
 	# gems specified in a configuration file).
 	"${PKG_ROOT}"/bin/gem install gem_snapshot
 	for reqfile in conf/requirements*.gem; do \
-	  "${PKG_ROOT}"/bin/gem snapshot restore < "$$reqfile"; \
+	  "${PKG_ROOT}"/bin/gem snapshot restore \
+	    < "$$reqfile" \
 	done
 	
 	# Some gems install programs of their own to the gemset's bin
