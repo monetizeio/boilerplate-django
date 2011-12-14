@@ -517,9 +517,9 @@
                 {% if user.is_authenticated %}
                   <li id="menu-item-sign-out" class="menu-item">
                     <a href="{% url auth_logout %}">Sign out</a></li>
-                    <li>|</li>
-                    <li id="menu-item-account" class="menu-item">
-                      <a href="/account/">{{ user.username }}</a></li>
+                  <li>|</li>
+                  <li id="menu-item-account" class="menu-item">
+                    <a href="/account/">{{ user.username }}</a></li>
                 {% else %}
                   <li id="menu-item-sign-in" class="menu-item">
                     <a href="{% url auth_login %}">Sign in</a></li>
