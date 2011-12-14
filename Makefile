@@ -91,6 +91,8 @@ mostlyclean:
 
 .PHONY: clean
 clean: mostlyclean
+	-rm -rf build
+	-rm -rf .coverage
 	-rm -rf "${PKG_ROOT}"
 	-[ ! -e "${RVM_ROOT}"/scripts/rvm ] || \
 	  bash -c "source '${RVM_ROOT}'/scripts/rvm; \
