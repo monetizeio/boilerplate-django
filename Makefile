@@ -33,6 +33,7 @@ PKG_ROOT=${ROOT}/.pkg
 RVM_ROOT=${HOME}/.rvm
 RVM_RUBY_VERSION=ruby-1.9.2-p290
 RVM_GEMSET_NAME=6horizons.com
+PACKAGE_NAME=sixhorizons
 APP_URL=6horizons.com
 SQLITE=$(shell which sqlite3)
 
@@ -44,45 +45,45 @@ all: ${PKG_ROOT}/.stamp-h
 .PHONY: check
 check: all
 	mkdir -p build/report
-	"${PKG_ROOT}"/bin/python -Wall sixhorizons/manage.py test \
+	"${PKG_ROOT}"/bin/python -Wall "${ROOT}"/${PACKAGE_NAME}/manage.py test \
 	  --settings=settings.testing \
-	  --exclude-dir=sixhorizons/settings \
+	  --exclude-dir="${ROOT}"/${PACKAGE_NAME}/settings \
 	  --with-xunit \
-	  --xunit-file="build/report/xunit.xml" \
+	  --xunit-file="${ROOT}"/build/report/xunit.xml \
 	  --with-xcoverage \
-	  --xcoverage-file="build/report/coverage.xml" \
-	  --cover-package=sixhorizons \
+	  --xcoverage-file="${ROOT}"/build/report/coverage.xml \
+	  --cover-package=${PACKAGE_NAME} \
 	  --cover-erase \
 	  --cover-tests \
 	  --cover-inclusive \
-	  sixhorizons
+	  ${PACKAGE_NAME}
 
 .PHONY: shell
 shell: all db
-	"${PKG_ROOT}"/bin/python sixhorizons/manage.py shell_plus \
+	"${PKG_ROOT}"/bin/python "${ROOT}"/${PACKAGE_NAME}/manage.py shell_plus \
 	  --settings=settings.development \
 	  --print-sql \
 	  --ipython
 
 .PHONY: run
 run: all db
-	"${PKG_ROOT}"/bin/python sixhorizons/manage.py runserver_plus \
+	"${PKG_ROOT}"/bin/python "${ROOT}"/${PACKAGE_NAME}/manage.py runserver_plus \
 	  --settings=settings.development
 
 .PHONY: db
 db: all
-	"${PKG_ROOT}"/bin/python sixhorizons/manage.py syncdb
-	"${PKG_ROOT}"/bin/python sixhorizons/manage.py migrate
-	mkdir -p db/sqlite.media
+	"${PKG_ROOT}"/bin/python "${ROOT}"/${PACKAGE_NAME}/manage.py syncdb
+	"${PKG_ROOT}"/bin/python "${ROOT}"/${PACKAGE_NAME}/manage.py migrate
+	mkdir -p "${ROOT}"/db/sqlite.media
 
 .PHONY: dbshell
 dbshell: all db
-	"${SQLITE}" db/sqlite.db
+	"${SQLITE}" "${ROOT}"/db/sqlite.db
 
 .PHONY: dbclean
 dbclean: all
-	rm -rf db/sqlite.media
-	rm -f db/sqlite.db
+	rm -rf "${ROOT}"/db/sqlite.media
+	rm -f "${ROOT}"/db/sqlite.db
 	${MAKE} db
 
 .PHONY: mostlyclean
