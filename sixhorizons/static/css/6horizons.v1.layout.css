@@ -105,14 +105,14 @@ header form.search {
 #logo-header {
   margin-right:15px;
 }
-  width:690px;
 header form.search {
+  width:700px;
 }
 header form.search fieldset {
   margin:3px 0 0;
 }
-  width:666px;
 header form.search input[type="text"].searchfield {
+  width:676px;
 }
 
 /* The primary-navigation menu is displayed as horizontal textual links
@@ -125,9 +125,14 @@ header form.search input[type="text"].searchfield {
 #menu-primary-nav {
   position:absolute;
   width:960px;
-  margin:-24px 0 0;
   padding:0;
   list-style:none outside none;
+}
+header.search #menu-primary-nav {
+  margin:-24px 0 0;
+}
+header.no-search #menu-primary-nav {
+  margin:0;
 }
 #menu-primary-nav li {
   float:right;
@@ -231,31 +236,10 @@ form.search input.submit {
 }
 
 .asset-embed {
-  border: medium none;
-  -moz-border-bottom-colors: none;
-  -moz-border-image: none;
-  -moz-border-left-colors: none;
-  -moz-border-right-colors: none;
-  -moz-border-top-colors: none;
-  -webkit-box-shadow: rgba(0, 0, 0, 0.45) 0px 1px 3px;
-  border-bottom-left-radius: 3px 3px;
-  border-bottom-left-radius: 3px 3px;
-  border-bottom-left-radius: 3px 3px;
-  border-bottom-right-radius: 3px 3px;
-  border-bottom-right-radius: 3px 3px;
-  border-bottom-right-radius: 3px 3px;
-  border-top-left-radius: 3px 3px;
-  border-top-left-radius: 3px 3px;
-  border-top-left-radius: 3px 3px;
-  border-top-right-radius: 3px 3px;
-  border-top-right-radius: 3px 3px;
-  border-top-right-radius: 3px 3px;
+  margin:0 2px;
+  box-shadow:0 -1px 0 rgba(0, 0, 0, 0.3), 0 1px 2px rgba(0, 0, 0, 0.2) inset;
+  border: 1px solid #BBBBBB;
   background: none repeat scroll 0 0 #fff;
-  border-color: #e5e5e5 #dbdbdb #d2d2d2;
-  border-radius: 3px 3px 3px 3px;
-  border-style: solid;
-  border-width: 1px;
-  box-shadow: 0 1px 3px rgba(0, 0, 0, 0.45);
   padding:3px;
   margin-left:-4px;
   margin-bottom:0.5em;

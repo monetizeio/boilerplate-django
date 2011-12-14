@@ -28,7 +28,9 @@
 ***-----------------------------------------------------------------------***/
 
 h1, h2, h3, h4, h5, h6,
-.asset-stats {
+.asset-stats,
+#menu-primary-nav a,
+label {
   font-family:"LucidaRoman",arial,serif;
   font-style:normal;
   font-variant:normal;
