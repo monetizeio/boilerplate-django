@@ -520,19 +520,22 @@
                   <li>|</li>
                   <li id="menu-item-account" class="menu-item">
                     <a href="/account/">{{ user.username }}</a></li>
+                  <li>|</li>
+                  <li id="menu-item-dashboard" class="menu-item">
+                    <a href="/">Dashboard</a></li>
                 {% else %}
                   <li id="menu-item-sign-in" class="menu-item">
                     <a href="{% url auth_login %}">Sign in</a></li>
                   <li>|</li>
                   <li id="menu-item-register" class="menu-item">
                     <a href="{% url registration_register %}">Register</a></li>
+                  <li>|</li>
+                  <li id="menu-item-explore" class="menu-item">
+                    <a href="/">Explore</a></li>
                 {% endif %}
                 <li>|</li>
                 <li id="menu-item-upload" class="menu-item">
                   <a href="/+upload/">Upload</a></li>
-                <li>|</li>
-                <li id="menu-item-explore" class="menu-item">
-                  <a href="/b/">Explore</a></li>
               {% endblock primary_nav %}
             </ul><!-- #menu-primary-nav -->
 
