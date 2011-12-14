@@ -389,20 +389,14 @@
   {% block javascript %}
     <!--
       jQuery, a multi-purpose JavaScript framework. We grab Google CDN's jQuery,
-      and fall back on our own if Google is not available. 1.4.4 is an outdated
-      version of jQuery, but it is what WordPress 3.1 ships with. Until we have
-      a chance to independently test for compatibility issues with the latest
-      jQuery, we'll leave it at version 1.4.4.
-
-      FIXME: Test compatibility with the most recent stable release of jQuery,
-             and then upgrade if we can.
+      and fall back on our own if Google is not available.
       -->
     <script
       type="text/javascript"
-      src="http://ajax.googleapis.com/ajax/libs/jquery/1.4.4/jquery.min.js"
+      src="http://ajax.googleapis.com/ajax/libs/jquery/1.7.1/jquery.min.js"
       ></script>
     <script type="text/javascript">
-      !window.jQuery && document.write(unescape('%3Cscript type="text/javascript" src="/static/js/lib/jquery/1.4.4/jquery.min.js"%3E%3C/script%3E'));
+      !window.jQuery && document.write(unescape('%3Cscript type="text/javascript" src="/static/js/lib/jquery/1.7.1/jquery.min.js"%3E%3C/script%3E'));
     </script>
 
     <!--
