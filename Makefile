@@ -128,16 +128,17 @@ ${PKG_ROOT}/.stamp-h: conf/requirements.* ${CACHE_ROOT}/virtualenv/virtualenv-1.
 	# everytime this make target is selected.
 	${MAKE} clean
 	
-	# The PKG_ROOT directory, if it exists, is removed by the `clean`
-	# target. The PyPI cache is nonexistant if this is a freshly checked-
-	# out repository, or if the `distclean` target has been run. Either
-	# case might cause problems with build scripts executed later which
-	# assume their existence, so they are created now if necessary.
+	# The ``${PKG_ROOT}`` directory, if it exists, is removed by the
+	# ``clean`` target. The PyPI cache is nonexistant if this is a freshly
+	# checked-out repository, or if the ``distclean`` target has been run.
+	# This might cause problems with build scripts executed later which
+	# assume their existence, so they are created now if they don't
+	# already exist.
 	mkdir -p "${PKG_ROOT}"
 	mkdir -p ${CACHE_ROOT}/pypi
 	
-	# virtualenv is used to create a separate Python installation for this
-	# project in PKG_ROOT.
+	# ``virtualenv`` is used to create a separate Python installation for
+	# this project in ``${PKG_ROOT}``.
 	tar \
 	  -C ${CACHE_ROOT}/virtualenv --gzip \
 	  -xf ${CACHE_ROOT}/virtualenv/virtualenv-1.7.tar.gz
