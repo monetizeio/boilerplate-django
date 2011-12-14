@@ -119,7 +119,7 @@ ${CACHE_ROOT}/virtualenv/virtualenv-1.7.tar.gz:
 	mkdir -p ${CACHE_ROOT}/virtualenv
 	sh -c "cd ${CACHE_ROOT}/virtualenv && curl -O http://pypi.python.org/packages/source/v/virtualenv/virtualenv-1.7.tar.gz"
 
-${PKG_ROOT}/.stamp-h: conf/requirements.* ${CACHE_ROOT}/virtualenv/virtualenv-1.7.tar.gz
+${PKG_ROOT}/.stamp-h: ${ROOT}/conf/requirements.* ${CACHE_ROOT}/virtualenv/virtualenv-1.7.tar.gz
 	# Because build and run-time dependencies are not thoroughly tracked,
 	# it is entirely possible that rebuilding the development environment
 	# on top of an existing one could result in a broken build. For the
@@ -153,11 +153,11 @@ ${PKG_ROOT}/.stamp-h: conf/requirements.* ${CACHE_ROOT}/virtualenv/virtualenv-1.
 	
 	# readline is installed here to get around a bug on Mac OS X which is
 	# causing readline to not build properly if installed from pip.
-	${PKG_ROOT}/bin/easy_install readline
+	"${PKG_ROOT}"/bin/easy_install readline
 	
 	# pip is used to install Python dependencies for this project.
-	for reqfile in conf/requirements*.pip; do \
-	  ${PKG_ROOT}/bin/python ${PKG_ROOT}/bin/pip install \
+	for reqfile in "${ROOT}"/conf/requirements*.pip; do \
+	  "${PKG_ROOT}"/bin/python "${PKG_ROOT}"/bin/pip install \
 	    --download-cache="${CACHE_ROOT}"/pypi \
 	    -r "$$reqfile"; \
 	done
@@ -197,7 +197,7 @@ ${PKG_ROOT}/.stamp-h: conf/requirements.* ${CACHE_ROOT}/virtualenv/virtualenv-1.
 	# similar to `pip install -r` (it will install specific versions of
 	# gems specified in a configuration file).
 	"${PKG_ROOT}"/bin/gem install gem_snapshot
-	for reqfile in conf/requirements*.gem; do \
+	for reqfile in "${ROOT}"/conf/requirements*.gem; do \
 	  "${PKG_ROOT}"/bin/gem snapshot restore \
 	    < "$$reqfile" \
 	done
