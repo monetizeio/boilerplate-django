@@ -480,7 +480,7 @@
     <div id="page">
       <div id="page-canvas">
 
-        <header>
+        <header class="{% if not settings.SITE_WIDE_SEARCH %}no-{% endif %}search">
           <div id="header-canvas">
 
             <div id="logo-header">
@@ -494,33 +494,35 @@
               </div><!-- #logo-header-wrap -->
             </div><!-- #logo-header -->
 
-            {% block header_search_bar %}
-              <form
-                class="search"
-                method="get"
-                action="/search/"
-                onsubmit="this.submit();return false;"
-                >{% csrf_token %}
-                <fieldset>
-                  <input
-                    id="search-header"
-                    type="text"
-                    value=""
-                    name="s"
-                    class="searchfield"
-                    autofocus
-                    />
+            {% if settings.SITE_WIDE_SEARCH %}
+              {% block header_search_bar %}
+                <form
+                  class="search"
+                  method="get"
+                  action="/search/"
+                  onsubmit="this.submit();return false;"
+                  >{% csrf_token %}
+                  <fieldset>
+                    <input
+                      id="search-header"
+                      type="text"
+                      value=""
+                      name="s"
+                      class="searchfield"
+                      autofocus
+                      />
 
-                  <input
-                    type="image"
-                    class="submit btn"
-                    name="submit"
-                    src="/static/img/search-btn.png"
-                    alt="Go"
-                    />
-                </fieldset>
-              </form><!-- .search -->
-            {% endblock header_search_bar %}
+                    <input
+                      type="image"
+                      class="submit btn"
+                      name="submit"
+                      src="/static/img/search-btn.png"
+                      alt="Go"
+                      />
+                  </fieldset>
+                </form><!-- .search -->
+              {% endblock header_search_bar %}
+            {% endif %}
 
             <ul id="menu-primary-nav" class="menu menu-primary-nav">
               {% block primary_nav %}

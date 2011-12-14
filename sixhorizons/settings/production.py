@@ -359,6 +359,12 @@ REGISTRATION_OPEN = True
 # automated maintenance scripts provided by Django-registration.
 ACCOUNT_ACTIVATION_DAYS = 15
 
+##
+# sixhorizons
+##
+
+SITE_WIDE_SEARCH = False
+
 # ===----------------------------------------------------------------------===
 # End of File
 # ===----------------------------------------------------------------------===
