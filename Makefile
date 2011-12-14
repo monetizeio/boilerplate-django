@@ -150,6 +150,12 @@ ${PKG_ROOT}/.stamp-h: ${ROOT}/conf/requirements.* ${CACHE_ROOT}/virtualenv/virtu
 	  "${PKG_ROOT}"
 	rm -rf ${CACHE_ROOT}/virtualenv/virtualenv-1.7
 	
+	# pip has broken the Python Imaging Library install (perhaps because
+	# the tarball does not follow standard naming practice). So we
+	# manually install it here, specifying the download URL directly:
+	"${PKG_ROOT}"/bin/easy_install \
+	  http://effbot.org/downloads/Imaging-1.1.7.tar.gz
+	
 	# readline is installed here to get around a bug on Mac OS X which is
 	# causing readline to not build properly if installed from pip.
 	"${PKG_ROOT}"/bin/easy_install readline
