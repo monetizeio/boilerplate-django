@@ -39,22 +39,6 @@ SQLITE=$(shell which sqlite3)
 .PHONY: all
 all: ${PKG_ROOT}/.stamp-h
 
-.PHONY: db
-db: all
-	"${PKG_ROOT}"/bin/python sixhorizons/manage.py syncdb
-	"${PKG_ROOT}"/bin/python sixhorizons/manage.py migrate
-	mkdir -p db/sqlite.media
-
-.PHONY: dbshell
-dbshell: all db
-	"${SQLITE}" db/sqlite.db
-
-.PHONY: dbclean
-dbclean: all
-	rm -rf db/sqlite.media
-	rm -f db/sqlite.db
-	${MAKE} db
-
 .PHONY: check
 check: all
 	mkdir -p build/report
@@ -82,6 +66,22 @@ shell: all db
 run: all db
 	"${PKG_ROOT}"/bin/python sixhorizons/manage.py runserver_plus \
 	  --settings=settings.development
+
+.PHONY: db
+db: all
+	"${PKG_ROOT}"/bin/python sixhorizons/manage.py syncdb
+	"${PKG_ROOT}"/bin/python sixhorizons/manage.py migrate
+	mkdir -p db/sqlite.media
+
+.PHONY: dbshell
+dbshell: all db
+	"${SQLITE}" db/sqlite.db
+
+.PHONY: dbclean
+dbclean: all
+	rm -rf db/sqlite.media
+	rm -f db/sqlite.db
+	${MAKE} db
 
 .PHONY: mostlyclean
 mostlyclean:
