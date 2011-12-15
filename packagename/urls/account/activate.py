@@ -30,6 +30,8 @@
 # USE, OR SELL ANYTHING THAT IT MAY DESCRIBE, IN WHOLE OR IN PART.
 # ===----------------------------------------------------------------------===
 
+""
+
 from django.conf.urls.defaults import patterns, url
 from django.views.generic.simple import direct_to_template
 

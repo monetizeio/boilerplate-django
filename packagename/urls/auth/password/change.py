@@ -30,6 +30,8 @@
 # USE, OR SELL ANYTHING THAT IT MAY DESCRIBE, IN WHOLE OR IN PART.
 # ===----------------------------------------------------------------------===
 
+""
+
 from django.conf.urls.defaults import patterns, url
 from django.contrib.auth.forms import PasswordChangeForm
 from django.contrib.auth.views import password_change, password_change_done

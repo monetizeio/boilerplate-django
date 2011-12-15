@@ -30,6 +30,8 @@
 # USE, OR SELL ANYTHING THAT IT MAY DESCRIBE, IN WHOLE OR IN PART.
 # ===----------------------------------------------------------------------===
 
+""
+
 # Django.core
 from django.conf import settings
 from django.conf.urls.defaults import patterns, include, url
