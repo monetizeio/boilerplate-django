@@ -32,9 +32,9 @@ CACHE_ROOT=${ROOT}/.cache
 PKG_ROOT=${ROOT}/.pkg
 RVM_ROOT=${HOME}/.rvm
 RVM_RUBY_VERSION=ruby-1.9.2-p290
-RVM_GEMSET_NAME=6horizons.com
-PACKAGE_NAME=sixhorizons
-APP_URL=6horizons.com
+RVM_GEMSET_NAME=appname.com
+PACKAGE_NAME=packagename
+APP_URL=appname.com
 SQLITE=$(shell which sqlite3)
 
 -include Makefile.local

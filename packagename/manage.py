@@ -1,7 +1,7 @@
 #!/usr/bin/env python
 # -*- coding: utf-8 -*-
 
-# === setup.py ------------------------------------------------------------===
+# === packagename/manage.py -----------------------------------------------===
 # Copyright © 2011, RokuSigma Inc. (Mark Friedenbach <mark@roku-sigma.com>)
 # as an unpublished work.
 #
@@ -30,55 +30,33 @@
 # USE, OR SELL ANYTHING THAT IT MAY DESCRIBE, IN WHOLE OR IN PART.
 # ===----------------------------------------------------------------------===
 
+""
+
+# PROJECT_DIRECTORY is the directory on the file system which contains the
+# Django project this manage.py file is a part of.
 import os
+PROJECT_DIRECTORY = os.path.abspath(os.path.dirname(__file__))
 
-from distutils.core import setup
+# We need our Django project package to be accessible from the Python path, as
+# we do double-duty as both a Django project and application:
+import sys
+sys.path.insert(0, os.path.abspath(os.path.join(PROJECT_DIRECTORY, '..')))
 
-from packagename import get_version
+from django.core.management import execute_manager
+import imp
+try:
+  import settings.development as settings
+except ImportError:
+  import sys
+  sys.stderr.write(
+    u"Error: Can't find the file 'settings/development.py' relative to the " \
+    u"directory containing %r. It appears you've customized things. You'll " \
+    u"have to run django-admin.py, passing it your settings module.\n" %
+    __file__)
+  sys.exit(1)
 
-# Compile the list of packages available, because distutils doesn't have an
-# easy way to do this.
-packages, data_files = [], []
-root_dir = os.path.dirname(__file__)
-if root_dir:
-  os.chdir(root_dir)
-for dirpath, dirnames, filenames in os.walk('packagename'):
-  # Ignore dirnames that start with '.'
-  for i, dirname in enumerate(dirnames):
-    if dirname.startswith('.'): del dirnames[i]
-  if '__init__.py' in filenames:
-    pkg = dirpath.replace(os.path.sep, '.')
-    if os.path.altsep:
-      pkg = pkg.replace(os.path.altsep, '.')
-    packages.append(pkg)
-  elif filenames:
-    # Strip "packagename/" or "packagename\":
-    prefix = dirpath[len('packagename')+1:]
-    for f in filenames:
-      data_files.append(os.path.join(prefix, f))
-
-setup(name='appname.com',
-  version=get_version().replace(' ', '-'),
-  description='',
-  author='RokuSigma Inc.',
-  author_email='appname@roku-sigma.com',
-  url='http://www.github.com/rokusigma/appname/',
-  download_url='http://github.com/rokusigma/appname/tarball/master',
-  package_dir={'packagename': 'packagename'},
-  packages=packages,
-  package_data={'packagename': data_files},
-  classifiers=[
-    'Development Status :: 1 - Planning',
-    'Environment :: Web Environment',
-    'Framework :: Django',
-    'Intended Audience :: Developers',
-    'License :: Other/Proprietary License',
-    'Operating System :: OS Independent',
-    'Programming Language :: Python',
-    'Topic :: Software Development :: Libraries :: Python Modules',
-    'Topic :: Utilities',
-  ],
-)
+if __name__ == "__main__":
+  execute_manager(settings)
 
 # ===----------------------------------------------------------------------===
 # End of File

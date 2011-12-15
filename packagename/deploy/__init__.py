@@ -1,7 +1,7 @@
 #!/usr/bin/env python
 # -*- coding: utf-8 -*-
 
-# === setup.py ------------------------------------------------------------===
+# === packagename.deploy --------------------------------------------------===
 # Copyright © 2011, RokuSigma Inc. (Mark Friedenbach <mark@roku-sigma.com>)
 # as an unpublished work.
 #
@@ -29,56 +29,6 @@
 # RIGHTS TO REPRODUCE, DISCLOSE OR DISTRIBUTE ITS CONTENTS, OR TO MANUFACTURE,
 # USE, OR SELL ANYTHING THAT IT MAY DESCRIBE, IN WHOLE OR IN PART.
 # ===----------------------------------------------------------------------===
-
-import os
-
-from distutils.core import setup
-
-from packagename import get_version
-
-# Compile the list of packages available, because distutils doesn't have an
-# easy way to do this.
-packages, data_files = [], []
-root_dir = os.path.dirname(__file__)
-if root_dir:
-  os.chdir(root_dir)
-for dirpath, dirnames, filenames in os.walk('packagename'):
-  # Ignore dirnames that start with '.'
-  for i, dirname in enumerate(dirnames):
-    if dirname.startswith('.'): del dirnames[i]
-  if '__init__.py' in filenames:
-    pkg = dirpath.replace(os.path.sep, '.')
-    if os.path.altsep:
-      pkg = pkg.replace(os.path.altsep, '.')
-    packages.append(pkg)
-  elif filenames:
-    # Strip "packagename/" or "packagename\":
-    prefix = dirpath[len('packagename')+1:]
-    for f in filenames:
-      data_files.append(os.path.join(prefix, f))
-
-setup(name='appname.com',
-  version=get_version().replace(' ', '-'),
-  description='',
-  author='RokuSigma Inc.',
-  author_email='appname@roku-sigma.com',
-  url='http://www.github.com/rokusigma/appname/',
-  download_url='http://github.com/rokusigma/appname/tarball/master',
-  package_dir={'packagename': 'packagename'},
-  packages=packages,
-  package_data={'packagename': data_files},
-  classifiers=[
-    'Development Status :: 1 - Planning',
-    'Environment :: Web Environment',
-    'Framework :: Django',
-    'Intended Audience :: Developers',
-    'License :: Other/Proprietary License',
-    'Operating System :: OS Independent',
-    'Programming Language :: Python',
-    'Topic :: Software Development :: Libraries :: Python Modules',
-    'Topic :: Utilities',
-  ],
-)
 
 # ===----------------------------------------------------------------------===
 # End of File
