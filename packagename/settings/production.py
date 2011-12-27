@@ -65,7 +65,7 @@ MANAGERS = ADMINS
 #########################
 
 # Make this unique, and don't share it with anybody.
-SECRET_KEY = '9x27jvn5r3lsk#mv0n0i*p6k+)lz0_mmvl+b$cdm94%1dpr!ln'
+SECRET_KEY = 'please replace this with your own very long sekret'
 
 ##########################
 # Database Configuration #
