@@ -32,19 +32,6 @@
 
 "Settings file for use while running unit tests during development and on the staging server. This settings file attempts to match as closely as possible the production settings, while providing a few configuration tweaks that are necessary to setup a sandboxed settings environment."
 
-# PROJECT_DIRECTORY is the directory on the file system which contains the
-# Django project this settings file is a part of.
-import os
-PROJECT_DIRECTORY = os.path.abspath(os.path.dirname(__file__))
-
-# We need our Django application module to be accessible from the Python path.
-# Do not use this as an example of what to do in your own projects! Under
-# normal circumstances this is most properly done using virtualenv and pip to
-# install the application's Python module into the site-packages directory of
-# your project-specific virtual environment.
-import sys
-sys.path.insert(0, os.path.abspath(os.path.join(PROJECT_DIRECTORY, '..', '..')))
-
 # Import the production settings, which will be used as the base
 # configuration:
 from .production import *
