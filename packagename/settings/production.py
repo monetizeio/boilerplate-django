@@ -312,7 +312,8 @@ SITE_ID = 1
 # files. Example:
 #
 # MEDIA_ROOT = "/home/media/media.lawrence.com/media/"
-MEDIA_ROOT = os.path.abspath(os.path.join(PROJECT_DIRECTORY, '..', 'db', 'sqlite.media'))
+MEDIA_ROOT = os.path.abspath(
+  os.path.join(PROJECT_DIRECTORY, '..', 'db', 'sqlite.media'))
 
 # URL that handles the media served from MEDIA_ROOT. Make sure to use a
 # trailing slash. Examples:
@@ -326,7 +327,9 @@ MEDIA_URL = '/media/'
 # "static/" subdirectories and in STATICFILES_DIRS. Example:
 #
 # STATIC_ROOT = "/home/media/media.lawrence.com/static/"
-STATIC_ROOT = os.path.abspath(os.path.join(PROJECT_DIRECTORY, '..', 'pkg', 'var', 'www', 'www.appname.com', 'public', 'static'))
+STATIC_ROOT = os.path.abspath(
+  os.path.join(PROJECT_DIRECTORY, '..', 'pkg',
+               'var', 'www', 'www.appname.com', 'public', 'static'))
 
 # URL prefix for static files. Example:
 #
