@@ -43,7 +43,6 @@ import sys
 sys.path.insert(0, os.path.abspath(os.path.join(PROJECT_DIRECTORY, '..')))
 
 from django.core.management import execute_manager
-import imp
 try:
   import settings.development as settings
 except ImportError:
