@@ -112,7 +112,6 @@ maintainer-clean: distclean
 dist:
 
 # ===----------------------------------------------------------------------===
-# ===----------------------------------------------------------------------===
 
 ${CACHE_ROOT}/virtualenv/virtualenv-1.7.tar.gz:
 	mkdir -p ${CACHE_ROOT}/virtualenv
