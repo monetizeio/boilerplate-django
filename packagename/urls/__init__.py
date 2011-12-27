@@ -106,9 +106,9 @@ urlpatterns = patterns('',
     'show_indexes':  False,
   }),
 
-  ##################
-  ## Static Pages ##
-  ##################
+  ####################
+  ## Template Pages ##
+  ####################
 
   # The landing page for the website.
   url(r'^$',
