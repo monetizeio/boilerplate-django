@@ -30,6 +30,25 @@
 # USE, OR SELL ANYTHING THAT IT MAY DESCRIBE, IN WHOLE OR IN PART.
 # ===----------------------------------------------------------------------===
 
+"""Brief description of your package goes here.
+
+To get started, try exploring the following modules:
+
+  ``packagename.admin``     Django-admin interface
+  ``packagename.db``        Django model definitions
+  ``packagename.deploy``    WSGI deploy scripts
+  ``packagename.settings``  Development, testing, and production settings
+  ``packagename.urls``      Django URL specifications
+
+  ``packagename.tests``     Unit tests of package-wide features
+
+And the following scripts/directories:
+
+  ``packagename/manage.py`` Command-line management script
+  ``packagename/static``    CSS, JavaScript, and other media files
+  ``packagename/templates`` HTML and email template files
+"""
+
 __all__ = [
   'VERSION',
   'get_version',

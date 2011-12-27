@@ -47,8 +47,6 @@ PROJECT_DIRECTORY = os.path.abspath(
 # Debug Settings #
 ##################
 
-##
-# Debugging:
 DEBUG = True
 TEMPLATE_DEBUG = DEBUG
 
@@ -232,8 +230,17 @@ INSTALLED_APPS = (
   # 'debug_toolbar',
   # Uncomment the next line to enable admin documentation:
   'django.contrib.admindocs',
+
+  # Django-extensions provides a number of useful management scripts for
+  # Django development, and some reusable code that solves common problems.
   'django_extensions',
+
+  # Django-patterns is RokuSigma Inc.'s collection of idiomatic solutions to
+  # common Django problems.
   'django_patterns',
+
+  # South is the most excellent database migration/schema versioning tool
+  # written by Andrew Godwin.
   'south',
 
   # django-context-extras is a simple Django app that provides some extra

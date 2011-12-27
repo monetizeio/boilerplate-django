@@ -30,7 +30,7 @@
 # USE, OR SELL ANYTHING THAT IT MAY DESCRIBE, IN WHOLE OR IN PART.
 # ===----------------------------------------------------------------------===
 
-""
+"Django command-line management application. Execute ``python projectname/manage.py help`` for more details."
 
 # PROJECT_DIRECTORY is the directory on the file system which contains the
 # Django project this manage.py file is a part of.
@@ -49,6 +49,11 @@ try:
 except ImportError:
   import sys
   sys.stderr.write(
+    # The following is not transalated because in this particular error
+    # condition ``sys.path`` is probably not setup correctly, and so we cannot
+    # be sure that we'd import the translation machinery correctly. It'd be
+    # better to print the correct error in English than to trigger another
+    # not-so-helpful ImportError.
     u"Error: Can't find the file 'settings/development.py' relative to the " \
     u"directory containing %r. It appears you've customized things. You'll " \
     u"have to run django-admin.py, passing it your settings module.\n" %

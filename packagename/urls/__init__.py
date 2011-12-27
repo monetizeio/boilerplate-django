@@ -30,7 +30,7 @@
 # USE, OR SELL ANYTHING THAT IT MAY DESCRIBE, IN WHOLE OR IN PART.
 # ===----------------------------------------------------------------------===
 
-""
+"Root URL configuration."
 
 # Django.core
 from django.conf import settings

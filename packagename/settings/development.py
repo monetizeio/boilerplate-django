@@ -30,7 +30,7 @@
 # USE, OR SELL ANYTHING THAT IT MAY DESCRIBE, IN WHOLE OR IN PART.
 # ===----------------------------------------------------------------------===
 
-""
+"Development settings."
 
 # Import the production settings, which will be used as the base
 # configuration:

@@ -30,11 +30,7 @@
 # USE, OR SELL ANYTHING THAT IT MAY DESCRIBE, IN WHOLE OR IN PART.
 # ===----------------------------------------------------------------------===
 
-"""This module should never be used in practice. If you came here looking for
-the Django settings, you'll find what you're looking for in ant one of the
-modules in this same package. In real applications the proper settings file
-(production, development, or testing) should be specified explicitly. This
-module provides a copy of the development settings purely for convenience."""
+"""This module should never be used in practice. If you came here looking for the Django settings, you'll find what you're looking for in ant one of the modules in this same package. In real applications the proper settings file (production, development, or testing) should be specified explicitly. This module provides a copy of the development settings purely for convenience."""
 
 # Import developer settings.py:
 from .development import *
