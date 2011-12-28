@@ -62,7 +62,7 @@ footer {
  * of design elements like buttons and input fields.
  */
 body {
-  background:url("/static/img/texture-dark.png") repeat scroll 0 0 transparent;
+  background:url("/static/images/texture-dark.png") repeat scroll 0 0 transparent;
 }
 
 /* The content of the site is constrained to a 960-pixel width, centered in
@@ -209,7 +209,7 @@ form.search fieldset {
   border:none;
 }
 form.search input[type="text"].searchfield {
-  background:url("/static/img/texture-light.png") repeat scroll 0 0 transparent;
+  background:url("/static/images/texture-light.png") repeat scroll 0 0 transparent;
   padding:7px 30px 5px 7px;
   margin:0 0 0 0;
   border-top-color:#ccc;
@@ -286,7 +286,7 @@ form.search input.submit {
 }
 
 .centered-form {
-  background:url("/static/img/texture-light.png") repeat scroll 0 0 transparent;
+  background:url("/static/images/texture-light.png") repeat scroll 0 0 transparent;
   width:400px;
   margin:75px auto;
 }
