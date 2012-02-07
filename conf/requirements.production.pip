@@ -6,8 +6,8 @@ South==0.7.3
 django-context-extras==0.2.4
 django-extensions==0.7.1
 django-form-utils==0.2.0
--e git+ssh://git@git.roku-sigma.com/django-patterns@1b3bcf6b65b2f7cb06cc208939cf86c167b38caf#egg=django_patterns-dev
+-e git+ssh://git@git.roku-sigma.com/django-patterns@84bfd2409887529147efe6ae3d0969b721489f8b#egg=django_patterns-dev
 -e hg+https://bitbucket.org/ubernostrum/django-registration@fad7080fe76955e7d0d3c97bc468ea8360260a6b#egg=django_registration-dev
 django-taggit==0.9.3
 docutils==0.8.1
--e git+ssh://git@git.roku-sigma.com/python-patterns@87662035b4f996de53994d4a3b43bdb6b861d00b#egg=python_patterns-dev
+-e git+ssh://git@git.roku-sigma.com/python-patterns@73e24a9de9cc38cc517d53aad47d7979aa1a3d6d#egg=python_patterns-dev
