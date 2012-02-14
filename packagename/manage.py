@@ -30,7 +30,8 @@
 # USE, OR SELL ANYTHING THAT IT MAY DESCRIBE, IN WHOLE OR IN PART.
 # ===----------------------------------------------------------------------===
 
-"Django command-line management application. Execute ``python projectname/manage.py help`` for more details."
+"""Django command-line management application. Execute
+``python packagename/manage.py help`` for more details."""
 
 # PROJECT_DIRECTORY is the directory on the file system which contains the
 # Django project this manage.py file is a part of.

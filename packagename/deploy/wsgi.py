@@ -30,7 +30,10 @@
 # USE, OR SELL ANYTHING THAT IT MAY DESCRIBE, IN WHOLE OR IN PART.
 # ===----------------------------------------------------------------------===
 
-"A deployment script that sets up a proper environment for hosting this project as a WSGI application. Simply point your WSGI-enabled web server at this module (with the root package accessible from ``sys.path``), and it will handle the rest."
+"""A deployment script that sets up a proper environment for hosting this
+project as a WSGI application. Simply point your WSGI-enabled web server at
+this module (with the root package accessible from ``sys.path``), and it will
+handle the rest."""
 
 # The settings environment variable needs to be set so that Django knows where
 # to find our production settings. This would be necessary anyway, but it is
