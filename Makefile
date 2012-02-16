@@ -170,7 +170,7 @@ ${PKG_ROOT}/.stamp-h: ${ROOT}/conf/requirements.* ${CACHE_ROOT}/virtualenv/virtu
 	# RVM, if it is not already installed.. It normally places RVM in the
 	# user's HOME directory, and we will work off of that assumption.
 	[ -e ${RVM_ROOT}/scripts/rvm ] || \
-	  curl -s https://rvm.beginrescueend.com/install/rvm | bash
+	  curl -s https://raw.github.com/wayneeseguin/rvm/master/binscripts/rvm-installer | bash
 	
 	# Make sure our required Ruby version is built and installed, if it is
 	# not already.
