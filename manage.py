@@ -30,8 +30,10 @@
 # USE, OR SELL ANYTHING THAT IT MAY DESCRIBE, IN WHOLE OR IN PART.
 # ===----------------------------------------------------------------------===
 
-"""Django command-line management application. Execute
-``python packagename/manage.py help`` for more details."""
+"""
+Django command-line management application. Execute
+``python packagename/manage.py help`` for more details.
+"""
 
 import os
 import sys
