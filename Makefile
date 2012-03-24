@@ -45,8 +45,8 @@ all: ${PKG_ROOT}/.stamp-h
 .PHONY: check
 check: all
 	mkdir -p build/report
-	"${PKG_ROOT}"/bin/python -Wall "${ROOT}"/${PACKAGE_NAME}/manage.py test \
-	  --settings=settings.testing \
+	"${PKG_ROOT}"/bin/python -Wall "${ROOT}"/manage.py test \
+	  --settings="${PACKAGE_NAME}".settings.testing \
 	  --exclude-dir="${ROOT}"/${PACKAGE_NAME}/settings \
 	  --with-xunit \
 	  --xunit-file="${ROOT}"/build/report/xunit.xml \
@@ -60,20 +60,20 @@ check: all
 
 .PHONY: shell
 shell: all db
-	"${PKG_ROOT}"/bin/python "${ROOT}"/${PACKAGE_NAME}/manage.py shell_plus \
-	  --settings=settings.development \
+	"${PKG_ROOT}"/bin/python "${ROOT}"/manage.py shell_plusplus \
+	  --settings="${PACKAGE_NAME}".settings.development \
 	  --print-sql \
 	  --ipython
 
 .PHONY: run
 run: all db
-	"${PKG_ROOT}"/bin/python "${ROOT}"/${PACKAGE_NAME}/manage.py runserver_plus \
-	  --settings=settings.development
+	"${PKG_ROOT}"/bin/python "${ROOT}"/manage.py runserver_plus \
+	  --settings="${PACKAGE_NAME}".settings.development
 
 .PHONY: db
 db: all
-	"${PKG_ROOT}"/bin/python "${ROOT}"/${PACKAGE_NAME}/manage.py syncdb
-	"${PKG_ROOT}"/bin/python "${ROOT}"/${PACKAGE_NAME}/manage.py migrate
+	"${PKG_ROOT}"/bin/python "${ROOT}"/manage.py syncdb
+	"${PKG_ROOT}"/bin/python "${ROOT}"/manage.py migrate
 	mkdir -p "${ROOT}"/db/sqlite.media
 
 .PHONY: dbshell
