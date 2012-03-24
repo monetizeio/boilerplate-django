@@ -113,11 +113,11 @@ dist:
 
 # ===----------------------------------------------------------------------===
 
-${CACHE_ROOT}/virtualenv/virtualenv-1.7.tar.gz:
+${CACHE_ROOT}/virtualenv/virtualenv-1.7.1.2.tar.gz:
 	mkdir -p ${CACHE_ROOT}/virtualenv
-	sh -c "cd ${CACHE_ROOT}/virtualenv && curl -O http://pypi.python.org/packages/source/v/virtualenv/virtualenv-1.7.tar.gz"
+	sh -c "cd ${CACHE_ROOT}/virtualenv && curl -O http://pypi.python.org/packages/source/v/virtualenv/virtualenv-1.7.1.2.tar.gz"
 
-${PKG_ROOT}/.stamp-h: ${ROOT}/conf/requirements.* ${CACHE_ROOT}/virtualenv/virtualenv-1.7.tar.gz
+${PKG_ROOT}/.stamp-h: ${ROOT}/conf/requirements.* ${CACHE_ROOT}/virtualenv/virtualenv-1.7.1.2.tar.gz
 	# Because build and run-time dependencies are not thoroughly tracked,
 	# it is entirely possible that rebuilding the development environment
 	# on top of an existing one could result in a broken build. For the
@@ -139,15 +139,15 @@ ${PKG_ROOT}/.stamp-h: ${ROOT}/conf/requirements.* ${CACHE_ROOT}/virtualenv/virtu
 	# this project in ``${PKG_ROOT}``.
 	tar \
 	  -C ${CACHE_ROOT}/virtualenv --gzip \
-	  -xf ${CACHE_ROOT}/virtualenv/virtualenv-1.7.tar.gz
-	python ${CACHE_ROOT}/virtualenv/virtualenv-1.7/virtualenv.py \
+	  -xf ${CACHE_ROOT}/virtualenv/virtualenv-1.7.1.2.tar.gz
+	python ${CACHE_ROOT}/virtualenv/virtualenv-1.7.1.2/virtualenv.py \
 	  --clear \
 	  --no-site-packages \
 	  --distribute \
 	  --never-download \
 	  --prompt="(${APP_URL}) " \
 	  "${PKG_ROOT}"
-	rm -rf ${CACHE_ROOT}/virtualenv/virtualenv-1.7
+	rm -rf ${CACHE_ROOT}/virtualenv/virtualenv-1.7.1.2
 	
 	# pip has broken the Python Imaging Library install (perhaps because
 	# the tarball does not follow standard naming practice). So we
