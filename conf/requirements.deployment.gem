@@ -1,19 +1,11 @@
 ---
-chunky_png:
-- 1.2.5
 bundler:
 - 1.0.22
 commonjs:
 - 0.2.5
-compass:
-- 0.11.7
-fssm:
-- 0.2.8.1
 less:
 - 2.0.11
 libv8:
 - 3.3.10.4
-sass:
-- 3.1.15
 therubyracer:
 - 0.9.10
