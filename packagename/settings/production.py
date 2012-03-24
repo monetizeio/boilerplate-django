@@ -73,7 +73,7 @@ SECRET_KEY = 'please replace this with your own very long sekret'
 
 DATABASES = {
   'default': {
-    # Add 'postgresql_psycopg2', 'postgresql', 'mysql', 'sqlite3' or 'oracle'.
+    # Add 'postgresql_psycopg2', 'mysql', 'sqlite3' or 'oracle'.
     'ENGINE': 'django.db.backends.sqlite3',
     # Or path to database file if using sqlite3.
     'NAME': os.path.abspath(os.path.join(PROJECT_DIRECTORY, '..', 'db', 'sqlite.db')),
@@ -88,9 +88,9 @@ DATABASES = {
   }
 }
 
-#########################################
-# Internationalization and Localization #
-#########################################
+#############
+# Timezones #
+#############
 
 # Local time zone for this installation. Choices can be found here:
 # <http://en.wikipedia.org/wiki/List_of_tz_zones_by_name>, although not all
@@ -100,6 +100,13 @@ DATABASES = {
 # If running in a Windows environment this must be set to the same as your
 # system time zone.
 TIME_ZONE = 'America/Los_Angeles'
+
+# If you set this to False, Django will not use timezone-aware datetimes.
+USE_TZ = True
+
+#########################################
+# Internationalization and Localization #
+#########################################
 
 # Language code for this installation. All choices can be found here:
 # <http://www.i18nguy.com/unicode/language-identifiers.html>.
@@ -155,6 +162,7 @@ MIDDLEWARE_CLASSES = (
   'django.middleware.csrf.CsrfViewMiddleware',
   'django.contrib.auth.middleware.AuthenticationMiddleware',
   'django.contrib.messages.middleware.MessageMiddleware',
+  'django.middleware.clickjacking.XFrameOptionsMiddleware',
 )
 
 #####################
@@ -162,6 +170,13 @@ MIDDLEWARE_CLASSES = (
 #####################
 
 ROOT_URLCONF = 'packagename.urls'
+
+######################
+# WSGI Configuration #
+######################
+
+# Python dotted path to the WSGI application used by Django's runserver.
+WSGI_APPLICATION = 'packagename.deploy.wsgi.application'
 
 #######################
 # Email Configuration #
@@ -180,25 +195,31 @@ DEFAULT_FROM_EMAIL = "no-reply@roku-sigma.com"
 #########################
 
 # A sample logging configuration. The only tangible logging performed by this
-# configuration is to send an email to the site admins on every HTTP 500
-# error. See <http://docs.djangoproject.com/en/dev/topics/logging> for more
-# details on how to customize your logging configuration.
+# configuration is to send an email to the site admins on every HTTP 500 error
+# when DEBUG=False. See <http://docs.djangoproject.com/en/dev/topics/logging>
+# for more details on how to customize your logging configuration.
 LOGGING = {
-  'version': 1,
-  'disable_existing_loggers': False,
-  'handlers': {
-    'mail_admins': {
-      'level': 'ERROR',
-      'class': 'django.utils.log.AdminEmailHandler'
-    }
-  },
-  'loggers': {
-    'django.request': {
-      'handlers': ['mail_admins'],
-      'level': 'ERROR',
-      'propagate': True,
+    'version': 1,
+    'disable_existing_loggers': False,
+    'filters': {
+        'require_debug_false': {
+            '()': 'django.utils.log.RequireDebugFalse'
+        }
     },
-  }
+    'handlers': {
+        'mail_admins': {
+            'level': 'ERROR',
+            'filters': ['require_debug_false'],
+            'class': 'django.utils.log.AdminEmailHandler'
+        }
+    },
+    'loggers': {
+        'django.request': {
+            'handlers': ['mail_admins'],
+            'level': 'ERROR',
+            'propagate': True,
+        },
+    }
 }
 
 #############################
@@ -274,20 +295,14 @@ INSTALLED_APPS = (
   'taggit',
 )
 
-##
-# django.contrib.admin:
-##
+#=-------------------=#
+# django.contrib.auth #
+#=-------------------=#
 
-# URL prefix for admin static files -- CSS, JavaScript and images. Make sure
-# to use a trailing slash. Examples:
-#
-# ADMIN_MEDIA_PREFIX = "http://foo.com/static/admin/"
-# ADMIN_MEDIA_PREFIX = "/static/admin/"
-ADMIN_MEDIA_PREFIX = '/static/admin/'
-
-##
-# django.contrib.auth:
-##
+PASSWORD_HASHERS = (
+  'django.contrib.auth.hashers.PBKDF2PasswordHasher',
+  'django.contrib.auth.hashers.BCryptPasswordHasher',
+)
 
 # Used by django.contrib.auth utility decorators, the LOGIN_URL / LOGOUT_URL
 # settings must be kept up-to-date with the site's urlpatterns.
@@ -298,15 +313,15 @@ LOGOUT_URL = "/logout/"
 # successful login for which there is no ‘next’ GET field.
 LOGIN_REDIRECT_URL = "/"
 
-##
-# django.contrib.sites:
-##
+#=--------------------=#
+# django.contrib.sites #
+#=--------------------=#
 
 SITE_ID = 1
 
-##
-# django.contrib.staticfiles:
-##
+#=--------------------------=#
+# django.contrib.staticfiles #
+#=--------------------------=#
 
 # Absolute filesystem path to the directory that will hold user-uploaded
 # files. Example:
@@ -352,9 +367,9 @@ STATICFILES_FINDERS = (
 #  'django.contrib.staticfiles.finders.DefaultStorageFinder',
 )
 
-##
-# registration:
-##
+#=------------=#
+# registration #
+#=------------=#
 
 # This setting is used by Django-registration to determine if the site is
 # accepting new users or not. It is actually not required as the setting
@@ -367,9 +382,9 @@ REGISTRATION_OPEN = True
 # automated maintenance scripts provided by Django-registration.
 ACCOUNT_ACTIVATION_DAYS = 15
 
-##
-# Appname
-##
+#=-----------=#
+# packagename #
+#=-----------=#
 
 SITE_WIDE_SEARCH = False
 

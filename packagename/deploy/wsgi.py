@@ -30,10 +30,22 @@
 # USE, OR SELL ANYTHING THAT IT MAY DESCRIBE, IN WHOLE OR IN PART.
 # ===----------------------------------------------------------------------===
 
-"""A deployment script that sets up a proper environment for hosting this
-project as a WSGI application. Simply point your WSGI-enabled web server at
-this module (with the root package accessible from ``sys.path``), and it will
-handle the rest."""
+"""
+WSGI config for projectname project. Simply point your WSGI-enabled web server
+at this module (with the root package accessible from ``sys.path``), and it
+will handle the rest.
+
+This module contains the WSGI application used by Django's development server
+and any production WSGI deployments. It should expose a module-level variable
+named ``application``. Django's ``runserver`` and ``runfcgi`` commands
+discover this application via the ``WSGI_APPLICATION`` setting.
+
+Usually you will have the standard Django WSGI application here, but it also
+might make sense to replace the whole Django WSGI application with a custom
+one that later delegates to the Django one. For example, you could introduce
+WSGI middleware here, or combine a Django application with an application of
+another framework.
+"""
 
 # The settings environment variable needs to be set so that Django knows where
 # to find our production settings. This would be necessary anyway, but it is
@@ -42,10 +54,15 @@ handle the rest."""
 import os
 os.environ['DJANGO_SETTINGS_MODULE'] = 'packagename.settings.production'
 
-# Django provides a handler class that works as our WSGI application without
-# modification.
-from django.core.handlers.wsgi import WSGIHandler
-application = WSGIHandler()
+# This application object is used by any WSGI server configured to use this
+# file. This includes Django's development server, if the WSGI_APPLICATION
+# setting points here.
+from django.core.wsgi import get_wsgi_application
+application = get_wsgi_application()
+
+# Apply WSGI middleware here.
+# from helloworld.wsgi import HelloWorldApplication
+# application = HelloWorldApplication(application)
 
 # ===----------------------------------------------------------------------===
 # End of File

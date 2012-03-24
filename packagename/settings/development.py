@@ -36,9 +36,9 @@
 # configuration:
 from .production import *
 
-##
-# debug_toolbar
-##
+#=-------------=#
+# debug_toolbar #
+#=-------------=#
 
 INSTALLED_APPS += (
   'debug_toolbar',
