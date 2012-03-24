@@ -69,12 +69,13 @@ urlpatterns = patterns('',
       # to the user. The template is given a RequestContext with just one
       # variable, ‘form’, which contains an instance of ‘password_reset_form’.
       'template_name':       'auth/password_reset.html',
-      # The full name of the template used to generate the confirmation email
-      # sent to the user to authorize the password reset request. The template
-      # is given a context which includes the variables ‘email’, ‘domain’,
-      # ‘site_name’, ‘uid’, ‘user’, ‘token’, and ‘protocol’ (see the template
-      # file for more information).
-      'email_template_name': 'auth/password_reset_email.txt',
+      # The full name of the templates used to generate the confirmation email
+      # sent to the user to authorize the password reset request. The
+      # templates are given a context which includes the variables ‘email’,
+      # ‘domain’, ‘site_name’, ‘uid’, ‘user’, ‘token’, and ‘protocol’ (see the
+      # template file for more information).
+      'subject_template_name': 'auth/password_reset_email_subject.txt',
+      'email_template_name':   'auth/password_reset_email_body.txt',
       # The form which is presented to the user for a password reset request.
       # The default form contains just a single field for the user to specify
       # their email address (which is matched with what is on file in the user
