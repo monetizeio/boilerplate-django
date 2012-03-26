@@ -30,10 +30,12 @@
 # USE, OR SELL ANYTHING THAT IT MAY DESCRIBE, IN WHOLE OR IN PART.
 # ===----------------------------------------------------------------------===
 
-"""Settings file for use while running unit tests during development and on
-the staging server. This settings file attempts to match as closely as
-possible the production settings, while providing a few configuration tweaks
-that are necessary to setup a sandboxed settings environment."""
+"""
+Settings file for use while running unit tests during development and on the
+staging server. This settings file attempts to match as closely as possible
+the production settings, while providing a few configuration tweaks that are
+necessary to setup a sandboxed settings environment.
+"""
 
 # Import the production settings, which will be used as the base
 # configuration:

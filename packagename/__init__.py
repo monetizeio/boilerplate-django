@@ -30,7 +30,8 @@
 # USE, OR SELL ANYTHING THAT IT MAY DESCRIBE, IN WHOLE OR IN PART.
 # ===----------------------------------------------------------------------===
 
-"""Brief description of your package goes here.
+"""
+Brief description of your package goes here.
 
 To get started, try exploring the following modules:
 

@@ -30,9 +30,11 @@
 # USE, OR SELL ANYTHING THAT IT MAY DESCRIBE, IN WHOLE OR IN PART.
 # ===----------------------------------------------------------------------===
 
-"""This module configures the Django admin interface. Actual admin classes are
+"""
+This module configures the Django admin interface. Actual admin classes are
 found next to their respective classes in ``db.models``, but registration of
-models and project-wide configuration occurs here."""
+models and project-wide configuration occurs here.
+"""
 
 from django.contrib import admin
 

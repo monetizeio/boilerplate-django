@@ -30,10 +30,12 @@
 # USE, OR SELL ANYTHING THAT IT MAY DESCRIBE, IN WHOLE OR IN PART.
 # ===----------------------------------------------------------------------===
 
-"""Django expects models to be located in ``appname.models``, and will even go
-so far as to reject an installed application if such a module does not exist
+"""
+Django expects models to be located in ``appname.models``, and will even go so
+far as to reject an installed application if such a module does not exist
 (even if no models would be installed anyway!). This module therefore imports
-all models from their proper location in ``.db.models``."""
+all models from their proper location in ``.db.models``.
+"""
 
 from .db.models import *
 
