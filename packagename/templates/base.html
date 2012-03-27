@@ -414,6 +414,16 @@
   id="{% block body_id %}appname-com{% endblock %}"
   class="{% block body_class %}{% endblock %}"
   >{% block body %}
+  <!--
+    Prompt IE 6 users to install Chrome Frame; remove this if you support IE6.
+    See: <http://chromium.org/developers/how-tos/chrome-frame-getting-started>
+    -->
+  <!--[if lt IE 7]>
+    <p class="chromeframe">
+      Your browser is <em>ancient!</em> <a href="http://browsehappy.com/">Upgrade to a different browser</a> or <a href="http://www.google.com/chromeframe/?redirect=true">install Google Chrome Frame</a> to experience this site as it is meant to be viewed.
+    </p>
+  <![endif]-->
+
 
   <div id="site">
     <div id="page">
