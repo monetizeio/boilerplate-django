@@ -37,6 +37,9 @@
 <!-- The HTML5 doctype is just “html” -->
 {% block doctype %}<!DOCTYPE html>{% endblock %}
 
+<!-- FIXME: consider adding a manifest.appcache: <http://h5bp.com/d/Offline>
+  -->
+
 <!--
   The “dir” and “lang” attributes specify the text-direction and language of
   the site. It is currently configured for US English, but that will have to
@@ -115,11 +118,13 @@
     {% endblock time_sensitive_behavior %}
 
     {% block time_sensitive_experience %}
-      <!-- Enable standards-compliant mode and Chrome-frame plugin in IE: -->
+      <!-- Enable standards-compliant mode and Chrome-frame plugin in IE.
+        FIXME: Use the .htaccess and remove these lines to avoid edge case
+          issues; see: <http://h5bp.com/i/378> -->
       <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
 
       <!-- Set the viewport on mobile browsers to the device-width, and
-        compensate for high-DPI displays: -->
+        compensate for high-DPI displays; see: <http://h5bp.com/viewport> -->
       <meta name="viewport" content="width=device-width,initial-scale=1">
 
       <!--
@@ -145,6 +150,8 @@
           - See wikipedia for info on browser support:
             <http://en.wikipedia.org/wiki/Favicon#Browser_support>
 
+        See: <http://mathiasbynens.be/notes/touch-icons>
+
         FIXME: Waiting for higher resolution images from the design team.
         -->
       <link
@@ -165,6 +172,8 @@
           - iOS will apply gloss and rounded corners to the image before
             displaying it. For more control, you may apply the rounded gloss
             yourself and rename the file <apple-touch-icon-precomposed.png>.
+
+        See: <http://mathiasbynens.be/notes/touch-icons>
 
         FIXME: Waiting for higher resolution images from the design team.
         -->
