@@ -115,6 +115,15 @@ urlpatterns = patterns('',
     direct_to_template, {
       'template': 'page/homepage.html'
     }, name='homepage'),
+
+  ################
+  ## Info Files ##
+  ################
+  (r'^favicon.ico$',          redirect_to, {'permanent': False, 'url': '/static/images/favicon.ico'}),
+  (r'^apple-touch-icon.png$', redirect_to, {'permanent': False, 'url': '/static/images/apple-touch-icon.png'}),
+  (r'^crossdomain.xml$',      redirect_to, {'permanent': False, 'url': '/static/info/crossdomain.xml'}),
+  (r'^humans.txt$',           redirect_to, {'permanent': False, 'url': '/static/info/humans.txt'}),
+  (r'^robots.txt$',           redirect_to, {'permanent': False, 'url': '/static/info/robots.txt'}),
 )
 
 from django.contrib.staticfiles.urls import staticfiles_urlpatterns
