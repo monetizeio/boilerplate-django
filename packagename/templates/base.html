@@ -344,32 +344,25 @@
       />
 
     <!--
-      Our reset script produces sensible defaults that are the same across all
-      supported browsers.
+      Twitter Bootstrap is a free collection of tools for creating websites
+      and web applications. It contains HTML and CSS-based design templates
+      for typography, forms, buttons, charts, navigation and other interface
+      components, as well as optional JavaScript extensions.
       -->
     <link
-      id="css-blueprint-screen"
+      id="css-bootstrap"
       rel="stylesheet"
       type="text/css"
-      media="screen, projection"
-      href="/static/lib/blueprint/9bf9513/screen.css"
+      media="all"
+      href="/static/lib/bootstrap/2.0.2/css/bootstrap.min.css"
       />
     <link
-      id="css-blueprint-print"
+      id="css-bootstrap-responsive"
       rel="stylesheet"
       type="text/css"
-      media="print"
-      href="/static/lib/blueprint/9bf9513/print.css"
+      media="all"
+      href="/static/lib/bootstrap/2.0.2/css/bootstrap-responsive.min.css"
       />
-    <!--[if lt IE 8]>
-    <link
-      id="css-blueprint-ie7"
-      rel="stylesheet"
-      type="text/css"
-      media="screen, projection"
-      href="/static/lib/blueprint/9bf9513/ie.css"
-      />
-    <![endif]-->
 
     <!--
       The primary stylesheets of the site. The stylesheets are split into
@@ -413,7 +406,7 @@
 <body
   id="{% block body_id %}appname-com{% endblock %}"
   class="{% block body_class %}{% endblock %}"
-  >{% block body %}
+  >{% block body %}<div id="main" class="container">{% block main %}
   <!--
     Prompt IE 6 users to install Chrome Frame; remove this if you support IE6.
     See: <http://chromium.org/developers/how-tos/chrome-frame-getting-started>
@@ -424,99 +417,116 @@
     </p>
   <![endif]-->
 
+  <div class="navbar">
+    <div class="navbar-inner">
+      <div class="container">
+        {% block navbar %}<header id="brandnav-header" class=
+          "brandnav {% if not settings.SITE_WIDE_SEARCH %}no-{% endif %}search">
+          <div id="logo-header">{% block logo_header %}
+            <a id="logo-header-link" class="brand" href="/" title=
+            "Appname"><img class="logo-header-image" src=
+            "{% block logo_header_uri %}/static/images/logo-header.png{% endblock %}"
+            alt="Appname" /></a>
+          {% endblock logo_header %}</div>
+
+          <a class="btn btn-navbar" data-toggle="collapse" data-target=".nav-collapse">
+            <span class="icon-bar"></span>
+            <span class="icon-bar"></span>
+            <span class="icon-bar"></span>
+          </a>
+
+          <div class="nav-collapse">
+            <ul id="menu-primary-nav" class="nav pull-right">{% block primary_nav %}
+              {% if user.is_authenticated %}
+                <li id="menu-item-sign-out" class="menu-item">
+                  <a href="{% url auth_logout %}">Sign out</a></li>
+                <li id="menu-item-account" class="menu-item">
+                  <a href="/account/">{{ user.username }}</a></li>
+                <li id="menu-item-dashboard" class="menu-item">
+                  <a href="/">Dashboard</a></li>
+              {% else %}
+                <li id="menu-item-sign-in" class="menu-item">
+                  <a href="{% url auth_login %}">Sign in</a></li>
+                <li id="menu-item-register" class="menu-item">
+                  <a href="{% url registration_register %}">Register</a></li>
+                <li id="menu-item-explore" class="menu-item">
+                  <a href="/">Explore</a></li>
+              {% endif %}
+            {% endblock primary_nav %}</ul><!-- #menu-primary-nav -->
+          </div><!-- .nav-collapse -->
+
+          {% if settings.SITE_WIDE_SEARCH %}
+            {% block header_search_bar %}<form
+              class="search pull-right"
+              method="get"
+              action="/search/"
+              onsubmit="this.submit();return false;"
+              >{% csrf_token %}
+              <fieldset>
+                <input
+                  id="search-header"
+                  type="text"
+                  value=""
+                  name="s"
+                  class="searchfield"
+                  autofocus
+                  />
+
+                <input
+                  type="image"
+                  class="submit btn"
+                  name="submit"
+                  src="/static/images/search-btn.png"
+                  alt="Go"
+                  />
+              </fieldset>
+            </form><!-- .search -->{% endblock header_search_bar %}
+          {% endif %}
+        </header><!-- .brandnav-header -->{% endblock navbar %}
+  </div><!-- .container -->
+    </div><!-- .navbar-inner -->
+  </div><!-- .navbar -->
 
   <div id="site">
-    <div id="page">
-      <div id="page-canvas">
+    <div class="container">
+      <div id="page">
+        <div id="page-canvas">
 
-        <header class="{% if not settings.SITE_WIDE_SEARCH %}no-{% endif %}search">
-          <div id="header-canvas">
+          <div id="content-body">
+            {% block content %}{% endblock content %}
+          </div><!-- #content-body -->
 
-            <div id="logo-header">
-              <div id="logo-header-wrap">
-                {% block logo_header %}
-                  <a class="logo-header-link" href="/" title=
-                  "Appname"><img class="logo-header-image" src=
-                  "{% block logo_header_uri %}/static/images/logo-header.png{% endblock %}"
-                  alt="Appname" /></a>
-                {% endblock logo_header %}
-              </div><!-- #logo-header-wrap -->
-            </div><!-- #logo-header -->
+          <div id="content-footer">
+            {% block content_footer %}{% endblock content_footer %}
+          </div><!-- #content-footer -->
+        </div><!-- #page-canvas -->
+      </div><!-- #page -->
+    </div><!-- .container -->
+  </div><!-- #site -->
 
-            {% if settings.SITE_WIDE_SEARCH %}
-              {% block header_search_bar %}
-                <form
-                  class="search"
-                  method="get"
-                  action="/search/"
-                  onsubmit="this.submit();return false;"
-                  >{% csrf_token %}
-                  <fieldset>
-                    <input
-                      id="search-header"
-                      type="text"
-                      value=""
-                      name="s"
-                      class="searchfield"
-                      autofocus
-                      />
+  <div id="footer">
+    <div class="container">
+      {% block footer %}<footer class="footer">
+        <p id="logo-footer">
+          <a class="logo-footer-link" href="/"
+            title="Appname | Dashboard"><img class="logo-footer-image"
+            src="/static/images/logo-footer.png" alt="Appname | Dashboard"
+            /></a><br />
+          <span id="copyright" class="copyright">© 2011 <a href=
+            "http://roku-sigma.com/">RokuSigma Inc.</a></span>
+        </p>
 
-                    <input
-                      type="image"
-                      class="submit btn"
-                      name="submit"
-                      src="/static/images/search-btn.png"
-                      alt="Go"
-                      />
-                  </fieldset>
-                </form><!-- .search -->
-              {% endblock header_search_bar %}
-            {% endif %}
+        <p id="menu-footer-nav" class="menu-footer nav">
+          <a class="link" href="/about/">About</a>
+          <a class="link" href="/blog/">Blog</a>
+          <a class="link" href="/copyright/">Copyright</a>
+          <a class="link" href="/terms/">Terms</a>
+          <a class="link" href="/privacy/">Privacy</a>
+        </p>
+      </footer><!-- .footer -->{% endblock footer %}
+    </div><!-- .container -->
+  </div><!-- #footer -->
 
-            <ul id="menu-primary-nav" class="menu menu-primary-nav">
-              {% block primary_nav %}
-                {% if user.is_authenticated %}
-                  <li id="menu-item-sign-out" class="menu-item">
-                    <a href="{% url auth_logout %}">Sign out</a></li>
-                  <li>|</li>
-                  <li id="menu-item-account" class="menu-item">
-                    <a href="/account/">{{ user.username }}</a></li>
-                  <li>|</li>
-                  <li id="menu-item-dashboard" class="menu-item">
-                    <a href="/">Dashboard</a></li>
-                {% else %}
-                  <li id="menu-item-sign-in" class="menu-item">
-                    <a href="{% url auth_login %}">Sign in</a></li>
-                  <li>|</li>
-                  <li id="menu-item-register" class="menu-item">
-                    <a href="{% url registration_register %}">Register</a></li>
-                  <li>|</li>
-                  <li id="menu-item-explore" class="menu-item">
-                    <a href="/">Explore</a></li>
-                {% endif %}
-              {% endblock primary_nav %}
-            </ul><!-- #menu-primary-nav -->
-
-            <div class="clear"></div>
-          </div><!-- id="header-canvas" -->
-        </header>
-
-        <div id="content-body">
-          {% block content %}{% endblock content %}
-        </div><!-- #content-body -->
-
-        <div id="content-footer">
-          {% block content_footer %}{% endblock content_footer %}
-        </div><!-- #content-footer -->
-      </div><!-- #page-canvas -->
-
-      <div id="footer-push"></div>
-    </div><!-- #page -->
-
-    {% block footer %}
-      {% include "section.footer.html" %}
-    {% endblock footer %}
-  </div><!-- id="site" -->
   {% block javascript_footer %}
     <!-- =============================================
       JavaScript at the bottom for fast page loading
@@ -542,6 +552,13 @@
       <script type="text/javascript">
         var $j = jQuery.noConflict();
       </script>
+
+      <!--
+        -->
+      <script
+        type="text/javascript"
+        src="/static/lib/bootstrap/2.0.2/js/bootstrap.min.js"
+        ></script>
     {% endblock javascript_frameworks %}
 
     {% block javascript_patches %}
@@ -606,7 +623,7 @@
       -->
     {% endblock javascript_analytics %}
   {% endblock javascript_footer %}
-{% endblock body %}</body>
+{% endblock main %}</div>{% endblock body %}</body>
 
 </html>
 

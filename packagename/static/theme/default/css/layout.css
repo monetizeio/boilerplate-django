@@ -27,35 +27,6 @@
   USE, OR SELL ANYTHING THAT IT MAY DESCRIBE, IN WHOLE OR IN PART.
 ***-----------------------------------------------------------------------***/
 
-/* The .clear class is inserted wherever floats are used for layout purposes,
- * just after the floated divs, to ensure that the structure of the parent div
- * is adjusted to include the floated content.
- */
-.clear { clear:both; }
-
-/* The following CSS implements sticky-footer functionality. It was taken
- * primarily from the designer Ryan Fait's example[1], but required some
- * modification to get it to work.
- *
- * [1] <http://ryanfait.com/sticky-footer/>
- */
-#site {
-  position:relative;
-  min-height:100%;
-}
-body, html, #page {
-  height: 100%;
-}
-#page {
-  padding-bottom:80px;
-}
-footer {
-  position:absolute;
-  bottom:0;
-  width:100%;
-  height:80px;
-}
-
 /* Aaron put together a slightly textured background for the site. It comes in
  * two varients: light and dark, which are both shades of light-brown-gray.
  * The dark is used for the page background and the light for the background
@@ -63,273 +34,43 @@ footer {
  */
 body {
   background:url("/static/images/texture-dark.png") repeat scroll 0 0 transparent;
+  margin-top:18px;
+  margin-bottom:18px;
 }
 
-/* The content of the site is constrained to a 960-pixel width, centered in
- * the browser. But the site itself must be rendered with a 970 minimum width,
- * to account for negative margins on some elements.
+/* Provide a slightly-shaded texture for input elements:
  */
-#site {
-  min-width:970px;
-}
-#page-canvas,
-#footer-canvas {
-  width:960px;
-  margin:0 auto 0;
+input, textarea {
+  background:url("/static/images/texture-light.png") repeat scroll 0 0 transparent;
 }
 
-/* The header needs a little bit of room on the top for design purposes, but
- * also to allow room for the primary-navigation (which is pushed into that
- * space via a negative margin).
+/* Position the navbar menu and collapsed navbar menu button for small-
+ * resolution displays (mobile devices, typically). They need to be given a
+ * top margin to compensate for the height of the logo, making them vertically
+ * centered. These values must change if the logo height changes.
+ * FIXME: change the markup to make these automatically vertically centered
  */
-header {
-  padding-top:28px;
-}
-
-/* The logo and search form in the header are positioned relative to each
- * other with floats. The primary navigation menu is overlayed on top with
- * absolute positioning and some negative margins.
- */
-#logo-header,
-header form.search {
-  position:relative;
-  float:left;
-}
-
-/* The width of the current logo is exactly 240 pixels, with a 15px right
- * margin. The search form is stretched to take up the remaining space. Should
- * the size of the logo or width of the page ever change, these values will
- * have to be updated. The formset of the search form also is given a 3px
- * margin on the top in order to better align it with the menu bar.
- */
-#logo-header {
-  margin-right:15px;
-}
-header form.search {
-  width:700px;
-}
-header form.search fieldset {
-  margin:3px 0 0;
-}
-header form.search input[type="text"].searchfield {
-  width:676px;
-}
-
-/* The primary-navigation menu is displayed as horizontal textual links
- * separated by | characters (written in-line) rather than added as styling.
- * So the default list styling is removed. The menu is placed where it needs
- * to be with absolute positioning (relative to the upper-left corner of the
- * header tag). Therefore a negative margin pulls the #menu-primary-nav above
- * the other header elements, where it needs to be.
- */
-#menu-primary-nav {
-  position:absolute;
-  width:960px;
-  padding:0;
-  list-style:none outside none;
-}
-header.search #menu-primary-nav {
-  margin:-24px 0 0;
-}
-header.no-search #menu-primary-nav {
-  margin:0;
+.navbar .btn {
+  margin:14px 0 0;
 }
 #menu-primary-nav li {
-  float:right;
-  padding-left:0.75em;
-  list-style-type:none;
+  margin:8px 0 8px;
 }
 
-/* The footer is a full-width black background, with a 20px margin before the
- * footer content actually starts.
+/* Provide some styling to the footer, making stacked, centered, and with a
+ * little bit of space between it and the page content.
  */
-footer {
-  background:none repeat scroll 0 0 #111;
+#footer {
+  margin-top:18px;
 }
-#footer-canvas {
-  padding:20px 0 0;
-}
-
-/* The contents of the footer are positioned relative to each other with
- * floating elements. The logo and menu float left and the copyright floats
- * right.
- */
 #logo-footer {
-  position:relative;
-  float:left;
-  margin-right:20px;
-  padding:0;
+  text-align:center;
 }
 #menu-footer-nav {
-  position:relative;
-  float:left;
-  margin:10px 15px 0;
-  padding:0;
+  text-align:center;
 }
-#menu-footer-nav li {
-  float:left;
-  margin:0;
-  padding:0 10px;
-}
-#copyright {
-  float:right;
-  margin-top:10px;
-}
-
-/* The footer-navigation menu is represented in the markup as an unordered
- * list. It is rendered as a horizontal list of links, with just spacing
- * between each element.
- */
-#menu-footer-nav {
-  list-style:none outside none;
-}
-#menu-footer-nav li {
-  list-style-type:none;
-}
-
-/*
- * There is a 1em gap between the header and the start of the content area.
- */
-#content-body {
-  margin-top:1em;
-}
-
-/* The search form is styled differently from other forms as search has become
- * such a standard element of every site that special attention does not have
- * to be paid to it. In fact it is better if it is more tightly integrated
- * into the design of the site, inconspicuous but visible when and where the
- * user expects it to be. This search form is a simple rectangular element
- * with a magnefying glass icon as the submit button.
- */
-form.search {
-  position:relative;
-}
-form.search fieldset {
-  padding:0 0 0 0;
-  border:none;
-}
-form.search input[type="text"].searchfield {
-  background:url("/static/images/texture-light.png") repeat scroll 0 0 transparent;
-  padding:7px 30px 5px 7px;
-  margin:0 0 0 0;
-  border-top-color:#ccc;
-  border-left-color:#ccc;
-  border-right-color:#d9d9d9;
-  border-bottom-color:#d9d9d9;
-  -moz-border-bottom-colors:none;
-  -moz-border-image:none;
-  -moz-border-left-colors:none;
-  -moz-border-right-colors:none;
-  -moz-border-top-colors:none;
-  border-style:solid;
-  border-width:1px;
-}
-form.search input.submit {
-  border-width:0;
-  height:17px;
-  margin:0;
-  padding:0;
-  position:absolute;
-  right:-10px;
-  top:9px;
-  width:17px;
-}
-
-.centered-form,
-.asset-embed {
-  margin:0 2px;
-  box-shadow:0 -1px 0 rgba(0, 0, 0, 0.3), 0 1px 2px rgba(0, 0, 0, 0.2) inset;
-  border: 1px solid #BBBBBB;
-  background: none repeat scroll 0 0 #fff;
-  padding:3px;
-  margin-left:-4px;
-  margin-bottom:0.5em;
-  text-align: left;
-}
-#featured-asset .asset-embed {
-  width:960px;
-  height:540px;
-}
-.category-entries .asset-embed {
-  width:225px;
-  height:128px;
-}
-
-#featured-asset .asset-meta {
-  margin-top:1em;
-  margin-bottom:0.5em;
-}
-
-.asset-title {
-  float:left;
-}
-#featured-asset .asset-title h4 {
-  margin:0;
-}
-.asset-byline {
-  float:left;
-}
-.asset-byline p {
-  font-size:87.5%;
-}
-#featured-asset .asset-byline p {
-  margin:5px 0 0;
-}
-.category-entries .asset-byline p {
-  margin:3px 0 0;
-}
-#featured-asset .asset-stats {
-  float:right;
-}
-.category-entries .asset-stats {
-  font-size:87.5%;
-}
-
-.centered-form {
-  background:url("/static/images/texture-light.png") repeat scroll 0 0 transparent;
-  width:400px;
-  margin:75px auto;
-}
-input {
-  border-radius: 3px 3px 3px 3px;
-  opacity: 1 !important;
-  padding: 9px 7px 10px;
-  width: 380px;
-}
-.centered-form input[type="submit"] {
-  width: 398px;
-}
-.centered-form label {
-  margin-left:5px;
-  font-weight:normal;
-  color:#777777;
-}
-form.search input[type="text"].searchfield,
-.centered-form input[type="text"],
-.centered-form input[type="password"],
-.centered-form input[type="url"],
-.centered-form input[type="email"],
-.centered-form input.text,
-.centered-form input.title,
-.centered-form textarea,
-.centered-form select {
-  margin:0 2px;
-  box-shadow:0 -1px 0 rgba(0, 0, 0, 0.3), 0 1px 2px rgba(0, 0, 0, 0.2) inset;
-}
-form.search input[type="text"].searchfield:focus,
-.centered-form input[type=text]:focus,
-.centered-form input[type=password]:focus,
-.centered-form input[type=url]:focus,
-.centered-form input[type=email]:focus,
-.centered-form input.text:focus,
-.centered-form input.title:focus,
-.centered-form textarea:focus {
-  border-color:#bbb;
-  box-shadow:0 -1px 0 rgba(0, 0, 0, 0.3), 0 1px 2px rgba(0, 0, 0, 0.1) inset, 0 0 10px rgba(255, 255, 255, 0.9);
-}
-
-#x3dom_logdiv {
-  display:none;
+#menu-footer-nav a {
+  margin-left:16px;
 }
 
 /***-----------------------------------------------------------------------***
