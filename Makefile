@@ -46,7 +46,7 @@ all: ${PKG_ROOT}/.stamp-h
 check: all
 	mkdir -p build/report
 	"${PKG_ROOT}"/bin/python -Wall "${ROOT}"/manage.py test \
-	  --settings="${PACKAGE_NAME}".settings.testing \
+	  --settings=${PACKAGE_NAME}.settings.testing \
 	  --exclude-dir="${ROOT}"/${PACKAGE_NAME}/settings \
 	  --with-xunit \
 	  --xunit-file="${ROOT}"/build/report/xunit.xml \
@@ -61,14 +61,14 @@ check: all
 .PHONY: shell
 shell: all db
 	"${PKG_ROOT}"/bin/python "${ROOT}"/manage.py shell_plusplus \
-	  --settings="${PACKAGE_NAME}".settings.development \
+	  --settings=${PACKAGE_NAME}.settings.development \
 	  --print-sql \
 	  --ipython
 
 .PHONY: run
 run: all db
 	"${PKG_ROOT}"/bin/python "${ROOT}"/manage.py runserver_plus \
-	  --settings="${PACKAGE_NAME}".settings.development
+	  --settings=${PACKAGE_NAME}.settings.development
 
 .PHONY: db
 db: all
@@ -78,7 +78,7 @@ db: all
 
 .PHONY: dbshell
 dbshell: all db
-	"${SQLITE}" "${ROOT}"/db/sqlite.db
+	${SQLITE} "${ROOT}"/db/sqlite.db
 
 .PHONY: dbclean
 dbclean:
@@ -100,7 +100,7 @@ clean: mostlyclean
 
 .PHONY: distclean
 distclean: clean
-	-rm -rf ${CACHE_ROOT}
+	-rm -rf "${CACHE_ROOT}"
 	-rm -rf Makefile.local
 
 .PHONY: maintainer-clean
@@ -138,16 +138,16 @@ ${PKG_ROOT}/.stamp-h: ${ROOT}/conf/requirements.* ${CACHE_ROOT}/virtualenv/virtu
 	# ``virtualenv`` is used to create a separate Python installation for
 	# this project in ``${PKG_ROOT}``.
 	tar \
-	  -C ${CACHE_ROOT}/virtualenv --gzip \
-	  -xf ${CACHE_ROOT}/virtualenv/virtualenv-1.7.1.2.tar.gz
-	python ${CACHE_ROOT}/virtualenv/virtualenv-1.7.1.2/virtualenv.py \
+	  -C "${CACHE_ROOT}"/virtualenv --gzip \
+	  -xf "${CACHE_ROOT}"/virtualenv/virtualenv-1.7.1.2.tar.gz
+	python "${CACHE_ROOT}"/virtualenv/virtualenv-1.7.1.2/virtualenv.py \
 	  --clear \
 	  --no-site-packages \
 	  --distribute \
 	  --never-download \
 	  --prompt="(${APP_URL}) " \
 	  "${PKG_ROOT}"
-	rm -rf ${CACHE_ROOT}/virtualenv/virtualenv-1.7.1.2
+	rm -rf "${CACHE_ROOT}"/virtualenv/virtualenv-1.7.1.2
 	
 	# pip has broken the Python Imaging Library install (perhaps because
 	# the tarball does not follow standard naming practice). So we
