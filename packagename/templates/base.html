@@ -393,27 +393,7 @@
       />
   {% endblock stylesheets %}
 
-  {% block javascript %}
-    <!--
-      jQuery, a multi-purpose JavaScript framework. We grab Google CDN's jQuery,
-      and fall back on our own if Google is not available.
-      -->
-    <script
-      type="text/javascript"
-      src="http://ajax.googleapis.com/ajax/libs/jquery/1.7.1/jquery.min.js"
-      ></script>
-    <script type="text/javascript">
-      !window.jQuery && document.write(unescape('%3Cscript type="text/javascript" src="/static/lib/jquery/1.7.1/jquery.min.js"%3E%3C/script%3E'));
-    </script>
-
-    <!--
-      Capture jQuery to remain compatible with other frameworks and libraries,
-      but without removing it from the global scope.
-      -->
-    <script type="text/javascript">
-      var $j = jQuery.noConflict();
-    </script>
-
+  {% block javascript_header %}
     <!--
       Modernizr HTML5 detection library tests the browser for support of new
       HTML5 features, and adds classes to the <html> element allowing us to
@@ -423,46 +403,7 @@
       type="text/javascript"
       src="/static/lib/modernizr/2.0.6/modernizr.js"
       ></script>
-
-    <!--
-      DD_belatedPNG is a Javascript library that sandwiches PNG image support
-      into IE6 without much fuss. For more information, check out
-      <http://www.dillerdesign.com/experiment/DD_belatedPNG/>.
-
-      FIXME: Update the id's and class's this fixes.
-      -->
-    <!--[if IE 6]>
-    <script
-      type="text/javascript"
-      src="/static/js/ie6/ie.belatedpng.js"
-      ></script>
-    <script type="text/javascript">
-      $j(document).ready(function () {
-        DD_belatedPNG.fix('.pngbg, .shadow-bottom, .post-comments a, #fcolumns_container, #footer img, .logo-header-wrap img, .fboxgraphic img ');
-      });
-    </script>
-    <![endif]-->
-
-    <!--
-      This is a variation of the official analytics snippet:
-        <http://mathiasbynens.be/notes/async-analytics-snippet>
-
-      FIXME: Sign up for analytics, replace XXXXXX-XX with our site's ID and
-             uncomment to put it into effect.
-      -->
-    <!--
-    <script>
-      var _gaq = [['_setAccount', 'UA-XXXXXX-XX'], ['_trackPageview']];
-      (function(d, t) {
-        var g = d.createElement(t),
-        s = d.getElementsByTagName(t)[0];
-        g.async = true;
-        g.src = '//www.google-analytics.com/ga.js';
-        s.parentNode.insertBefore(g, s);
-      })(document, 'script');
-    </script>
-    -->
-  {% endblock javascript %}
+  {% endblock javascript_header %}
 {% endblock head %}</head>
 
 <!--
@@ -566,16 +507,86 @@
       {% include "section.footer.html" %}
     {% endblock footer %}
   </div><!-- id="site" -->
+  {% block javascript_footer %}
+    <!-- =============================================
+      JavaScript at the bottom for fast page loading
+    ============================================== -->
 
-  <!--
-    -->
-  <script type="text/javascript">
-    $j(document).ready(function(){
-      if (!("autofocus" in document.createElement("input"))) {
-        document.getElementById("search-header").focus();
-      }
-    })
-  </script>
+    {% block javascript_frameworks %}
+      <!--
+        jQuery, a multi-purpose JavaScript framework. We grab Google CDN's jQuery,
+        and fall back on our own if Google is not available.
+        -->
+      <script
+        type="text/javascript"
+        src="//ajax.googleapis.com/ajax/libs/jquery/1.7.1/jquery.min.js"
+        ></script>
+      <script type="text/javascript">
+        window.jQuery || document.write('<script type="text/javascript" src="/static/lib/jquery/1.7.1/jquery.min.js"<\/script>');
+      </script>
+
+      <!--
+        Capture jQuery to remain compatible with other frameworks and libraries,
+        but without removing it from the global scope.
+        -->
+      <script type="text/javascript">
+        var $j = jQuery.noConflict();
+      </script>
+    {% endblock javascript_frameworks %}
+
+    {% block javascript_patches %}
+      <!--
+        DD_belatedPNG is a Javascript library that sandwiches PNG image support
+        into IE6 without much fuss. For more information, check out
+        <http://www.dillerdesign.com/experiment/DD_belatedPNG/>.
+
+        FIXME: Update the id's and class's this fixes.
+        -->
+      <!--[if IE 6]>
+      <script
+        type="text/javascript"
+        src="/static/js/ie6/ie.belatedpng.js"
+        ></script>
+      <script type="text/javascript">
+        $j(document).ready(function () {
+          DD_belatedPNG.fix('.pngbg, .shadow-bottom, .post-comments a, #fcolumns_container, #footer img, .logo-header-wrap img, .fboxgraphic img ');
+        });
+      </script>
+      <![endif]-->
+
+      <!--
+        -->
+      <script type="text/javascript">
+        $j(document).ready(function(){
+          if (!("autofocus" in document.createElement("input"))) {
+            document.getElementById("search-header").focus();
+          }
+        })
+      </script>
+    {% endblock javascript_patches %}
+
+    {% block javascript_analytics %}
+      <!--
+        This is a variation of the official analytics snippet:
+          <http://mathiasbynens.be/notes/async-analytics-snippet>
+
+        FIXME: Sign up for analytics, replace XXXXXX-XX with our site's ID and
+               uncomment to put it into effect.
+        -->
+      <!--
+      <script>
+        var _gaq = [['_setAccount', 'UA-XXXXXX-XX'], ['_trackPageview']];
+        (function(d, t) {
+          var g = d.createElement(t),
+          s = d.getElementsByTagName(t)[0];
+          g.async = true;
+          g.src = ('https:'==location.protocol?'//ssl':'//www') + '.google-analytics.com/ga.js';
+          s.parentNode.insertBefore(g, s);
+        })(document, 'script');
+      </script>
+      -->
+    {% endblock javascript_analytics %}
+  {% endblock javascript_footer %}
 
   <!--
     Div Class Clear – Without the Markup. The following JavaScript re-inserts
