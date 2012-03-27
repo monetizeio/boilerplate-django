@@ -587,20 +587,6 @@
       -->
     {% endblock javascript_analytics %}
   {% endblock javascript_footer %}
-
-  <!--
-    Div Class Clear – Without the Markup. The following JavaScript re-inserts
-    div class clear tags where needed in the markup, allowing us to focus on
-    other, more important things. Source code taken with modification from:
-    <http://www.latentmotion.com/div-class-clear-without-the-markup/>
-    -->
-  <script type="text/javascript">
-    $j(document).ready(function(){
-      $j("*:last-child").filter(function(){
-        return $j(this).css('float') != 'none';
-      }).parent().append("<div class='clear'></div>");
-    });
-  </script>
 {% endblock body %}</body>
 
 </html>
