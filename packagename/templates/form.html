@@ -86,7 +86,10 @@
   method="{{ form_method }}"
   >{% csrf_token %}
   {{ form.as_p }}
-  <input type="submit" value="{% if form_submit_text %}{{ form_submit_text }}{% else %}Submit{% endif %}" />
+  <input
+    type="submit"
+    value="{% if form_submit_text %}{{ form_submit_text }}{% else %}Submit{% endif %}"
+    />
 </form>
 
 {% comment %}--------------------------------------------------------------===
