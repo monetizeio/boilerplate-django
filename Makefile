@@ -104,6 +104,7 @@ maintainer-clean: distclean
 
 .PHONY: dist
 dist:
+	"${PKG_ROOT}"/bin/python setup.py sdist
 
 # ===----------------------------------------------------------------------===
 
