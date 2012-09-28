@@ -30,9 +30,6 @@
 ROOT=$(shell pwd)
 CACHE_ROOT=${ROOT}/.cache
 PKG_ROOT=${ROOT}/.pkg
-RVM_ROOT=${HOME}/.rvm
-RVM_RUBY_VERSION=ruby-1.9.2-p290
-RVM_GEMSET_NAME=appname.com
 PACKAGE_NAME=packagename
 APP_URL=appname.com
 SQLITE=$(shell which sqlite3)
@@ -93,10 +90,6 @@ clean: mostlyclean
 	-rm -rf build
 	-rm -rf .coverage
 	-rm -rf "${PKG_ROOT}"
-	-[ ! -e "${RVM_ROOT}"/scripts/rvm ] || \
-	  bash -c "source '${RVM_ROOT}'/scripts/rvm; \
-	    rvm ${RVM_RUBY_VERSION} --force gemset delete ${RVM_GEMSET_NAME} \
-	  "
 
 .PHONY: distclean
 distclean: clean
@@ -164,60 +157,6 @@ ${PKG_ROOT}/.stamp-h: ${ROOT}/conf/requirements.* ${CACHE_ROOT}/virtualenv/virtu
 	  "${PKG_ROOT}"/bin/python "${PKG_ROOT}"/bin/pip install \
 	    --download-cache="${CACHE_ROOT}"/pypi \
 	    -r "$$reqfile"; \
-	done
-	
-	# The RVM installation script handles all the details of installing
-	# RVM, if it is not already installed.. It normally places RVM in the
-	# user's HOME directory, and we will work off of that assumption.
-	[ -e ${RVM_ROOT}/scripts/rvm ] || \
-	  curl -s https://raw.github.com/wayneeseguin/rvm/master/binscripts/rvm-installer | bash
-	
-	# Make sure our required Ruby version is built and installed, if it is
-	# not already.
-	bash -c "source '${RVM_ROOT}'/scripts/rvm; \
-	  if test "x" = "x`bash -c "source '${RVM_ROOT}'/scripts/rvm; rvm list | grep -e '${RVM_RUBY_VERSION}' | cut -d' ' -f 4"`"; then \
-	    rvm install ${RVM_RUBY_VERSION}; \
-	  fi \
-	"
-	
-	# A gemset environment is created for this project.
-	bash -c "source '${RVM_ROOT}'/scripts/rvm; \
-	  rvm use ${RVM_RUBY_VERSION}@${RVM_GEMSET_NAME} --create \
-	"
-	
-	# Local links are created in PKG_ROOT for the ruby interpreter,
-	# rubygems package manager, and various other related tools. This is a
-	# convenience so that if the virtualenv activate script is run, the
-	# ruby environment will be activated as well, automatically.
-	for i in `ls "${RVM_ROOT}"/bin/*${RVM_RUBY_VERSION}@${RVM_GEMSET_NAME}`; do \
-	  echo '#!/bin/sh' \
-	    >"${PKG_ROOT}"/bin/`basename $$i | cut -d'-' -f1`; \
-	  echo '"${RVM_ROOT}"/bin/"'`basename $$i`'" $$@' \
-	    >>"${PKG_ROOT}"/bin/`basename $$i | cut -d'-' -f1`; \
-	  chmod +x "${PKG_ROOT}"/bin/`basename $$i | cut -d'-' -f1`; \
-	done
-	
-	# gem_snapshot is a rubygem which provides a capability for ruby
-	# similar to `pip install -r` (it will install specific versions of
-	# gems specified in a configuration file).
-	"${PKG_ROOT}"/bin/gem install gem_snapshot
-	for reqfile in "${ROOT}"/conf/requirements*.gem; do \
-	  "${PKG_ROOT}"/bin/gem snapshot restore \
-	    < "$$reqfile"; \
-	done
-	
-	# Some gems install programs of their own to the gemset's bin
-	# directory. We find and install symbolic links to these programs into
-	# PKG_ROOT, so that they are accessible from the virtualenv
-	# environment.
-	for i in `ls "${RVM_ROOT}"/gems/${RVM_RUBY_VERSION}@${RVM_GEMSET_NAME}/bin`; do \
-	  echo '#!/bin/sh' \
-	    >"${PKG_ROOT}"/bin/`basename $$i | cut -d'-' -f1`; \
-	  echo source '"${RVM_ROOT}"/scripts/rvm' \
-	    >>"${PKG_ROOT}"/bin/`basename $$i | cut -d'-' -f1`; \
-	  echo '"`dirname $$0`"/ruby "${RVM_ROOT}"/gems/${RVM_RUBY_VERSION}@${RVM_GEMSET_NAME}/bin/"'`basename $$i`'" $$@' \
-	    >>"${PKG_ROOT}"/bin/`basename $$i | cut -d'-' -f1`; \
-	  chmod +x "${PKG_ROOT}"/bin/`basename $$i | cut -d'-' -f1`; \
 	done
 	
 	# The static directory is where Django accumulates staticfiles. It
