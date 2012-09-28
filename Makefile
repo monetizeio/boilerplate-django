@@ -84,11 +84,12 @@ dbclean:
 
 .PHONY: mostlyclean
 mostlyclean:
+	-rm -rf dist
+	-rm -rf build
+	-rm -rf .coverage
 
 .PHONY: clean
 clean: mostlyclean
-	-rm -rf build
-	-rm -rf .coverage
 	-rm -rf "${PKG_ROOT}"
 
 .PHONY: distclean
