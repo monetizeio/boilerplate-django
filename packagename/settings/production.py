@@ -288,11 +288,6 @@ INSTALLED_APPS = (
   # Django written by James Bennett, designed to make allowing user signups as
   # painless as possible.
   'registration',
-
-  # Django-taggit is “a reusable Django application designed to making adding
-  # tagging to your project easy and fun.” Tagged models need only add a
-  # Taggablemanager as an attribute.
-  'taggit',
 )
 
 #=-------------------=#
