@@ -10,4 +10,4 @@ django-patterns==0.0.1
 django-registration==0.8
 docutils==0.9.1
 python-patterns==0.0.1
-pytz==2012d
+pytz==2012f
