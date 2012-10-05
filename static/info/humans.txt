@@ -3,12 +3,12 @@
 
 
 /* TEAM */
-  Developer: Mark Friedenbach <mark@roku-sigma.com>
+  Developer: Mark Friedenbach <mark@monetize.com>
   Site:
   Twitter:
   Location:
 
-  Designer:  Aaron Blumenshine <aaron@roku-sigma.com>
+  Designer:  Aaron Blumenshine <aaron@monetize.com>
   Site:
   Twitter:
   Location:
