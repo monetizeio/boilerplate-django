@@ -75,36 +75,10 @@ urlpatterns = patterns('',
 
   url(r'^login/',                   include('packagename.urls.auth.login')),
   url(r'^logout/',                  include('packagename.urls.auth.logout')),
+  url(r'^register/',                include('packagename.urls.account.register')),
   url(r'^account/password/change/', include('packagename.urls.auth.password.change')),
   url(r'^account/password/reset/',  include('packagename.urls.auth.password.reset')),
-  url(r'^register/',                include('packagename.urls.account.register')),
   url(r'^account/activate/',        include('packagename.urls.account.activate')),
-
-  (r'^log-in/$',   redirect_to, {'url': '/login/',  'permanent': True}),
-  (r'^signin/$',   redirect_to, {'url': '/login/',  'permanent': True}),
-  (r'^sign-in/$',  redirect_to, {'url': '/login/',  'permanent': True}),
-  (r'^log-out/$',  redirect_to, {'url': '/logout/', 'permanent': True}),
-  (r'^signout/$',  redirect_to, {'url': '/logout/', 'permanent': True}),
-  (r'^sign-out/$', redirect_to, {'url': '/logout/', 'permanent': True}),
-
-  (r'^signup/$',       redirect_to, {'url': '/register/', 'permanent': True}),
-  (r'^sign-up/$',      redirect_to, {'url': '/register/', 'permanent': True}),
-  (r'^joinus/$',       redirect_to, {'url': '/register/', 'permanent': True}),
-  (r'^join-us/$',      redirect_to, {'url': '/register/', 'permanent': True}),
-  (r'^registration/$', redirect_to, {'url': '/register/', 'permanent': True}),
-  (r'^account/new/$',  redirect_to, {'url': '/register/', 'permanent': True}),
-
-  ######################
-  # Media File Hosting #
-  ######################
-
-  # In a production environment media files are hosted by the static web
-  # server/gateway directly. For development purposes, and in case a request
-  # slips through, media files are hosted by the Django static server as well.
-  (r'^media/(?P<path>.*)$', 'django.views.static.serve', {
-    'document_root': settings.MEDIA_ROOT,
-    'show_indexes':  False,
-  }),
 
   ####################
   ## Template Pages ##
@@ -124,6 +98,18 @@ urlpatterns = patterns('',
   (r'^crossdomain.xml$',      redirect_to, {'permanent': False, 'url': '/static/info/crossdomain.xml'}),
   (r'^humans.txt$',           redirect_to, {'permanent': False, 'url': '/static/info/humans.txt'}),
   (r'^robots.txt$',           redirect_to, {'permanent': False, 'url': '/static/info/robots.txt'}),
+
+  ######################
+  # Media File Hosting #
+  ######################
+
+  # In a production environment media files are hosted by the static web
+  # server/gateway directly. For development purposes, and in case a request
+  # slips through, media files are hosted by the Django static server as well.
+  (r'^media\/(?P<path>.*)$', 'django.views.static.serve', {
+    'document_root': settings.MEDIA_ROOT,
+    'show_indexes':  False,
+  }),
 )
 
 from django.contrib.staticfiles.urls import staticfiles_urlpatterns
