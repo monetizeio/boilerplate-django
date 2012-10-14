@@ -1,7 +1,7 @@
 #!/usr/bin/env python
 # -*- coding: utf-8 -*-
 
-# === manage.py -----------------------------------------------------------===
+# === urls.auth.logout ----------------------------------------------------===
 # Copyright © 2011-2012, RokuSigma Inc. and contributors as an unpublished
 # work. See AUTHORS for details.
 #
@@ -30,31 +30,33 @@
 # USE, OR SELL ANYTHING THAT IT MAY DESCRIBE, IN WHOLE OR IN PART.
 # ===----------------------------------------------------------------------===
 
-"""
-Django command-line management application. Execute `python manage.py help`
-for more details.
-"""
+""
 
-import os
-import sys
+from django.conf.urls import patterns, url
+from django.contrib.auth.views import logout
 
-try:
-  from django.core.management import execute_from_command_line
-except ImportError:
-  sys.stderr.write(
-    # The following is not transalated because in this particular error
-    # condition `sys.path` is probably not setup correctly, and so we cannot
-    # be sure that we'd import the translation machinery correctly. It'd be
-    # better to print the correct error in English than to trigger another
-    # not-so-helpful ImportError.
-    u"Error: Can't find the module 'django.core.management' in the Python "
-    u"path. Please execute this script from within the virtual environment "
-    u"containing your project.\n")
-  sys.exit(1)
-
-if __name__ == '__main__':
-  os.environ.setdefault('DJANGO_SETTINGS_MODULE', 'packagename.settings.development')
-  execute_from_command_line(sys.argv)
+urlpatterns = patterns('',
+  # Logs the user out.
+  #
+  # FIXME: ‘redirect_field_name’ should be localized in “logout/”.
+  url(r'^$',
+    logout, {
+      # The GET field which may contain a URL to redirect to after logout. If
+      # this field is not set, the hard-coded ‘next_page’ parameter used
+      # instead. If ‘next_page’ is None, the template specified by the
+      # ‘template_name’ parameter is rendered and returned.
+      'redirect_field_name': 'next',
+      # The hard-coded URL to redirect to after a successful logout, assuming
+      # the ‘redirect_field_name’ is empty or not specified (see above).
+      'next_page':           None,
+      # The full name of the template used after logging the user out if
+      # neither a run-time nor a hard-coded redirect is requested (see above).
+      # The template receives a RequestContext with three additional
+      # variables: ‘site’, ‘site_name’, and ‘title’ (see the documentation in
+      # the template file for details).
+      'template_name':       'auth/logout.html',
+    }, name='auth_logout'),
+)
 
 # ===----------------------------------------------------------------------===
 # End of File

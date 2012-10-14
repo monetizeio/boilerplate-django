@@ -1,7 +1,7 @@
 #!/usr/bin/env python
 # -*- coding: utf-8 -*-
 
-# === manage.py -----------------------------------------------------------===
+# === deploy.wsgi ---------------------------------------------------------===
 # Copyright © 2011-2012, RokuSigma Inc. and contributors as an unpublished
 # work. See AUTHORS for details.
 #
@@ -31,30 +31,38 @@
 # ===----------------------------------------------------------------------===
 
 """
-Django command-line management application. Execute `python manage.py help`
-for more details.
+WSGI config for projectname project. Simply point your WSGI-enabled web server
+at this module (with the root package accessible from `sys.path`), and it will
+handle the rest.
+
+This module contains the WSGI application used by Django's development server
+and any production WSGI deployments. It should expose a module-level variable
+named `application`. Django's `runserver` and `runfcgi` commands discover this
+application via the `WSGI_APPLICATION` setting.
+
+Usually you will have the standard Django WSGI application here, but it also
+might make sense to replace the whole Django WSGI application with a custom
+one that later delegates to the Django one. For example, you could introduce
+WSGI middleware here, or combine a Django application with an application of
+another framework.
 """
 
+# The settings environment variable needs to be set so that Django knows where
+# to find our production settings. This would be necessary anyway, but it is
+# especially required in our case because the settings module is not in its
+# default location.
 import os
-import sys
+os.environ['DJANGO_SETTINGS_MODULE'] = 'packagename.settings.production'
 
-try:
-  from django.core.management import execute_from_command_line
-except ImportError:
-  sys.stderr.write(
-    # The following is not transalated because in this particular error
-    # condition `sys.path` is probably not setup correctly, and so we cannot
-    # be sure that we'd import the translation machinery correctly. It'd be
-    # better to print the correct error in English than to trigger another
-    # not-so-helpful ImportError.
-    u"Error: Can't find the module 'django.core.management' in the Python "
-    u"path. Please execute this script from within the virtual environment "
-    u"containing your project.\n")
-  sys.exit(1)
+# This application object is used by any WSGI server configured to use this
+# file. This includes Django's development server, if the WSGI_APPLICATION
+# setting points here.
+from django.core.wsgi import get_wsgi_application
+application = get_wsgi_application()
 
-if __name__ == '__main__':
-  os.environ.setdefault('DJANGO_SETTINGS_MODULE', 'packagename.settings.development')
-  execute_from_command_line(sys.argv)
+# Apply WSGI middleware here.
+# from helloworld.wsgi import HelloWorldApplication
+# application = HelloWorldApplication(application)
 
 # ===----------------------------------------------------------------------===
 # End of File

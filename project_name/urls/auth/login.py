@@ -1,7 +1,7 @@
 #!/usr/bin/env python
 # -*- coding: utf-8 -*-
 
-# === manage.py -----------------------------------------------------------===
+# === urls.auth.login -----------------------------------------------------===
 # Copyright © 2011-2012, RokuSigma Inc. and contributors as an unpublished
 # work. See AUTHORS for details.
 #
@@ -30,31 +30,33 @@
 # USE, OR SELL ANYTHING THAT IT MAY DESCRIBE, IN WHOLE OR IN PART.
 # ===----------------------------------------------------------------------===
 
-"""
-Django command-line management application. Execute `python manage.py help`
-for more details.
-"""
+""
 
-import os
-import sys
+from django.conf.urls import patterns, url
+from django.contrib.auth.forms import AuthenticationForm
+from django.contrib.auth.views import login
 
-try:
-  from django.core.management import execute_from_command_line
-except ImportError:
-  sys.stderr.write(
-    # The following is not transalated because in this particular error
-    # condition `sys.path` is probably not setup correctly, and so we cannot
-    # be sure that we'd import the translation machinery correctly. It'd be
-    # better to print the correct error in English than to trigger another
-    # not-so-helpful ImportError.
-    u"Error: Can't find the module 'django.core.management' in the Python "
-    u"path. Please execute this script from within the virtual environment "
-    u"containing your project.\n")
-  sys.exit(1)
-
-if __name__ == '__main__':
-  os.environ.setdefault('DJANGO_SETTINGS_MODULE', 'packagename.settings.development')
-  execute_from_command_line(sys.argv)
+urlpatterns = patterns('',
+  # Authenticates and logs a user in.
+  #
+  # FIXME: ‘redirect_field_name’ should be localized in “login/”
+  url(r'^$',
+    login, {
+      # The full name of the template file used to display the login form to
+      # the user. The template is given a RequestContext with four extra
+      # variables: ‘form’, ‘next’, ‘site’, and ‘site_name’ (see the
+      # documentation in the template file for details).
+      'template_name':       'auth/login.html',
+      # The GET field which may contain a URL to redirect to after logout. If
+      # this field is not set, the LOGIN_REDIRECT_URL setting is used instead.
+      'redirect_field_name': 'next',
+      # The form which is presented to the user for authentication. It may be
+      # overriden in the context of alternative authentication methods. See
+      # the django.contrib.auth documentation for details on what specific
+      # behavior is expected of this form object.
+      'authentication_form': AuthenticationForm,
+    }, name='auth_login'),
+)
 
 # ===----------------------------------------------------------------------===
 # End of File

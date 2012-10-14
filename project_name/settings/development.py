@@ -1,7 +1,7 @@
 #!/usr/bin/env python
 # -*- coding: utf-8 -*-
 
-# === manage.py -----------------------------------------------------------===
+# === settings.development ------------------------------------------------===
 # Copyright © 2011-2012, RokuSigma Inc. and contributors as an unpublished
 # work. See AUTHORS for details.
 #
@@ -30,31 +30,25 @@
 # USE, OR SELL ANYTHING THAT IT MAY DESCRIBE, IN WHOLE OR IN PART.
 # ===----------------------------------------------------------------------===
 
-"""
-Django command-line management application. Execute `python manage.py help`
-for more details.
-"""
+"Development settings."
 
-import os
-import sys
+# Import the production settings, which will be used as the base
+# configuration:
+from .common import *
 
-try:
-  from django.core.management import execute_from_command_line
-except ImportError:
-  sys.stderr.write(
-    # The following is not transalated because in this particular error
-    # condition `sys.path` is probably not setup correctly, and so we cannot
-    # be sure that we'd import the translation machinery correctly. It'd be
-    # better to print the correct error in English than to trigger another
-    # not-so-helpful ImportError.
-    u"Error: Can't find the module 'django.core.management' in the Python "
-    u"path. Please execute this script from within the virtual environment "
-    u"containing your project.\n")
-  sys.exit(1)
+#=-------------=#
+# debug_toolbar #
+#=-------------=#
 
-if __name__ == '__main__':
-  os.environ.setdefault('DJANGO_SETTINGS_MODULE', 'packagename.settings.development')
-  execute_from_command_line(sys.argv)
+INSTALLED_APPS += (
+  'debug_toolbar',
+)
+
+MIDDLEWARE_CLASSES += (
+  'debug_toolbar.middleware.DebugToolbarMiddleware',
+)
+
+INTERNAL_IPS = ('127.0.0.1',)
 
 # ===----------------------------------------------------------------------===
 # End of File

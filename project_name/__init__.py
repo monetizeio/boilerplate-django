@@ -1,7 +1,7 @@
 #!/usr/bin/env python
 # -*- coding: utf-8 -*-
 
-# === manage.py -----------------------------------------------------------===
+# ===----------------------------------------------------------------------===
 # Copyright © 2011-2012, RokuSigma Inc. and contributors as an unpublished
 # work. See AUTHORS for details.
 #
@@ -31,30 +31,44 @@
 # ===----------------------------------------------------------------------===
 
 """
-Django command-line management application. Execute `python manage.py help`
-for more details.
+Brief description of your package goes here.
+
+To get started, try exploring the following modules:
+
+  `packagename.admin`     Django-admin interface
+  `packagename.db`        Django model definitions
+  `packagename.deploy`    WSGI deploy scripts
+  `packagename.settings`  Development, testing, and production settings
+  `packagename.urls`      Django URL specifications
+
+  `packagename.tests`     Unit tests of package-wide features
+
+And the following scripts/directories:
+
+  `manage.py`             Command-line management script
+  `static`                CSS, JavaScript, and other media files
+  `templates`             HTML and email template files
 """
 
-import os
-import sys
+__all__ = [
+  'VERSION',
+  'get_version',
+]
 
-try:
-  from django.core.management import execute_from_command_line
-except ImportError:
-  sys.stderr.write(
-    # The following is not transalated because in this particular error
-    # condition `sys.path` is probably not setup correctly, and so we cannot
-    # be sure that we'd import the translation machinery correctly. It'd be
-    # better to print the correct error in English than to trigger another
-    # not-so-helpful ImportError.
-    u"Error: Can't find the module 'django.core.management' in the Python "
-    u"path. Please execute this script from within the virtual environment "
-    u"containing your project.\n")
-  sys.exit(1)
+VERSION = (0,0,0, 'alpha', 0)
 
-if __name__ == '__main__':
-  os.environ.setdefault('DJANGO_SETTINGS_MODULE', 'packagename.settings.development')
-  execute_from_command_line(sys.argv)
+def get_version():
+  version = '%s.%s' % (VERSION[0], VERSION[1])
+  if VERSION[2]:
+    version = '%s.%s' % (version, VERSION[2])
+  if VERSION[3:] == ('alpha', 0):
+    version = '%s pre-alpha' % version
+  else:
+    if VERSION[3] != 'final':
+      version = "%s %s" % (version, VERSION[3])
+      if VERSION[4] != 0:
+        version = '%s %s' % (version, VERSION[4])
+  return version
 
 # ===----------------------------------------------------------------------===
 # End of File
