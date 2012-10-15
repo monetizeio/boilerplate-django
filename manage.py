@@ -53,7 +53,7 @@ except ImportError:
   sys.exit(1)
 
 if __name__ == '__main__':
-  os.environ.setdefault('DJANGO_SETTINGS_MODULE', 'packagename.settings.development')
+  os.environ.setdefault('DJANGO_SETTINGS_MODULE', '{{ project_name }}.settings.development')
   execute_from_command_line(sys.argv)
 
 # ===----------------------------------------------------------------------===

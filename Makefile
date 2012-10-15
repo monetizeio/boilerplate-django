@@ -30,8 +30,7 @@
 ROOT=$(shell pwd)
 CACHE_ROOT=${ROOT}/.cache
 PKG_ROOT=${ROOT}/.pkg
-PACKAGE_NAME=packagename
-APP_URL=appname.com
+PROJECT_NAME={{ project_name }}
 SQLITE=$(shell which sqlite3)
 
 -include Makefile.local
@@ -43,29 +42,29 @@ all: ${PKG_ROOT}/.stamp-h
 check: all
 	mkdir -p build/report
 	"${PKG_ROOT}"/bin/python -Wall "${ROOT}"/manage.py test \
-	  --settings=${PACKAGE_NAME}.settings.testing \
-	  --exclude-dir="${ROOT}"/${PACKAGE_NAME}/settings \
+	  --settings=${PROJECT_NAME}.settings.testing \
+	  --exclude-dir="${ROOT}"/${PROJECT_NAME}/settings \
 	  --with-xunit \
 	  --xunit-file="${ROOT}"/build/report/xunit.xml \
 	  --with-xcoverage \
 	  --xcoverage-file="${ROOT}"/build/report/coverage.xml \
-	  --cover-package=${PACKAGE_NAME} \
+	  --cover-package=${PROJECT_NAME} \
 	  --cover-erase \
 	  --cover-tests \
 	  --cover-inclusive \
-	  ${PACKAGE_NAME}
+	  ${PROJECT_NAME}
 
 .PHONY: shell
 shell: all db
 	"${PKG_ROOT}"/bin/python "${ROOT}"/manage.py shell_plusplus \
-	  --settings=${PACKAGE_NAME}.settings.development \
+	  --settings=${PROJECT_NAME}.settings.development \
 	  --print-sql \
 	  --ipython
 
 .PHONY: run
 run: all db
 	"${PKG_ROOT}"/bin/python "${ROOT}"/manage.py runserver_plus \
-	  --settings=${PACKAGE_NAME}.settings.development
+	  --settings=${PROJECT_NAME}.settings.development
 
 .PHONY: db
 db: all
@@ -139,7 +138,7 @@ ${PKG_ROOT}/.stamp-h: ${ROOT}/conf/requirements.* ${CACHE_ROOT}/virtualenv/virtu
 	  --clear \
 	  --distribute \
 	  --never-download \
-	  --prompt="(${APP_URL}) " \
+	  --prompt="(${PROJECT_NAME}) " \
 	  "${PKG_ROOT}"
 	rm -rf "${CACHE_ROOT}"/virtualenv/virtualenv-1.8.2
 	
@@ -163,7 +162,7 @@ ${PKG_ROOT}/.stamp-h: ${ROOT}/conf/requirements.* ${CACHE_ROOT}/virtualenv/virtu
 	# The static directory is where Django accumulates staticfiles. It
 	# needs to be present (even if empty), or else errors will be thrown
 	# by the `run` target.
-	mkdir -p "${PKG_ROOT}"/var/www/${APP_URL}/public/static
+	mkdir -p "${PKG_ROOT}"/var/www/${PROJECT_NAME}/public/static
 	
 	# All done!
 	touch "${PKG_ROOT}"/.stamp-h
