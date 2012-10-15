@@ -52,7 +52,7 @@ another framework.
 # especially required in our case because the settings module is not in its
 # default location.
 import os
-os.environ['DJANGO_SETTINGS_MODULE'] = '{{ project_name }}.settings.production'
+os.environ['DJANGO_SETTINGS_MODULE'] = 'project_name.settings.production'
 
 # This application object is used by any WSGI server configured to use this
 # file. This includes Django's development server, if the WSGI_APPLICATION

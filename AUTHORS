@@ -1,7 +1,7 @@
-The primary author of {{ project_name }} is {{ author_name }} <{{ author_email }}>.
-{{ project_name }} includes contributions from the following individuals and organizations:
+The primary author of project_name is author_name <author_email>.
+project_name includes contributions from the following individuals and organizations:
 
-{{ author_name }} <{{ author_email }}>
+author_name <author_email>
 
 Based on the project template boilerplate-django-startproject by
 Mark Friedenbach <mark@monetize.io>.

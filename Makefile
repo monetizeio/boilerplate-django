@@ -30,7 +30,7 @@
 ROOT=$(shell pwd)
 CACHE_ROOT=${ROOT}/.cache
 PKG_ROOT=${ROOT}/.pkg
-PROJECT_NAME={{ project_name }}
+PROJECT_NAME=project_name
 SQLITE=$(shell which sqlite3)
 
 -include Makefile.local

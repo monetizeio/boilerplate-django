@@ -35,13 +35,12 @@ Brief description of your package goes here.
 
 To get started, try exploring the following modules:
 
-  `{{ project_name }}.admin`     Django-admin interface
-  `{{ project_name }}.db`        Django model definitions
-  `{{ project_name }}.deploy`    WSGI deploy scripts
-  `{{ project_name }}.settings`  Development, testing, and production settings
-  `{{ project_name }}.urls`      Django URL specifications
-
-  `{{ project_name }}.tests`     Unit tests of package-wide features
+  `project_name.admin`     Django-admin interface
+  `project_name.db`        Django model definitions
+  `project_name.deploy`    WSGI deploy scripts
+  `project_name.settings`  Development, testing, and production settings
+  `project_name.urls`      Django URL specifications
+  `project_name.tests`     Unit tests of package-wide features
 
 And the following scripts/directories:
 

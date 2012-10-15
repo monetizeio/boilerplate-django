@@ -55,7 +55,7 @@ TEMPLATE_DEBUG = DEBUG
 ##########################
 
 ADMINS = (
-  # ('Your Name', 'your_email@example.com'),
+  ('author_name', 'author_email'),
 )
 
 MANAGERS = ADMINS
@@ -65,7 +65,7 @@ MANAGERS = ADMINS
 #########################
 
 # Make this unique, and don't share it with anybody.
-SECRET_KEY = 'please replace this with your own very long sekret'
+SECRET_KEY = '{{ secret_key }}'
 
 ##########################
 # Database Configuration #
@@ -169,14 +169,14 @@ MIDDLEWARE_CLASSES = (
 # URL Configuration #
 #####################
 
-ROOT_URLCONF = '{{ project_name }}.urls'
+ROOT_URLCONF = 'project_name.urls'
 
 ######################
 # WSGI Configuration #
 ######################
 
 # Python dotted path to the WSGI application used by Django's runserver.
-WSGI_APPLICATION = '{{ project_name }}.deploy.wsgi.application'
+WSGI_APPLICATION = 'project_name.deploy.wsgi.application'
 
 #######################
 # Email Configuration #
@@ -236,7 +236,7 @@ INSTALLED_APPS = (
   # where they can be broken off into a separate application with a stable
   # API. For this reason, any application-like functionality provided at the
   # project level is to be treated as unstable and a work-in-progress.
-  '{{ project_name }}',
+  'project_name',
 
   'django.contrib.auth',
   'django.contrib.contenttypes',

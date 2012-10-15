@@ -64,7 +64,7 @@ urlpatterns = patterns('',
   #   4. Registration is finished and the user may now login.
   #
   # NOTE: Activation urls and their documentation can be found in the
-  #       {{ project_name }}.urls.account.activate module.
+  #       project_name.urls.account.activate module.
   url(r'^$',
     register, {
       # The dotted Python import path to the backend class to use. The backend
