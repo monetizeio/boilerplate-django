@@ -86,7 +86,7 @@ for app in (
 # Use django_patterns to detect embedded Django test applications, and add
 # them to our INSTALLED_APPS:
 from django_patterns.test.discover import discover_test_apps
-apps = discover_test_apps("packagename")
+apps = discover_test_apps("{{ project_name }}")
 if apps:
   for app in apps:
     INSTALLED_APPS += (app,)

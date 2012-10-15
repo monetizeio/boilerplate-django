@@ -169,14 +169,14 @@ MIDDLEWARE_CLASSES = (
 # URL Configuration #
 #####################
 
-ROOT_URLCONF = 'packagename.urls'
+ROOT_URLCONF = '{{ project_name }}.urls'
 
 ######################
 # WSGI Configuration #
 ######################
 
 # Python dotted path to the WSGI application used by Django's runserver.
-WSGI_APPLICATION = 'packagename.deploy.wsgi.application'
+WSGI_APPLICATION = '{{ project_name }}.deploy.wsgi.application'
 
 #######################
 # Email Configuration #
@@ -236,7 +236,7 @@ INSTALLED_APPS = (
   # where they can be broken off into a separate application with a stable
   # API. For this reason, any application-like functionality provided at the
   # project level is to be treated as unstable and a work-in-progress.
-  'packagename',
+  '{{ project_name }}',
 
   'django.contrib.auth',
   'django.contrib.contenttypes',
@@ -377,9 +377,9 @@ REGISTRATION_OPEN = True
 # automated maintenance scripts provided by Django-registration.
 ACCOUNT_ACTIVATION_DAYS = 15
 
-#=-----------=#
-# packagename #
-#=-----------=#
+#=-------------------------------=#
+# boilerplate-django-startproject #
+#=-------------------------------=#
 
 SITE_WIDE_SEARCH = False
 

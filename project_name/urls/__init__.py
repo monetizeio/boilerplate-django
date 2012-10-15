@@ -73,12 +73,12 @@ urlpatterns = patterns('',
   #   * The four-step, two-outcome new user account registration and
   #     activation at “register/” and “account/activate/”.
 
-  url(r'^login/',                   include('packagename.urls.auth.login')),
-  url(r'^logout/',                  include('packagename.urls.auth.logout')),
-  url(r'^register/',                include('packagename.urls.account.register')),
-  url(r'^account/password/change/', include('packagename.urls.auth.password.change')),
-  url(r'^account/password/reset/',  include('packagename.urls.auth.password.reset')),
-  url(r'^account/activate/',        include('packagename.urls.account.activate')),
+  url(r'^login/',                   include('{{ project_name }}.urls.auth.login')),
+  url(r'^logout/',                  include('{{ project_name }}.urls.auth.logout')),
+  url(r'^register/',                include('{{ project_name }}.urls.account.register')),
+  url(r'^account/password/change/', include('{{ project_name }}.urls.auth.password.change')),
+  url(r'^account/password/reset/',  include('{{ project_name }}.urls.auth.password.reset')),
+  url(r'^account/activate/',        include('{{ project_name }}.urls.account.activate')),
 
   ####################
   ## Template Pages ##
