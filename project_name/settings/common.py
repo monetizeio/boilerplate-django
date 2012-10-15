@@ -47,7 +47,7 @@ PROJECT_DIRECTORY = os.path.abspath(
 # Debug Settings #
 ##################
 
-DEBUG = True
+DEBUG = False
 TEMPLATE_DEBUG = DEBUG
 
 ##########################
