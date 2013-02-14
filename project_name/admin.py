@@ -1,8 +1,8 @@
 #!/usr/bin/env python
 # -*- coding: utf-8 -*-
 
-# === admin ---------------------------------------------------------------===
-# Copyright © 2011-2012, RokuSigma Inc. and contributors as an unpublished
+#
+# Copyright © 2011-2013, RokuSigma Inc. and contributors as an unpublished
 # work. See AUTHORS for details.
 #
 # RokuSigma Inc. (the “Company”) Confidential
@@ -28,12 +28,12 @@
 # THIS SOURCE CODE AND/OR RELATED INFORMATION DOES NOT CONVEY OR IMPLY ANY
 # RIGHTS TO REPRODUCE, DISCLOSE OR DISTRIBUTE ITS CONTENTS, OR TO MANUFACTURE,
 # USE, OR SELL ANYTHING THAT IT MAY DESCRIBE, IN WHOLE OR IN PART.
-# ===----------------------------------------------------------------------===
-
+#
 """
 This module configures the Django admin interface. Actual admin classes are
-found next to their respective classes in ``db.models``, but registration of
+found next to their respective classes in `db.models`, but registration of
 models and project-wide configuration occurs here.
+
 """
 
 from django.contrib import admin
@@ -41,6 +41,6 @@ from django.contrib import admin
 from .db.models.admin import *
 from .db.models import *
 
-# ===----------------------------------------------------------------------===
+#
 # End of File
-# ===----------------------------------------------------------------------===
+#

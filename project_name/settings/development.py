@@ -1,8 +1,8 @@
 #!/usr/bin/env python
 # -*- coding: utf-8 -*-
 
-# === settings.development ------------------------------------------------===
-# Copyright © 2011-2012, RokuSigma Inc. and contributors as an unpublished
+#
+# Copyright © 2011-2013, RokuSigma Inc. and contributors as an unpublished
 # work. See AUTHORS for details.
 #
 # RokuSigma Inc. (the “Company”) Confidential
@@ -28,7 +28,7 @@
 # THIS SOURCE CODE AND/OR RELATED INFORMATION DOES NOT CONVEY OR IMPLY ANY
 # RIGHTS TO REPRODUCE, DISCLOSE OR DISTRIBUTE ITS CONTENTS, OR TO MANUFACTURE,
 # USE, OR SELL ANYTHING THAT IT MAY DESCRIBE, IN WHOLE OR IN PART.
-# ===----------------------------------------------------------------------===
+#
 
 "Development settings."
 
@@ -38,6 +38,9 @@ from .common import *
 
 DEBUG = True
 TEMPLATE_DEBUG = DEBUG
+
+DEBUG_TOOLBAR_CONFIG = dict()
+DEBUG_TOOLBAR_CONFIG['INTERCEPT_REDIRECTS'] = False
 
 #=-------------=#
 # debug_toolbar #
@@ -53,6 +56,6 @@ MIDDLEWARE_CLASSES += (
 
 INTERNAL_IPS = ('127.0.0.1',)
 
-# ===----------------------------------------------------------------------===
+#
 # End of File
-# ===----------------------------------------------------------------------===
+#

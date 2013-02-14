@@ -1,0 +1,36 @@
+SITE
+  remote: http://community.opscode.com/api/v1
+  specs:
+    apt (1.5.0)
+    openssl (1.0.0)
+
+GIT
+  remote: git://github.com/denyago/chef-postgresql.git
+  ref: master
+  sha: 40652753131c216f58b4c40ec11f233db096f359
+  specs:
+    postgresql (1.0.1)
+      apt (>= 0.0.0)
+      openssl (>= 0.0.0)
+
+GIT
+  remote: git://github.com/monetizeio/chef-postgresql-pgmp.git
+  ref: master
+  sha: e2ffde88f3cdadf690c7168b1ac8c83a3a33eb60
+  specs:
+    postgresql-pgmp (0.0.1)
+      apt (>= 0.0.0)
+      postgresql (>= 0.0.0)
+
+GIT
+  remote: git://github.com/opscode-cookbooks/build-essential.git
+  ref: master
+  sha: 0f618ab021d76ff5e6cf9335b9a1a4a475018ca7
+  specs:
+    build-essential (1.1.2)
+
+DEPENDENCIES
+  build-essential (>= 0)
+  postgresql (>= 0)
+  postgresql-pgmp (>= 0)
+

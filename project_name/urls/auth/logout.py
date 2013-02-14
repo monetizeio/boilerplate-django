@@ -1,8 +1,8 @@
 #!/usr/bin/env python
 # -*- coding: utf-8 -*-
 
-# === urls.auth.logout ----------------------------------------------------===
-# Copyright © 2011-2012, RokuSigma Inc. and contributors as an unpublished
+#
+# Copyright © 2011-2013, RokuSigma Inc. and contributors as an unpublished
 # work. See AUTHORS for details.
 #
 # RokuSigma Inc. (the “Company”) Confidential
@@ -28,34 +28,34 @@
 # THIS SOURCE CODE AND/OR RELATED INFORMATION DOES NOT CONVEY OR IMPLY ANY
 # RIGHTS TO REPRODUCE, DISCLOSE OR DISTRIBUTE ITS CONTENTS, OR TO MANUFACTURE,
 # USE, OR SELL ANYTHING THAT IT MAY DESCRIBE, IN WHOLE OR IN PART.
-# ===----------------------------------------------------------------------===
+#
 
 from django.conf.urls import patterns, url
 from django.contrib.auth.views import logout
 
 urlpatterns = patterns('',
-  # Logs the user out.
-  #
-  # FIXME: ‘redirect_field_name’ should be localized in “logout/”.
-  url(r'^$',
-    logout, {
-      # The GET field which may contain a URL to redirect to after logout. If
-      # this field is not set, the hard-coded ‘next_page’ parameter used
-      # instead. If ‘next_page’ is None, the template specified by the
-      # ‘template_name’ parameter is rendered and returned.
-      'redirect_field_name': 'next',
-      # The hard-coded URL to redirect to after a successful logout, assuming
-      # the ‘redirect_field_name’ is empty or not specified (see above).
-      'next_page':           None,
-      # The full name of the template used after logging the user out if
-      # neither a run-time nor a hard-coded redirect is requested (see above).
-      # The template receives a RequestContext with three additional
-      # variables: ‘site’, ‘site_name’, and ‘title’ (see the documentation in
-      # the template file for details).
-      'template_name':       'auth/logout.html',
-    }, name='auth_logout'),
+    # Logs the user out.
+    #
+    # FIXME: ‘redirect_field_name’ should be localized in “logout/”.
+    url(r'^$',
+        logout, {
+            # The GET field which may contain a URL to redirect to after logout. If
+            # this field is not set, the hard-coded ‘next_page’ parameter used
+            # instead. If ‘next_page’ is None, the template specified by the
+            # ‘template_name’ parameter is rendered and returned.
+            'redirect_field_name': 'next',
+            # The hard-coded URL to redirect to after a successful logout, assuming
+            # the ‘redirect_field_name’ is empty or not specified (see above).
+            'next_page':           None,
+            # The full name of the template used after logging the user out if
+            # neither a run-time nor a hard-coded redirect is requested (see above).
+            # The template receives a RequestContext with three additional
+            # variables: ‘site’, ‘site_name’, and ‘title’ (see the documentation in
+            # the template file for details).
+            'template_name':       'auth/logout.html.j2',
+        }, name='auth_logout'),
 )
 
-# ===----------------------------------------------------------------------===
+#
 # End of File
-# ===----------------------------------------------------------------------===
+#

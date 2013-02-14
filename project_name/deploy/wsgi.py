@@ -1,8 +1,8 @@
 #!/usr/bin/env python
 # -*- coding: utf-8 -*-
 
-# === deploy.wsgi ---------------------------------------------------------===
-# Copyright © 2011-2012, RokuSigma Inc. and contributors as an unpublished
+#
+# Copyright © 2011-2013, RokuSigma Inc. and contributors as an unpublished
 # work. See AUTHORS for details.
 #
 # RokuSigma Inc. (the “Company”) Confidential
@@ -28,7 +28,7 @@
 # THIS SOURCE CODE AND/OR RELATED INFORMATION DOES NOT CONVEY OR IMPLY ANY
 # RIGHTS TO REPRODUCE, DISCLOSE OR DISTRIBUTE ITS CONTENTS, OR TO MANUFACTURE,
 # USE, OR SELL ANYTHING THAT IT MAY DESCRIBE, IN WHOLE OR IN PART.
-# ===----------------------------------------------------------------------===
+#
 
 """
 WSGI config for projectname project. Simply point your WSGI-enabled web server
@@ -52,7 +52,7 @@ another framework.
 # especially required in our case because the settings module is not in its
 # default location.
 import os
-os.environ['DJANGO_SETTINGS_MODULE'] = 'project_name.settings.production'
+os.environ.setdefault('DJANGO_SETTINGS_MODULE', 'project_name.settings.production')
 
 # This application object is used by any WSGI server configured to use this
 # file. This includes Django's development server, if the WSGI_APPLICATION
@@ -64,6 +64,6 @@ application = get_wsgi_application()
 # from helloworld.wsgi import HelloWorldApplication
 # application = HelloWorldApplication(application)
 
-# ===----------------------------------------------------------------------===
+#
 # End of File
-# ===----------------------------------------------------------------------===
+#

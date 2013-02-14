@@ -1,8 +1,8 @@
 #!/usr/bin/env python
 # -*- coding: utf-8 -*-
 
-# ===----------------------------------------------------------------------===
-# Copyright © 2011-2012, RokuSigma Inc. and contributors as an unpublished
+#
+# Copyright © 2011-2013, RokuSigma Inc. and contributors as an unpublished
 # work. See AUTHORS for details.
 #
 # RokuSigma Inc. (the “Company”) Confidential
@@ -28,47 +28,47 @@
 # THIS SOURCE CODE AND/OR RELATED INFORMATION DOES NOT CONVEY OR IMPLY ANY
 # RIGHTS TO REPRODUCE, DISCLOSE OR DISTRIBUTE ITS CONTENTS, OR TO MANUFACTURE,
 # USE, OR SELL ANYTHING THAT IT MAY DESCRIBE, IN WHOLE OR IN PART.
-# ===----------------------------------------------------------------------===
-
+#
 """
 Brief description of your package goes here.
 
 To get started, try exploring the following modules:
 
-  `project_name.admin`     Django-admin interface
-  `project_name.db`        Django model definitions
-  `project_name.deploy`    WSGI deploy scripts
-  `project_name.settings`  Development, testing, and production settings
-  `project_name.urls`      Django URL specifications
-  `project_name.tests`     Unit tests of package-wide features
+    `apps`                     Component applications
+    `project_name.admin`       Django-admin interface
+    `project_name.db`          Django model definitions
+    `project_name.deploy`      WSGI deploy scripts
+    `project_name.settings`    Development, testing, and production settings
+    `project_name.urls`        Django URL specifications
+    `xunit`                    Unit tests of package-wide features
 
 And the following scripts/directories:
 
-  `manage.py`             Command-line management script
-  `static`                CSS, JavaScript, and other media files
-  `templates`             HTML and email template files
+    `manage.py`                Command-line management script
+    `static`                   CSS, JavaScript, and other media files
+    `templates`                HTML and email template files
 """
 
 __all__ = [
-  'VERSION',
-  'get_version',
+    'VERSION',
+    'get_version',
 ]
 
 VERSION = (0,0,0, 'alpha', 0)
 
 def get_version():
-  version = '%s.%s' % (VERSION[0], VERSION[1])
-  if VERSION[2]:
-    version = '%s.%s' % (version, VERSION[2])
-  if VERSION[3:] == ('alpha', 0):
-    version = '%s pre-alpha' % version
-  else:
-    if VERSION[3] != 'final':
-      version = "%s %s" % (version, VERSION[3])
-      if VERSION[4] != 0:
-        version = '%s %s' % (version, VERSION[4])
-  return version
+    version = '%s.%s' % (VERSION[0], VERSION[1])
+    if VERSION[2]:
+        version = '%s.%s' % (version, VERSION[2])
+    if VERSION[3:] == ('alpha', 0):
+        version = '%spre-alpha' % version
+    else:
+        if VERSION[3] != 'final':
+            version = "%s%s" % (version, VERSION[3])
+            if VERSION[4] != 0:
+                version = '%s%s' % (version, VERSION[4])
+    return version
 
-# ===----------------------------------------------------------------------===
+#
 # End of File
-# ===----------------------------------------------------------------------===
+#
