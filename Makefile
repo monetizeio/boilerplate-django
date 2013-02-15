@@ -76,7 +76,7 @@ mostlyclean:
 	- rm -rf .coverage
 
 .PHONY: clean
-clean: mostlyclean
+clean: mostlyclean vmdestroy
 	-rm -f .rbenv-version
 	-rm -rf "${PKG_ROOT}"
 
