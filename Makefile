@@ -31,7 +31,7 @@ ROOT=$(shell pwd)
 CACHE_ROOT=${ROOT}/.cache
 PKG_ROOT=${ROOT}/.pkg
 APP_NAME=boilerplate-django-startproject
-PACKAGE=project_name
+PACKAGE=projekt
 
 -include Makefile.local
 

@@ -73,12 +73,12 @@ urlpatterns = patterns('',
     #     * The four-step, two-outcome new user account registration and
     #       activation at “register/” and “account/activate/”.
 
-    url(r'^login/',                   include('project_name.urls.auth.login')),
-    url(r'^logout/',                  include('project_name.urls.auth.logout')),
-    url(r'^register/',                include('project_name.urls.account.register')),
-    url(r'^account/password/change/', include('project_name.urls.auth.password.change')),
-    url(r'^account/password/reset/',  include('project_name.urls.auth.password.reset')),
-    url(r'^account/activate/',        include('project_name.urls.account.activate')),
+    url(r'^login/',                   include('projekt.urls.auth.login')),
+    url(r'^logout/',                  include('projekt.urls.auth.logout')),
+    url(r'^register/',                include('projekt.urls.account.register')),
+    url(r'^account/password/change/', include('projekt.urls.auth.password.change')),
+    url(r'^account/password/reset/',  include('projekt.urls.auth.password.reset')),
+    url(r'^account/activate/',        include('projekt.urls.account.activate')),
 
     ####################
     ## Template Pages ##
@@ -93,11 +93,10 @@ urlpatterns = patterns('',
     ################
     ## Info Files ##
     ################
-    (r'^favicon.ico$',          redirect_to, {'permanent': False, 'url': '/static/images/favicon.ico'}),
-    (r'^apple-touch-icon.png$', redirect_to, {'permanent': False, 'url': '/static/images/apple-touch-icon.png'}),
-    (r'^crossdomain.xml$',      redirect_to, {'permanent': False, 'url': '/static/info/crossdomain.xml'}),
-    (r'^humans.txt$',           redirect_to, {'permanent': False, 'url': '/static/info/humans.txt'}),
-    (r'^robots.txt$',           redirect_to, {'permanent': False, 'url': '/static/info/robots.txt'}),
+    (r'^apple-touch-icon(?P<path>.*).png$', redirect_to, {'permanent': False, 'url': '/static/images/apple-touch-icon%(path)s.png'}),
+    (r'^crossdomain.xml$',                  redirect_to, {'permanent': False, 'url': '/static/info/crossdomain.xml'}),
+    (r'^favicon.ico$',                      redirect_to, {'permanent': False, 'url': '/static/images/favicon.ico'}),
+    (r'^robots.txt$',                       redirect_to, {'permanent': False, 'url': '/static/info/robots.txt'}),
 
     ######################
     # Media File Hosting #
@@ -106,7 +105,7 @@ urlpatterns = patterns('',
     # In a production environment media files are hosted by the static web
     # server/gateway directly. For development purposes, and in case a request
     # slips through, media files are hosted by the Django static server as well.
-    (r'^media\/(?P<path>.*)$', 'django.views.static.serve', {
+    (r'^media/(?P<path>.*)$', 'django.views.static.serve', {
         'document_root': settings.MEDIA_ROOT,
         'show_indexes':  False,
     }),

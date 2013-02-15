@@ -27,7 +27,7 @@
 # USE, OR SELL ANYTHING THAT IT MAY DESCRIBE, IN WHOLE OR IN PART.
 #
 
-web: env DJANGO_SETTINGS_MODULE=project_name.settings.production gunicorn project_name.deploy.wsgi:application -b 0.0.0.0:$PORT -w 3
+web: env DJANGO_SETTINGS_MODULE=projekt.settings.production gunicorn projekt.deploy.wsgi:application -b 0.0.0.0:$PORT -w 3
 
 #
 # End of File

@@ -27,7 +27,7 @@
 # USE, OR SELL ANYTHING THAT IT MAY DESCRIBE, IN WHOLE OR IN PART.
 #
 
-web: python manage.py runserver_plus --settings=project_name.settings.development $PORT
+web: python manage.py runserver_plus --settings=projekt.settings.development $PORT
 
 #
 # End of File

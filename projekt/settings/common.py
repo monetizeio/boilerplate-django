@@ -177,14 +177,14 @@ MIDDLEWARE_CLASSES = (
 # URL Configuration #
 #####################
 
-ROOT_URLCONF = 'project_name.urls'
+ROOT_URLCONF = 'projekt.urls'
 
 ######################
 # WSGI Configuration #
 ######################
 
 # Python dotted path to the WSGI application used by Django's runserver.
-WSGI_APPLICATION = 'project_name.deploy.wsgi.application'
+WSGI_APPLICATION = 'projekt.deploy.wsgi.application'
 
 #######################
 # Email Configuration #
