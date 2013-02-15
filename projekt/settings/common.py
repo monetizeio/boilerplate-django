@@ -292,6 +292,8 @@ INSTALLED_APPS = (
     # Django written by James Bennett, designed to make allowing user signups as
     # painless as possible.
     'registration',
+
+    'apps.projekt',
 )
 
 #=-------------------=#
